@@ -8,26 +8,38 @@ body {
 
 /* Jumbotron */
 
-.jumbo{
-    background-image: url("/src/images/greenparkview.jpg");
+.jumbo {
+    background-image: url("/src/images/greenbush.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 40vh;
+    height: 50vh;
 }
+
 h1 {
     font-size: 70px;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 5vh;
+    color: white;
 }
-.gardenQuote{
+
+.gardenQuote {
     font-size: 30px;
     text-align: center;
     background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.3);
-    
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
 }
 
-/* Slide for the quote */
+
+.blockquote {
+    text-align: center;
+}
+
+.totalBlockquote {
+    border-style: solid;
+}
+
+/* Slide for the quote and tips */
 .slide {
     animation: 2s slide-right;
     animation-play-state: running;
@@ -49,19 +61,22 @@ h1 {
 .navbar {
     background-color: #3D550C;
 }
+
 .titles {
-    color: black;
+    color: white;
     font-size: 25px;
 }
+
 .titles:hover {
-    color: white;
+    color: black;
 }
+
 
 /*Buttons*/
 
 .shoppingCartimg,
 .homePageimg {
-    width: 65px;
+    width: 50px;
     border-radius: 10px;
 }
 
@@ -99,9 +114,51 @@ h2 {
     font-size: 50px;
     text-align: center;
     color: #3D550C;
+    padding-top: 8vh;
+    padding-bottom: 5vh;
 }
 
+
+/* Collection */
 .collections {
     background-color: #ECF87F;
 }
 
+.homeCard {
+    background-color: #ECF87F;
+    width: max-content;
+}
+
+.homeCard:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px #3D550C;
+}
+
+.succulent1 {
+    width: 350px;
+}
+
+.care1 {
+    width: 400px;
+    height: 350px;
+}
+
+.fern1 {
+    width: 350px;
+    height: 350px;
+}
+
+.card-body {
+    text-align: center;
+
+}
+
+.card1 {
+    text-align: center;
+
+}
+
+.succulentCard {
+    background-color: #3D550C;
+    color: white;
+}
