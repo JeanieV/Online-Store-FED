@@ -32,21 +32,42 @@
         </div>
 
         <!-- Sticky Navbar section -->
-        <nav class="navbar navbar-expand-sm sticky-top">
+        <nav class="navbar navbar-expand-sm sticky-top py-2">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/src/html/about.html"> About </a>
+
+                <!-- Home Page -->
+                <a class="navbar-brand titles " href="/src/html/about.html"> Home </a>
+
+                <!-- Dropdown Navbar -->
+                <div class="nav-item dropdown">
+                    <a class="navbar-brand dropdown-toggle titles" href="#" role="button" data-bs-toggle="dropdown">
+                        Collections
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/src/html/succulents.html"> Succulents </a></li>
+                        <li><a class="dropdown-item" href="/src/html/plantcare.html"> Plant Care </a></li>
+                        <li><a class="dropdown-item" href="/src/html/ferns.html"> Ferns </a></li>
+                    </ul>
+                </div>
+                <!-- About Page -->
+                <a class="navbar-brand titles " href="#gardeningTips"> Gardening Tips </a>
+
+                <!-- About Page -->
+                <a class="navbar-brand titles" href="/src/html/about.html"> About </a>
+
+                <!-- Checkout Page -->
                 <a href="/src/html/checkout.html"><button id="shoppingCart" type="submit"><img class="shoppingCartimg"
                             src="/src/images/shopping.gif" alt="Shopping Cart" title="Shopping Cart"
                             attribution="https://www.flaticon.com/free-animated-icons/shop"></button></a>
             </div>
         </nav>
 
-
     </header>
 
+
     <main>
-
-
+        <!-- Gardening Tips Section -->
+        <h2 id="gardeningTips"> Gardening Tips </h2>
 
     </main>
 
