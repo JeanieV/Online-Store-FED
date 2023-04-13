@@ -1,0 +1,73 @@
+/* Body*/
+
+body {
+    background-color: white;
+    font-family: Georgia;
+    overflow-x: hidden;
+}
+
+/* Jumbotron */
+
+.jumbo{
+    background-image: url("/src/images/greenparkview.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40vh;
+}
+h1 {
+    font-size: 70px;
+    text-align: center;
+    padding-top: 20px;
+}
+.gardenQuote{
+    font-size: 30px;
+    text-align: center;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.3);
+    
+}
+
+
+/* Navbar */
+.navbar {
+    background-color: #203010;
+}
+
+/*Buttons*/
+
+.shoppingCartimg,
+.homePageimg {
+    width: 65px;
+    border-radius: 10px;
+}
+
+#shoppingCart,
+#homePage {
+    width: min-content;
+    background-color: transparent;
+    border: none;
+}
+
+/* Animation for buttons*/
+
+#shoppingCart:hover,
+#homePage:hover,
+.shoppingCartimg:hover,
+.homePageimg:hover {
+    animation-name: buttonsGif;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-play-state: running;
+}
+
+@keyframes buttonsGif {
+    0% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
