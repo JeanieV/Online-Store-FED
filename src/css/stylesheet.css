@@ -27,6 +27,23 @@ h1 {
     
 }
 
+/* Slide for the quote */
+.slide {
+    animation: 2s slide-right;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes slide-right {
+    from {
+        margin-left: -100%;
+    }
+
+    to {
+        margin-left: 0%;
+    }
+}
+
 
 /* Navbar */
 .navbar {
@@ -83,3 +100,8 @@ h2 {
     text-align: center;
     color: #3D550C;
 }
+
+.collections {
+    background-color: #ECF87F;
+}
+
