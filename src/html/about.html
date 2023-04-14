@@ -18,14 +18,95 @@
 <body>
 
     <header>
-        <!-- Heading of the page -->
-        <h1> About Us </h1>
+
+        <div class="jumbo">
+            <h1> About Us </h1>
+
+            <div class="slide">
+                <p class="gardenQuote rounded p-2 mt-5 mx-5"> "There is no Wi-Fi in your Garden but the connections are
+                    better." ~ Sandia Seed Company </p>
+            </div>
+        </div>
+
     </header>
 
 
-    <a href="/index.html"><button id="homePage" type="submit"><img class="homePageimg" src="/src/images/home.gif"
-                alt="Back to Home Page" title="Back to Home Page"
-                attribution="https://www.flaticon.com/free-animated-icons/home"></button></a>
+    <main>
+
+        <!-- Sticky Navbar section -->
+        <nav class="navbar navbar-expand-sm sticky-top py-2">
+            <div class="container-fluid">
+
+                <!-- Home Page -->
+                <a class="navbar-brand titles" href="/index.html"> Home </a>
+
+                <!-- Dropdown Navbar -->
+                <div class="nav-item dropdown">
+                    <a class="navbar-brand dropdown-toggle titles" href="#" role="button" data-bs-toggle="dropdown">
+                        Collections
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/src/html/succulents.html"> Succulents </a></li>
+                        <li><a class="dropdown-item" href="/src/html/plantcare.html"> Plant Care </a></li>
+                        <li><a class="dropdown-item" href="/src/html/ferns.html"> Ferns </a></li>
+                    </ul>
+                </div>
+
+                <!-- Gardening Tips -->
+                <a class="navbar-brand titles " href="/index.html#gardeningTips"> Gardening Tips </a>
+
+                <!-- About Page -->
+                <a class="navbar-brand titles" href="/src/html/about.html"> About </a>
+
+                <!-- Contact Page -->
+                <a class="navbar-brand titles" href="#contact"> Contact </a>
+
+                <!-- Checkout Page -->
+                <a href="/src/html/checkout.html"><button id="shoppingCart" type="submit"><img class="shoppingCartimg"
+                            src="/src/images/shopping.gif" alt="Shopping Cart" title="Shopping Cart"
+                            attribution="https://www.flaticon.com/free-animated-icons/shop"></button></a>
+            </div>
+        </nav>
+
+
+        <div class="d-inline-block mx-5 mb-5 mt-3">
+            <h2> The Story of Faan's Garden </h2>
+            <p class="story mx-5 lh-lg">
+                What can be better than do get your hands dirty in fresh soil under the hot Limpopo sun?
+                My Father and Grandfather will immediately tell you that there is no better place to be than outside in
+                the
+                garden.
+                Hours feels like seconds in this Serene, Undisturbed and Magical place.
+                The colours and immense diversity of design combinations, fragrance, flavours, sounds from birds
+                and insects
+                attracted to the plants and variety of textures. This is what I call a beautiful garden.
+                We decided to open an online store to not only sell products but also share our tips and tricks
+                specially for you fellow garden enthusiast.
+            </p>
+        </div>
+
+
+        <h2> Meet the team </h2>
+        <!-- <div class="d-inline-block mx-5 mb-5 mt-3">
+            <img class="team " src="/src/images/team.JPG">
+        </div> -->
+
+
+    </main>
+
+    <footer>
+        <div class="contactDetails container-fluid mb-1">
+            <h1 class="pt-2 pb-3" id="contact"> Contact Details </h1>
+            <div class="story1 mx-5 mb-3 p-2">
+                <p> Kindly send us a Gmail for any inquiries: </p>
+                <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=venterjeaniebs@gmail.com&su=Inquiry#inbox?compose=DmwnWrRvwTfpnChZgCsgXdgjkCNPfXGmPCBRXtvhqSbCXHFCRBrBbChRLTMgScpRQpSbpfsgSfqb"
+                    title="Gmail" target="_blank" alt="Display: Gmail"
+                    Attribution='https://www.flaticon.com/free-icons/gmail'>
+                    <img class="gmail" src="/src/images/gmail.png" alt="Jeanie Venter Email">
+                </a>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
