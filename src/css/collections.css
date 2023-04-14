@@ -101,7 +101,7 @@ h2 {
     color: white;
 }
 
-
+/* Succulent Collection */
 .succulent1 {
     width: 200px;
 }
@@ -136,3 +136,28 @@ h2 {
     width: 200px;
 }
 
+/* Plant Care Collection */
+.plantcare1 {
+    width: 200px;
+}
+.plantcare2 {
+    width: 200px;
+}
+.plantcare3 {
+    width: 200px;
+}
+.plantcare4 {
+    width: 200px;
+}
+.plantcare5 {
+    width: 200px;
+    height: 190px;
+}
+.plantcare6 {
+    width: 200px;
+    height: 210px;
+}
+.plantcare7 {
+    width: 200px;
+    height: 210px;
+}
