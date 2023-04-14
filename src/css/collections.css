@@ -80,8 +80,9 @@ h2 {
 /* Products */
 
 .homeCard {
-    background-color: #ECF87F;
-    width: max-content;
+    background-color: white;
+    width: 320px;
+    height: 430px;
 }
 
 .homeCard:hover {
@@ -89,31 +90,49 @@ h2 {
     box-shadow: 0 10px 30px #3D550C;
 }
 
-.succulent1 {
-    width: 350px;
-}
-
-.care1 {
-    width: 350px;
-    height: 350px;
-}
-
-.fern1 {
-    width: 350px;
-    height: 350px;
-}
-
 .card-body {
     text-align: center;
-
 }
-
 .card1 {
     text-align: center;
-
 }
-
 .succulentCard {
     background-color: #3D550C;
     color: white;
 }
+
+
+.succulent1 {
+    width: 200px;
+}
+.succulent2 {
+    width: 200px;
+}
+.succulent3 {
+    width: 200px;
+}
+.succulent4 {
+    width: 200px;
+}
+.succulent5 {
+    width: 200px;
+}
+.succulent6 {
+    width: 200px;
+}
+.succulent7 {
+    width: 200px;
+}
+.succulent8 {
+    width: 200px;
+}
+.succulent9 {
+    width: 200px;
+}
+.succulent10 {
+    width: 200px;
+}
+.succulent11 {
+    width: 200px;
+}
+
