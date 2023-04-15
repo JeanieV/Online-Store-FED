@@ -4,6 +4,8 @@ body {
     background-image: url("/src/images/greenbush.jpg");
     font-family: Georgia;
     overflow-x: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1 {
