@@ -26,7 +26,7 @@
             <h1> Faan's Garden </h1>
 
             <!-- Garden Quote -->
-            <div class="slide">
+            <div class="slide1">
                 <p class="gardenQuote rounded p-2 mt-5 mx-5"> “To plant a garden is to believe in
                     tomorrow.” ~ Audrey Hepburn </p>
             </div>
@@ -42,7 +42,7 @@
             <div class="container-fluid">
 
                 <!-- Home Page -->
-                <a class="navbar-brand titles" href="#ourProducts"> Home </a>
+                <a class="navbar-brand titles" href="/index.html"> Home </a>
 
                 <!-- Dropdown Navbar -->
                 <div class="nav-item dropdown">
@@ -73,58 +73,75 @@
         </nav>
 
 
-        <!-- Lookbook -->
-        <h2 id="ourProducts"> Our Products </h2>
-        <div class="row">
-            <!-- Succulent Collection -->
-            <div class="homeCard container mt-5 mb-2 col-sm-4">
-                <div class="card1 p-3">
-                    <img class="succulent1" src="/src/images/succulent1.webp" alt="Succulent Collection">
-                    <div class="card-body pt-3">
-                        <h4 class="card-title"> View our Succulent Collection </h4>
-                        <p class="card-text p-3">Various Succulents to choose from</p>
-                        <a href="/src/html/succulents.html" class="btn succulentCard"> View Collection </a>
+        <!-- Carousel Section -->
+        <h2 id="ourCollection"> Our Collections </h2>
+        
+        <div id="ourProducts" class="carousel slide mt-3" data-bs-ride="carousel">
+
+            <!-- Indicator lines -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#ourProducts" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#ourProducts" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#ourProducts" data-bs-slide-to="2"></button>
+            </div>
+
+            <!-- The collection photos with captions and button -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/src/images/succulentcarousel.jpg" alt="Succulent Collection"
+                        attribution="https://www.google.com/url?sa=i&url=https%3A%2F%2Fottershawcacti.com%2Fshop%2Fcategory%2Fecheveria%2F&psig=AOvVaw1QnBnNIVp_DSxmtQh2rqmF&ust=1681641469313000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCLCq9OXYq_4CFQAAAAAdAAAAABAE"
+                        class="d-block">
+                    <div class="carousel-caption">
+                        <h3> View our Succulent Collection </h3>
+                        <p> Various Succulents to choose from </p>
+                        <a href="/src/html/succulents.html" class="btn carouselcard"> View Collection </a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/src/images/plantcare.jpg" alt="Plant Care Collection"
+                        attribution="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.proflowers.com%2Fblog%2Fplant-care&psig=AOvVaw0OcnLSGzp3iY5o6t2olb8g&ust=1681641981834000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKDx_tnaq_4CFQAAAAAdAAAAABAE"
+                        class="d-block">
+                    <div class="carousel-caption">
+                        <h3> View our Plant Care Collection </h3>
+                        <p> Protect your garden with these wonderful plant care products </p>
+                        <a href="/src/html/plantcare.html" class="btn carouselcard"> View Collection </a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/src/images/ferncarousel.jpg" alt="Fern Collection"
+                        attribution="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gardendesign.com%2Fplants%2Fferns.html&psig=AOvVaw0oa_oip5yw1TuPs-MGmWd7&ust=1681641625214000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPDy46_Zq_4CFQAAAAAdAAAAABAE"
+                        class="d-block">
+                    <div class="carousel-caption">
+                        <h3> View our Fern Collection </h3>
+                        <p> Various Ferns to choose from </p>
+                        <a href="/src/html/ferns.html" class="btn carouselcard"> View Collection </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Plant Care Collection -->
-            <div class="homeCard container mt-5 mb-2 col-sm-4">
-                <div class="card1 p-3">
-                    <img class="care1" src="/src/images/plantcare.jpg" alt="Plant Care Collection">
-                    <div class="card-body pt-3">
-                        <h4 class="card-title"> View our Plant Care Collection </h4>
-                        <p class="card-text p-3">Protect your garden with Plant Care Products</p>
-                        <a href="/src/html/plantcare.html" class="btn succulentCard"> View Collection </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Fern Collection -->
-            <div class="homeCard container mt-5 mb-2 col-sm-4">
-                <div class="card1 p-3">
-                    <img class="fern1" src="/src/images/fern1.jpeg" alt="Fern Collection">
-                    <div class="card-body pt-3">
-                        <h4 class="card-title"> View our Fern Collection </h4>
-                        <p class="card-text p-3">Various Ferns to choose from</p>
-                        <a href="/src/html/ferns.html" class="btn succulentCard"> View Collection </a>
-                    </div>
-                </div>
-            </div>
+            <!-- Left and right buttons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#ourProducts" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#ourProducts" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
         </div>
 
 
 
         <!-- Gardening Tips Section -->
-        <div class="container mt-5">
+        <div class="container mt-5 mb-5">
             <h2 id="gardeningTips"> Gardening Tips </h2>
 
-            <div class="totalBlockquote p-5">
-                <blockquote class="blockquote mx-5">
+            <div class="totalBlockquote p-2">
+                <!-- Tip 1 -->
+                <blockquote class="blockquote mx-5 p-2">
                     <p>
                         1. The best approaches to controlling weeds in the garden are hand-weeding and hoeing. Avoid
                         deep
-                        hoeing or cultivating that can bring weed seeds to the soil's surface so they germinate. Weed
+                        hoeing or cultivating that can bring weed seeds to the soil's surface so they germinate.
+                        Weed
                         early
                         and often to
                         prevent weeds from going to seed. Use mulch to smother and prevent annual weeds.</p>
@@ -135,11 +152,13 @@
                     </footer>
                 </blockquote>
 
-                <blockquote class="blockquote mx-5">
+                <!-- Tip 2 -->
+                <blockquote class="blockquote mx-5 p-2">
                     <p>
                         2. Fertilizer is not the answer to growing the best plants; soil quality is. Add organic
                         amendments
-                        such as compost and well-aged manure to your soil. The best soil structure is crumbly, easy to
+                        such as compost and well-aged manure to your soil. The best soil structure is crumbly, easy
+                        to
                         dig,
                         readily accepts water, and loose enough to provide oxygen for plant roots.</p>
                     <footer class="blockquote-footer">
@@ -149,7 +168,8 @@
                     </footer>
                 </blockquote>
 
-                <blockquote class="blockquote mx-5">
+                <!-- Tip 3 -->
+                <blockquote class="blockquote mx-5 p-2">
                     <p>
                         3. Start small and reap what you sow.</p>
                     <footer class="blockquote-footer">
@@ -158,18 +178,43 @@
                             Garden & Home </a>
                     </footer>
                 </blockquote>
+
+                <!-- Tip 4 -->
+                <blockquote class="blockquote mx-5 p-2">
+                    <p>
+                        4. Install an irrigation system and reduce the amount of lawn. </p>
+                    <footer class="blockquote-footer">
+                        <a href="https://www.gardenandhome.co.za/gardening/how-tos/10-low-maintenance-gardening-tips/"
+                            target="_blank"> From
+                            Garden & Home</a>
+                    </footer>
+                </blockquote>
+
+                <!-- Tip 5 -->
+                <blockquote class="blockquote mx-5 p-2">
+                    <p>
+                        5. Prep soil to avoid future toil. Pest control is important and spruce up your garden for spring success </p>
+                    <footer class="blockquote-footer">
+                        <a href="https://lifestyle.co.za/gardening-tips-and-tricks-for-spring/"
+                            target="_blank"> From
+                            Lifestyle Home Garden</a>
+                    </footer>
+                </blockquote>
             </div>
 
+        
         </div>
 
 
     </main>
 
     <footer>
-        <div class="contactDetails container-fluid mb-1">
+        <div class="contactDetails container-fluid mb-3">
             <h1 class="pt-2 pb-3" id="contact"> Contact Details </h1>
-            <div class="story1 mx-5 mb-3 p-2">
-                <p > Kindly send us a Gmail for any inquiries: </p>
+            <div class="story1 mx-5 pt-2 pb-1">
+                <p> Kindly send us a Gmail for any inquiries: </p>
+            </div>
+            <div class="gmail1 p-3">
                 <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=venterjeaniebs@gmail.com&su=Inquiry#inbox?compose=DmwnWrRvwTfpnChZgCsgXdgjkCNPfXGmPCBRXtvhqSbCXHFCRBrBbChRLTMgScpRQpSbpfsgSfqb"
                     title="Gmail" target="_blank" alt="Display: Gmail"
                     Attribution='https://www.flaticon.com/free-icons/gmail'>

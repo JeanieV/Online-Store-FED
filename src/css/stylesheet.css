@@ -14,14 +14,12 @@ body {
     background-size: cover;
     height: 50vh;
 }
-
 h1 {
     font-size: 70px;
     text-align: center;
     padding-top: 5vh;
     color: white;
 }
-
 .gardenQuote {
     font-size: 30px;
     text-align: center;
@@ -29,16 +27,15 @@ h1 {
     background: rgba(0, 0, 0, 0.8);
     color: white;
 }
-
-
 .blockquote {
     text-align: center;
-    
+
 }
 .blockquote:hover {
     animation: 2s blocktransform;
-    animation-play-state:paused;
+    animation-play-state: paused;
 }
+
 @keyframes blocktransform {
     0% {
         transform: scale(1.3);
@@ -46,13 +43,13 @@ h1 {
 }
 
 
+
 /* Slide for the quote and tips */
-.slide {
+.slide1 {
     animation: 2s slide-right;
     animation-play-state: running;
     animation-timing-function: ease-in-out;
 }
-
 @keyframes slide-right {
     from {
         margin-left: -100%;
@@ -64,19 +61,20 @@ h1 {
 }
 
 
+
 /* Navbar */
 .navbar {
     background-color: #3D550C;
 }
-
 .titles {
     color: white;
     font-size: 25px;
 }
-
 .titles:hover {
     color: black;
 }
+
+
 
 
 /*Buttons*/
@@ -85,24 +83,23 @@ h1 {
     width: 50px;
     border-radius: 10px;
 }
-
 #shoppingCart {
     width: min-content;
     background-color: transparent;
     border: none;
 }
 
+
 /* Animation for buttons*/
 
 #shoppingCart:hover,
-.shoppingCartimg:hover{
+.shoppingCartimg:hover {
     animation-name: buttonsGif;
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     animation-play-state: running;
 }
-
 @keyframes buttonsGif {
     0% {
         transform: scale(1.1);
@@ -112,7 +109,6 @@ h1 {
         transform: scale(1);
     }
 }
-
 h2 {
     font-size: 50px;
     text-align: center;
@@ -122,71 +118,60 @@ h2 {
 }
 
 
+
+
 /* Collection */
 
-.homeCard {
-    background-color: #ECF87F;
-    width: max-content;
+.d-block {
+    width: 100vw;
+    height: 90vh;
 }
-
-.homeCard:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 30px #3D550C;
+h3{
+    font-size: 35px;
 }
-
-.succulent1 {
-    width: 350px;
+.carousel-caption {
+    font-size: 20px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.8);
 }
-
-.care1 {
-    width: 350px;
-    height: 350px;
-}
-
-.fern1 {
-    width: 350px;
-    height: 350px;
-}
-
-.card-body {
-    text-align: center;
-
-}
-
-.card1 {
-    text-align: center;
-
-}
-
-.succulentCard {
+.carouselcard {
     background-color: #3D550C;
     color: white;
 }
 
+
+
+
 /* About Section */
 .story {
     text-align: center;
-    font-size: 20px ;
+    font-size: 20px;
 }
-
 .story:hover {
     animation: 2s storytransform;
-    animation-play-state:paused;
+    animation-play-state: paused;
 }
 @keyframes storytransform {
     0% {
         transform: scale(1.1);
     }
 }
-
 .team {
-    width: 400pxpx;
-    height: 350px;
+    width: 400px;
+    height: 450px;
+    
 }
+.teaminfo {
+    text-align: center;
+    font-size: 20px;
+}
+
+
+
 
 /* Contact Details */
 
-.contactDetails{
+.contactDetails {
     background-image: url("/src/images/greenbush.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -194,16 +179,18 @@ h2 {
 }
 .story1 {
     text-align: center;
-    font-size: 23px ;
+    font-size: 23px;
     color: white;
     background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 0.8);
     font-family: Georgia;
 }
 .gmail {
-    width: 60px;
-  }
-  
-  .gmail:hover {
+    width: 65px;
+}
+.gmail:hover {
     transform: scale(1.5);
-  }
+}
+.gmail1 {
+    text-align: center;
+}
