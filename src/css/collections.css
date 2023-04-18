@@ -93,9 +93,11 @@ h2 {
 .card-body {
     text-align: center;
 }
+
 .card1 {
     text-align: center;
 }
+
 .succulentCard {
     background-color: #3D550C;
     color: white;
@@ -105,33 +107,43 @@ h2 {
 .succulent1 {
     width: 200px;
 }
+
 .succulent2 {
     width: 200px;
 }
+
 .succulent3 {
     width: 200px;
 }
+
 .succulent4 {
     width: 200px;
 }
+
 .succulent5 {
     width: 200px;
 }
+
 .succulent6 {
     width: 200px;
 }
+
 .succulent7 {
     width: 200px;
 }
+
 .succulent8 {
     width: 200px;
 }
+
 .succulent9 {
     width: 200px;
 }
+
 .succulent10 {
     width: 200px;
 }
+
 .succulent11 {
     width: 200px;
 }
@@ -140,23 +152,29 @@ h2 {
 .plantcare1 {
     width: 200px;
 }
+
 .plantcare2 {
     width: 200px;
 }
+
 .plantcare3 {
     width: 200px;
 }
+
 .plantcare4 {
     width: 200px;
 }
+
 .plantcare5 {
     width: 200px;
     height: 190px;
 }
+
 .plantcare6 {
     width: 200px;
     height: 210px;
 }
+
 .plantcare7 {
     width: 200px;
     height: 210px;
@@ -167,24 +185,31 @@ h2 {
     width: 200px;
     height: 200px;
 }
+
 .fern2 {
     width: 200px;
 }
+
 .fern3 {
     width: 200px;
 }
+
 .fern4 {
     width: 200px;
 }
+
 .fern5 {
     width: 200px;
 }
+
 .fern6 {
     width: 200px;
 }
+
 .fern7 {
     width: 200px;
 }
+
 .fern8 {
     width: 200px;
 }
@@ -192,7 +217,59 @@ h2 {
 
 
 /* Extra information */
-.popup1 {
+
+.backgroundpopup {
+    background-color: white;
+    position: absolute;
+    width: 100wv;
+
+}
+
+/* The expanding image container */
+.popup {
+    position: absolute;
+    display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: black;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .popup1 {
     max-width: 600px;
     height: max-content;
     background-color: #BC9476;
@@ -209,4 +286,4 @@ h2 {
   
 .popup1 img {
     width: 200px;
-}
+} */

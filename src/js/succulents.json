@@ -1,0 +1,49 @@
+{
+    "succulentsData": [
+        {
+            "productName": "Small Succulent",
+            "price": "R25.00"
+        },
+        {
+            "productName": "Mini Succulent Garden",
+            "price": "R250.00"
+        },
+        {
+            "productName": "Succulent in Ceramic Pot",
+            "price": "R100.00"
+        },
+        {
+            "productName": "Seagrass Succulents",
+            "price": "R50.00"
+        },
+        {
+            "productName": "Tin Sinkbad with Succulent Mix",
+            "price": "R150.00"
+        },
+        {
+            "productName": "Gasteria in Bowl",
+            "price": "R170.00"
+        },
+        {
+            "productName": "Mini Glass Succulents",
+            "price": "R90.00"
+        },
+        {
+            "productName": "Firesticks, Pumila & Spekboom Succulents",
+            "price": "R90.00"
+        },
+        {
+            "productName": "Woodbox Succulents",
+            "price": "R200.00"
+        },
+        {
+            "productName": "Circle Handle Potted Succulent",
+            "price": "R230.00"
+        },
+        {
+            "productName": "Large Sedum Pachyphyllum",
+            "price": "R180.00"
+        }
+    ]
+}
+

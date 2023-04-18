@@ -71,20 +71,29 @@ h2 {
     padding-top: 8vh;
     padding-bottom: 5vh;
 }
+
 h3 {
-    font-size: 30px;
+    font-size: 25px;
     text-align: center;
     color: #3D550C;
-    padding: 10px;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
 }
+
 p {
     font-size: 20px;
     padding: 15px;
 }
 
+table, th, td {
+    text-align: center;
+    border: none;
+    padding: 0;
+    width: 50vw;
+}
+
+
 /* Contact Details */
-
-
 
 .story1 {
     text-align: center;
@@ -95,7 +104,7 @@ p {
 
 .gmail {
     width: 65px;
-    
+
 }
 
 .gmail:hover {
@@ -104,4 +113,67 @@ p {
 
 .gmail1 {
     text-align: center;
+}
+
+/* Form */
+/* Style inputs */
+
+#contact-form {
+    display: block;
+}
+
+input[type=text],
+input[type=email] {
+    width: 50%;
+    border: 1px solid black;
+    padding: 10px;
+    
+}
+
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+input[type=date],
+input[type=time] {
+    border: 1px solid black;
+    padding: 10px;
+    width: 50%;
+}
+
+/* Style the container/contact section */
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+/* Create two columns that float next to eachother */
+.column {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+    padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.map{
+    height: 450px;
+    width: 600px;
+    border: none;
+    margin-left: 18px;
 }
