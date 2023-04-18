@@ -190,3 +190,23 @@ h2 {
 }
 
 
+
+/* Extra information */
+.popup1 {
+    max-width: 600px;
+    height: max-content;
+    background-color: #BC9476;
+    margin-top: 100px;
+    margin-left: 450px;
+    margin-bottom: 50px;
+    border-radius: 7px;
+    padding: 28px 0 30px;
+    box-shadow: 0 10px 30px #BC9476;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    position: fixed;
+  }
+  
+.popup1 img {
+    width: 200px;
+}
