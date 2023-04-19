@@ -1,0 +1,109 @@
+{
+    "products": [
+        {
+            "productName": "Small Succulent",
+            "price": "R25.00"
+        },
+        {
+            "productName": "Mini Succulent Garden",
+            "price": "R250.00"
+        },
+        {
+            "productName": "Succulent in Ceramic Pot",
+            "price": "R100.00"
+        },
+        {
+            "productName": "Seagrass Succulents",
+            "price": "R50.00"
+        },
+        {
+            "productName": "Tin Sinkbad with Succulent Mix",
+            "price": "R150.00"
+        },
+        {
+            "productName": "Gasteria in Bowl",
+            "price": "R170.00"
+        },
+        {
+            "productName": "Mini Glass Succulents",
+            "price": "R90.00"
+        },
+        {
+            "productName": "Firesticks, Pumila & Spekboom Succulents",
+            "price": "R90.00"
+        },
+        {
+            "productName": "Woodbox Succulents",
+            "price": "R200.00"
+        },
+        {
+            "productName": "Circle Handle Potted Succulent",
+            "price": "R230.00"
+        },
+        {
+            "productName": "Large Sedum Pachyphyllum",
+            "price": "R180.00"
+        },
+        {
+            "productName": "Nephrolepis Exaltata Blonde",
+            "price": "R130.00"
+        },
+        {
+            "productName": "Asparagus Plumosus",
+            "price": "R90.00"
+        },
+        {
+            "productName": "Florex Platycerium Staghorn Fern",
+            "price": "R110.00"
+        },
+        {
+            "productName": "Dicksonia Antarctica Fern",
+            "price": "R200.00"
+        },
+        {
+            "productName": "Tuberflora Cyathea Australis Fern",
+            "price": "R300.00"
+        },
+        {
+            "productName": "Large Kangaroo Fern",
+            "price": "R380.00"
+        },
+        {
+            "productName": "Staghorn Fern",
+            "price": "R300.00"
+        },
+        {
+            "productName": "Maiden Hair Fern",
+            "price": "R490.00"
+        },
+        {
+            "productName": "Houseplant Care Gift Set",
+            "price": "R650.00"
+        },
+        {
+            "productName": "1-For-All Multipurpose Fertiliser 25kg",
+            "price": "R730.00"
+        },
+        {
+            "productName": "Plant Care - 500 ml",
+            "price": "R300.00"
+        },
+        {
+            "productName": "Garden Master 60 dm3 Potting Soil",
+            "price": "R125.00"
+        },
+        {
+            "productName": "Gardening Gloves",
+            "price": "R150.00"
+        },
+        {
+            "productName": "Dynaroot",
+            "price": "R70.00"
+        },
+        {
+            "productName": "City Gardening Balcony Box",
+            "price": "R850.00"
+        }
+    ]
+}
+

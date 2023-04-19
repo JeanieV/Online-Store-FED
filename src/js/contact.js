@@ -1,7 +1,7 @@
 //Submit Button
 let submitButton = document.getElementById("submitButton");
 
-//Form Validation
+//Contact Form Validation
 function createUser(event) {
     event.preventDefault();
 
@@ -42,12 +42,3 @@ function createUser(event) {
 }
 submitButton.addEventListener("click", createUser);
 
-// Map API
-
-function myMap() {
-    var mapProp = {
-        center: new google.maps.LatLng(51.508742, -0.120850),
-        zoom: 5,
-    };
-    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-}
