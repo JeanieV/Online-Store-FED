@@ -2,107 +2,133 @@
     "products": [
         {
             "productName": "Small Succulent",
-            "price": "R25.00"
+            "price": 25,
+            "category": "Succulents"
         },
         {
             "productName": "Mini Succulent Garden",
-            "price": "R250.00"
+            "price": 250,
+            "category": "Succulents"
         },
         {
             "productName": "Succulent in Ceramic Pot",
-            "price": "R100.00"
+            "price": 100,
+            "category": "Succulents"
         },
         {
             "productName": "Seagrass Succulents",
-            "price": "R50.00"
+            "price": 50,
+            "category": "Succulents"
         },
         {
             "productName": "Tin Sinkbad with Succulent Mix",
-            "price": "R150.00"
+            "price": 150,
+            "category": "Succulents"
         },
         {
             "productName": "Gasteria in Bowl",
-            "price": "R170.00"
+            "price": 170,
+            "category": "Succulents"
         },
         {
             "productName": "Mini Glass Succulents",
-            "price": "R90.00"
+            "price": 90,
+            "category": "Succulents"
         },
         {
             "productName": "Firesticks, Pumila & Spekboom Succulents",
-            "price": "R90.00"
+            "price": 90,
+            "category": "Succulents"
         },
         {
             "productName": "Woodbox Succulents",
-            "price": "R200.00"
+            "price": 200,
+            "category": "Succulents"
         },
         {
             "productName": "Circle Handle Potted Succulent",
-            "price": "R230.00"
+            "price": 230,
+            "category": "Succulents"
         },
         {
             "productName": "Large Sedum Pachyphyllum",
-            "price": "R180.00"
+            "price": 180,
+            "category": "Succulents"
         },
         {
             "productName": "Nephrolepis Exaltata Blonde",
-            "price": "R130.00"
+            "price": 130,
+            "category": "Ferns"
         },
         {
             "productName": "Asparagus Plumosus",
-            "price": "R90.00"
+            "price": 90,
+            "category": "Ferns"
         },
         {
             "productName": "Florex Platycerium Staghorn Fern",
-            "price": "R110.00"
+            "price": 110,
+            "category": "Ferns"
         },
         {
             "productName": "Dicksonia Antarctica Fern",
-            "price": "R200.00"
+            "price": 200,
+            "category": "Ferns"
         },
         {
             "productName": "Tuberflora Cyathea Australis Fern",
-            "price": "R300.00"
+            "price": 300,
+            "category": "Ferns"
         },
         {
             "productName": "Large Kangaroo Fern",
-            "price": "R380.00"
+            "price": 380,
+            "category": "Ferns"
         },
         {
             "productName": "Staghorn Fern",
-            "price": "R300.00"
+            "price": 300,
+            "category": "Ferns"
         },
         {
             "productName": "Maiden Hair Fern",
-            "price": "R490.00"
+            "price": 490,
+            "category": "Ferns"
         },
         {
             "productName": "Houseplant Care Gift Set",
-            "price": "R650.00"
+            "price": 650,
+            "category": "Plant Care"
         },
         {
             "productName": "1-For-All Multipurpose Fertiliser 25kg",
-            "price": "R730.00"
+            "price": 730,
+            "category": "Plant Care"
         },
         {
             "productName": "Plant Care - 500 ml",
-            "price": "R300.00"
+            "price": 300,
+            "category": "Plant Care"
         },
         {
             "productName": "Garden Master 60 dm3 Potting Soil",
-            "price": "R125.00"
+            "price": 125,
+            "category": "Plant Care"
         },
         {
             "productName": "Gardening Gloves",
-            "price": "R150.00"
+            "price": 150,
+            "category": "Plant Care"
         },
         {
             "productName": "Dynaroot",
-            "price": "R70.00"
+            "price": 70,
+            "category": "Plant Care"
         },
         {
             "productName": "City Gardening Balcony Box",
-            "price": "R850.00"
+            "price": 850,
+            "category": "Plant Care"
         }
     ]
 }

@@ -260,7 +260,8 @@ ul {
 .close1,
 .close2,
 .close3,
-.close4 {
+.close4,
+.close5 {
     color: black;
     font-size: 50px;
     font-weight: bold;
@@ -272,11 +273,13 @@ ul {
 .close2:hover,
 .close3:hover,
 .close4:hover,
+.close5:hover,
 .close:focus,
 .close1:focus,
 .close2:focus,
 .close3:focus,
-.close4:focus {
+.close4:focus,
+.close5:focus {
     color: #3D550C;
     text-decoration: none;
     cursor: pointer;
