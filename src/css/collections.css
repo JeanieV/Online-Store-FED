@@ -239,7 +239,7 @@ ul {
 /* Modal */
 
 .modal {
-    display: none;
+    display: block;
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -256,12 +256,7 @@ ul {
 }
 
 /* The Close Button */
-.close,
-.close1,
-.close2,
-.close3,
-.close4,
-.close5 {
+.close {
     color: black;
     font-size: 50px;
     font-weight: bold;
@@ -269,17 +264,7 @@ ul {
 }
 
 .close:hover,
-.close1:hover,
-.close2:hover,
-.close3:hover,
-.close4:hover,
-.close5:hover,
-.close:focus,
-.close1:focus,
-.close2:focus,
-.close3:focus,
-.close4:focus,
-.close5:focus {
+.close:focus {
     color: #3D550C;
     text-decoration: none;
     cursor: pointer;
@@ -289,7 +274,6 @@ ul {
 
 .succulentModal {
     width: 350px;
-
 }
 
 .img-zoom-container {

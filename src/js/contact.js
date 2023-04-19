@@ -36,9 +36,6 @@ function createUser(event) {
     else {
         alert("Please complete your Contact Form ");
     }
-
-
-
 }
 submitButton.addEventListener("click", createUser);
 
