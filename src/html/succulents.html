@@ -70,10 +70,33 @@
         <!-- Succulent Collection -->
         <h2> Shop our Succulent Collection </h2>
 
-        <div id="myModal"></div>
-        
+        <!-- Modal that will show for every product (currently on hide)-->
+        <div id="myModal" class="modal">
+            <div class="modal-content mx-5 mt-5">
+                <span class="close p-2">&times;</span>
+                <h2 class="heading2Modal"></h2>
+                <h3></h3>
+                <div class="row">
+                    <div class="column">
+                        <div class="img-zoom-container">
+                            <picture>
+                                <img id="modalImage" class="succulentModal" src="">
+                            </picture>
+                            <div id="myResult" class="img-zoom-result"></div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <ul></ul>
+                        <h3></h3>
+                        <a href="/src/html/succulents.html" class="btn succulentCard p-3"> Add to Cart </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Succulent Collection -->
         <div class="row mx-1">
-            <!-- Succulent Collection -->
+            
             <!-- Succulent 1 -->
             <div class="homeCard container mt-5 mb-2 col-sm-3">
                 <div class="card1 p-3">

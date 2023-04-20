@@ -1,7 +1,7 @@
 import data from './products.json' assert { type: 'json' };
 console.log(data);
 
-
+// Class
 class Products {
     constructor(name, firstdescription, seconddescription, image, price) {
         this._name = name;
@@ -11,6 +11,7 @@ class Products {
         this._price = price;
     }
 
+    // Getters
     get getname() {
         return this._name;
     }
@@ -27,34 +28,38 @@ class Products {
         return this._price;
     }
 
+
     showModal() {
 
-        let modal =
-            `
-        <div id="myModal" class="modal">
-            <div class="modal-content mx-5 mt-5">
-                <span class="close p-2">&times;</span>
-                <h2 class="heading2Modal"> ${this._name}</h2>
-                <h3> ${this._firstdescription}</h3>
-                <div class="row">
-                    <div class="column">
-                        <div class="img-zoom-container">
-                            <picture>
-                                <img id="modalImage" ${this._image} >
-                            <div id="myResult" class="img-zoom-result"></div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        ${this._seconddescription}
-                        <h3> R ${this._price} each </h3>
-                        <a href="/src/html/succulents.html" class="btn succulentCard p-3"> Add to Cart </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        `;
-        document.getElementById("myModal").innerHTML += modal;
-        return modal;
+        // Creating constants that will show the modal for every product
+        const nameElement = document.querySelector("#myModal h2.heading2Modal");
+        const firstDescriptionElement = document.querySelector("#myModal h3");
+        const secondDescriptionElement = document.querySelector("#myModal ul");
+        const imageElement = document.querySelector("#myModal img#modalImage");
+        const priceElement = document.querySelector("#myModal div.column h3");
+        const resultElement = document.querySelector("#myModal #myResult");
+        const closeButton = document.querySelector(".close");
+        const modalView = document.getElementById("myModal");
+        const modalImage = document.getElementById("modalImage");
+
+        nameElement.innerHTML = this._name;
+        firstDescriptionElement.innerHTML = this._firstdescription;
+        secondDescriptionElement.innerHTML = this._seconddescription;
+        imageElement.src = this._image;
+        priceElement.innerHTML = "R " + this._price + " each";
+        modalView.style.display = "block";
+        imageZoom(modalImage, resultElement);
+        modalImage.setAttribute("src", this._image);
+
+        closeButton.addEventListener("click", () => {
+            modalView.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target == modalView) {
+                modalView.style.display = 'none';
+            }
+        });
     }
 }
 
@@ -73,11 +78,23 @@ const succulent1 = new Products(
     "<li>Water once in a week if its winter or rainy season</li>" +
     "<li>In summer water twice a week</li>" +
     "</ul>",
-    "./src/images/succulent1.webp",
+    "/src/images/succulent1.webp",
     25
 );
 
 const succulent2 = new Products(
+    "Mini Succulent Garden",
+    "<h3>The Mini Succulent Garden is the perfect gift </h3>",
+    "<ul>" +
+    "<li>The bowl is 20cm</li>" +
+    "<li>There are 15 succulents inside the bowl</li>" +
+    "<li>There is succulent mix with pebbles in the bowl</li>" +
+    "</ul>",
+    "/src/images/succulent2.webp",
+    250
+)
+
+const succulent3 = new Products(
     "Mini Succulent Garden",
     "<h3>The Mini Succulent Garden is the perfect gift </h3>",
     "<ul>" +
@@ -91,29 +108,41 @@ const succulent2 = new Products(
     250
 )
 
+// The products gets pushed into the succulent Array
 succulentArray.push(succulent1, succulent2);
 
 
 // Get the Read More button and add a click event listener to show the modal
 let readMoreButton = document.getElementById("readMore");
-let span = document.getElementsByClassName("close")[0];
+let readMoreButton1 = document.getElementById("readMore1");
+let closeButton = document.querySelector(".close");
+let modalView = document.getElementById("myModal");
+let modalImage1 = document.getElementById("modalImage");
 
+// Succulent 1 
 readMoreButton.addEventListener("click", () => {
-  const modalView = succulent1.showModal();
-  modalView.style.display = 'block';
-  console.log(succulent1);
+    succulent1.showModal();
+    modalView.style.display = 'block';
+    modalImage1.setAttribute("src", "/src/images/succulent1.webp");
 });
+// Succulent 2
+readMoreButton1.addEventListener("click", () => {
+    succulent2.showModal();
+    modalView.style.display = 'block';
+    modalImage1.setAttribute("src", "/src/images/succulent2.webp");
+})
 
-span.addEventListener("click", () => {
-  const modalView = succulent1.showModal();
-  modalView.style.display = 'none';
+
+
+// The closeButton and Window button will remain the same for all the products
+closeButton.addEventListener("click", () => {
+    modalView.style.display = 'none';
 });
 
 window.addEventListener('click', (event) => {
-  const modalView = succulent1.showModal();
-  if (event.target == modalView) {
-    modalView.style.display = 'none';
-  }
+    if (event.target == modalView) {
+        modalView.style.display = 'none';
+    }
 });
 
 
@@ -121,8 +150,8 @@ window.addEventListener('click', (event) => {
 // Zoom in Modal
 function imageZoom(modalImage, myResult) {
 
-    let img = document.getElementById(modalImage);
-    let result = document.getElementById(myResult);
+    let img = document.getElementById("modalImage");
+    let result = document.getElementById("myResult");
 
     /* Create lens: */
     let lens = document.createElement("div");
@@ -146,6 +175,8 @@ function imageZoom(modalImage, myResult) {
     /* And also for touch screens: */
     lens.addEventListener("touchmove", moveLens);
     img.addEventListener("touchmove", moveLens);
+
+
 
     function moveLens(e) {
 
@@ -195,3 +226,4 @@ function imageZoom(modalImage, myResult) {
 
 //Initiate zoom for every product
 imageZoom("modalImage", "myResult");
+
