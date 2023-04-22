@@ -238,6 +238,7 @@ ul {
 
 /* Modal */
 
+
 .modal {
     display: none;
     position: fixed;
@@ -281,17 +282,27 @@ ul {
     display: flex;
 }
 
+.img-zoom-wrapper {
+    position: relative;
+    display: flex;
+}
+
 .img-zoom-lens {
     position: absolute;
     border: 1px solid #d4d4d4;
     width: 40px;
     height: 40px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .img-zoom-result {
-    width: 250px;
-    height: 250px;
+    width: 270px;
+    height: 270px;
     margin-left: 10px;
+    position: relative;
+    overflow: hidden;
 }
 
 .column {

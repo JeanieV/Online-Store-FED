@@ -11,7 +11,8 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="/src/css/collections.css">
-    <script src="/src/js/succulents.js" type="module" defer></script>
+    <script src="/src/js/succulent.js" type="module" defer></script>
+
     <title>Succulents </title>
 </head>
 
@@ -72,31 +73,12 @@
 
         <!-- Modal that will show for every product (currently on hide)-->
         <div id="myModal" class="modal">
-            <div class="modal-content mx-5 mt-5">
-                <span class="close p-2">&times;</span>
-                <h2 class="heading2Modal"></h2>
-                <h3></h3>
-                <div class="row">
-                    <div class="column">
-                        <div class="img-zoom-container">
-                            <picture>
-                                <img id="modalImage" class="succulentModal" src="">
-                            </picture>
-                            <div id="myResult" class="img-zoom-result"></div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <ul></ul>
-                        <h3></h3>
-                        <a href="/src/html/succulents.html" class="btn succulentCard p-3"> Add to Cart </a>
-                    </div>
-                </div>
-            </div>
+            <span class="close">&times;</span>
         </div>
 
         <!-- Succulent Collection -->
         <div class="row mx-1">
-            
+
             <!-- Succulent 1 -->
             <div class="homeCard container mt-5 mb-2 col-sm-3">
                 <div class="card1 p-3">
@@ -109,8 +91,7 @@
                     <div class="card-body pt-3">
                         <h4 class="card-title"> Small Succulent </h4>
                         <p class="card-text p-3">R25 each </p>
-                        <button class="btn succulentCard" id="readMore">
-                            Read More </button>
+                        <button class="btn succulentCard readMore">Read More </button>
                         <a href="/src/html/succulents.html" class="btn succulentCard"> Add to Cart </a>
                     </div>
                 </div>
@@ -128,7 +109,7 @@
                     <div class="card-body pt-3">
                         <h4 class="card-title"> Mini Succulent Garden </h4>
                         <p class="card-text p-3">R250 each </p>
-                        <button class="btn succulentCard" id="readMore1"> Read More </button>
+                        <button class="btn succulentCard readMore"> Read More </button>
                         <a href="/src/html/plantcare.html" class="btn succulentCard"> Add to Cart </a>
                     </div>
                 </div>
@@ -144,7 +125,7 @@
                     <div class="card-body pt-3">
                         <h4 class="card-title"> Succulent in Ceramic Pot </h4>
                         <p class="card-text p-3">R100 each</p>
-                        <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                        <button class="btn succulentCard readMore"> Read More </button>
                         <a href="/src/html/ferns.html" class="btn succulentCard">Add to Cart </a>
                     </div>
                 </div>
@@ -160,7 +141,7 @@
                     <div class="card-body pt-3">
                         <h4 class="card-title"> Seagrass Succulents </h4>
                         <p class="card-text p-3">R50 each</p>
-                        <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                        <button class="btn succulentCard readMore"> Read More </button>
                         <a href="/src/html/ferns.html" class="btn succulentCard">Add to Cart </a>
                     </div>
                 </div>
@@ -176,7 +157,7 @@
                     <div class="card-body pt-3">
                         <h4 class="card-title"> Tin Sinkbad with Succulent Mix </h4>
                         <p class="card-text p-3">R150 each</p>
-                        <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                        <button class="btn succulentCard readMore"> Read More </button>
                         <a href="/src/html/ferns.html" class="btn succulentCard">Add to Cart </a>
                     </div>
                 </div>
@@ -192,7 +173,7 @@
                     <div class="card-body pt-3">
                         <h4 class="card-title"> Gasteria in Bowl </h4>
                         <p class="card-text p-3">R170 each</p>
-                        <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                        <button class="btn succulentCard readMore"> Read More </button>
                         <a href="/src/html/ferns.html" class="btn succulentCard">Add to Cart </a>
                     </div>
                 </div>
@@ -208,7 +189,7 @@
                     <div class="card-body pt-3">
                         <h4 class="card-title"> Mini Glass Succulents </h4>
                         <p class="card-text p-3">R90 each</p>
-                        <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                        <button class="btn succulentCard readMore"> Read More </button>
                         <a href="/src/html/ferns.html" class="btn succulentCard">Add to Cart </a>
                     </div>
                 </div>
@@ -225,7 +206,7 @@
                     <div class="card-body pt-3">
                         <h4 class="card-title"> Firesticks, Pumila & Spekboom Succulents </h4>
                         <p class="card-text p-3">R90 each</p>
-                        <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                        <button class="btn succulentCard readMore"> Read More </button>
                         <a href="/src/html/ferns.html" class="btn succulentCard">Add to Cart </a>
                     </div>
                 </div>
@@ -241,7 +222,7 @@
                     <div class="card-body pt-3">
                         <h4 class="card-title"> Woodbox Succulents </h4>
                         <p class="card-text p-3">R200 each</p>
-                        <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                        <button class="btn succulentCard readMore"> Read More </button>
                         <a href="/src/html/ferns.html" class="btn succulentCard">Add to Cart </a>
                     </div>
                 </div>
@@ -257,7 +238,7 @@
                     <div class="card-body pt-3">
                         <h4 class="card-title"> Circle Handle Potted Succulent </h4>
                         <p class="card-text p-3">R230 each</p>
-                        <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                        <button class="btn succulentCard readMore"> Read More </button>
                         <a href="/src/html/ferns.html" class="btn succulentCard">Add to Cart </a>
                     </div>
                 </div>
@@ -273,7 +254,7 @@
                     <div class="card-body pt-3">
                         <h4 class="card-title"> Large Sedum Pachyphyllum </h4>
                         <p class="card-text p-3">R180 each</p>
-                        <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                        <button class="btn succulentCard readMore"> Read More </button>
                         <a href="/src/html/ferns.html" class="btn succulentCard">Add to Cart </a>
                     </div>
                 </div>

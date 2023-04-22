@@ -11,7 +11,7 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="/src/css/collections.css">
-    <script src="/src/js/ferns.js" defer></script>
+    <script src="/src/js/ferns.js" type="module" defer></script>
     <title>Ferns </title>
 </head>
 
@@ -67,6 +67,31 @@
 
         <!-- Fern Collection -->
         <h2> Shop our Fern Collection </h2>
+
+        <!-- Modal that will show for every product (currently on hide)-->
+        <div id="myModal" class="modal">
+            <div class="modal-content mx-5 mt-5">
+                <span class="close p-2">&times;</span>
+                <h2 class="heading2Modal"></h2>
+                <h3></h3>
+                <div class="row">
+                    <div class="column">
+                        <div class="img-zoom-container">
+                            <picture>
+                                <img id="modalImage" class="succulentModal" src="">
+                            </picture>
+                            <div id="myResult" class="img-zoom-result"></div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <ul></ul>
+                        <h3></h3>
+                        <a href="/src/html/succulents.html" class="btn succulentCard p-3"> Add to Cart </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div>
             <div class="row mx-1">
                 <!-- Fern Collection -->
@@ -82,7 +107,7 @@
                         <div class="card-body pt-3">
                             <h4 class="card-title"> Nephrolepis Exaltata Blonde </h4>
                             <p class="card-text p-3">R130 each </p>
-                            <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                            <button class="btn succulentCard" id="readMore11"> Read More </button>
                             <a href="/src/html/succulents.html" class="btn succulentCard"> Add to Cart </a>
                         </div>
                     </div>
@@ -98,7 +123,7 @@
                         <div class="card-body pt-3">
                             <h4 class="card-title"> Asparagus Plumosus </h4>
                             <p class="card-text p-3">R90 each </p>
-                            <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                            <button class="btn succulentCard" id="readMore12"> Read More </button>
                             <a href="/src/html/succulents.html" class="btn succulentCard"> Add to Cart </a>
                         </div>
                     </div>
