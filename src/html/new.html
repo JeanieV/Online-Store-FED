@@ -10,8 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="/src/css/new.css">
-    <script src="/src/js/succulents.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="/src/css/collections.css">
+    <script src="/src/js/new.js" type="module" defer></script>
     <title>Entire Collection </title>
 </head>
 
@@ -68,27 +68,37 @@
 
         <!-- New Products in Collection -->
         <h2> Shop our New Additions </h2>
-        
-        <div class="row mx-1">
-            <!-- Fern 3 -->
-            <div class="homeCard container mt-5 mb-5 col-sm-3">
-                <div class="card2 p-3">
 
-                    <img class="fern3" src="/src/images/fern3.webp" alt="Florex Platycerium Staghorn Fern"
-                        attribution="https://www.google.com/url?q=https://www.builders.co.za/Outdoor-Garden-and-Patio/Garden-Decor/Plants/Outdoor-Plants/Florex-Platycerium-Staghorn-Fern-Potted-Plant-(120mm)/p/000000000000750924&sa=U&ved=0ahUKEwjT_ezWuKn-AhWLCcAKHa9-Bg0QrzwIowE&usg=AOvVaw1VQ8tMf-xYB6l7DdQLbWgZ">
+        <!-- Modal that will show for every product (currently on hide)-->
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+        </div>
+
+        <div class="row mx-1">
+
+            <!-- Succulent 1 -->
+            <div class="homeCard container mt-5 mb-5 col-sm-3">
+                <div class="card1 p-3">
+
+                    <picture>
+                        <img class="succulent1" src="/src/images/succulent1.webp" alt="Succulent Collection"
+                            attribution="https://www.google.com/url?q=https://www.earthandjungle.com/product/tSFF111y/succulent-one-random-potted-plant-bulk-r%3Futm_source%3Dgoogle%26utm_medium%3Dorganic%26utm_content%3Dcatalog&sa=U&ved=0ahUKEwiHnrWcqan-AhXwQkEAHToyDzcQwSsISw&usg=AOvVaw1AFFOR2JhBJkUVVLeWubgU">
+                    </picture>
 
                     <div class="card-body pt-3">
-                        <h4 class="card-title"> Florex Platycerium Staghorn Fern </h4>
-                        <p class="card-text p-3">R110 each </p>
-                        <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                        <h4 class="card-title"> Small Succulent </h4>
+                        <p class="card-text p-3">R25 each </p>
+                        <button class="btn succulentCard readMore">Read More </button>
                         <a href="/src/html/succulents.html" class="btn succulentCard"> Add to Cart </a>
                     </div>
                 </div>
             </div>
 
+
+
             <!-- Succulent 2 -->
             <div class="homeCard container mt-5 mb-5 col-sm-3">
-                <div class="card2 p-3">
+                <div class="card1 p-3">
 
                     <img class="succulent2" src="/src/images/succulent2.webp" alt="Mini Succulent Garden"
                         attribution="https://www.google.com/url?q=https://spoilbasket.com/product/mini-succulent-garden-medium/%3Futm_source%3DGoogleFreeListings%26utm_campaign%3DKliken%2B-%2BGoogle%2BShopping%2B-%2BZA%26utm_campaign_id%3D1007947%26utm_ad_group_id%3D970121%26utm_prod_id%3D8939%26utm_mobile%3D0&sa=U&ved=0ahUKEwiHnrWcqan-AhXwQkEAHToyDzcQwSsIpgE&usg=AOvVaw07cRgzCOJt_h_3yzQB2hbr">
@@ -96,28 +106,27 @@
                     <div class="card-body pt-3">
                         <h4 class="card-title"> Mini Succulent Garden </h4>
                         <p class="card-text p-3">R250 each </p>
-                        <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                        <button class="btn succulentCard readMore"> Read More </button>
                         <a href="/src/html/plantcare.html" class="btn succulentCard"> Add to Cart </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Plant Care 3 -->
+            <!-- Succulent 3 -->
             <div class="homeCard container mt-5 mb-5 col-sm-3">
-                <div class="card2 p-3">
+                <div class="card1 p-3">
 
-                    <img class="plantcare3" src="/src/images/plantcare3.webp" alt="Plant Care - 500 ml"
-                        attribution="https://www.google.com/url?q=https://www.stonelantern.co.za/product/plant-care-500-ml/%3Fsrsltid%3DAfAwrE7059n1A3sXMmK_FqcBJ5Ld1aEtzfmLcNVemozlXpB4PqIAku2okWI&sa=U&ved=0ahUKEwiBxvSgs6n-AhUQXMAKHVsPAUYQwSsIIw&usg=AOvVaw0Iu7A9f8nP4q7JXhVmFP4H">
+                    <img class="succulent3" src="/src/images/succulent3.webp" alt="Succulent in Ceramic Pot"
+                        attribution="https://www.google.com/url?q=https://www.builders.co.za/Outdoor-Garden-and-Patio/Garden-Decor/Plants/Indoor-Plants-Foliage/Classic-Succulents-in-Ceramic-(90-x-90-x-90mm)/p/000000000000734694&sa=U&ved=0ahUKEwiHnrWcqan-AhXwQkEAHToyDzcQrzwI5gE&usg=AOvVaw2tlaKVDr_ZLcRxpUKshz73">
 
                     <div class="card-body pt-3">
-                        <h4 class="card-title"> Plant Care - 500 ml </h4>
-                        <p class="card-text p-3">R300 each</p>
-                        <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                        <h4 class="card-title"> Succulent in Ceramic Pot </h4>
+                        <p class="card-text p-3">R100 each</p>
+                        <button class="btn succulentCard readMore"> Read More </button>
                         <a href="/src/html/ferns.html" class="btn succulentCard">Add to Cart </a>
                     </div>
                 </div>
             </div>
-        </div>
 
     </main>
 </body>

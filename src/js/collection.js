@@ -1,229 +1,244 @@
-// Buttons
-let readMoreButton = document.getElementById("readMore");
-let readMoreButton1 = document.getElementById("readMore1");
-let readMoreButton2 = document.getElementById("readMore2");
-let readMoreButton3 = document.getElementById("readMore3");
-let readMoreButton4 = document.getElementById("readMore4");
-let readMoreButton5 = document.getElementById("readMore5");
-let span = document.getElementsByClassName("close")[0];
-let span1 = document.getElementsByClassName("close1")[0];
-let span2 = document.getElementsByClassName("close2")[0];
-let span3 = document.getElementsByClassName("close3")[0];
-let span4 = document.getElementsByClassName("close4")[0];
-let span5 = document.getElementsByClassName("close5")[0];
-let modal = document.getElementById("myModal");
-let modal1 = document.getElementById("myModal1");
-let modal2 = document.getElementById("myModal2");
-let modal3 = document.getElementById("myModal3");
-let modal4 = document.getElementById("myModal4");
-let modal5 = document.getElementById("myModal5");
+import data from './products.json' assert { type: 'json' };
+console.log(data);
 
-// The modal will open when the user clicks on Read More
-readMoreButton.addEventListener('click', () => {
-    modal.style.display = "block";
-})
-readMoreButton1.addEventListener('click', () => {
-    modal1.style.display = "block";
-})
-readMoreButton2.addEventListener('click', () => {
-    modal2.style.display = "block";
-})
-readMoreButton3.addEventListener('click', () => {
-    modal3.style.display = "block";
-})
-readMoreButton4.addEventListener('click', () => {
-    modal4.style.display = "block";
-})
-readMoreButton5.addEventListener('click', () => {
-    modal5.style.display = "block";
-})
-
-//Close button
-span.addEventListener('click', () => {
-    modal.style.display = "none";
-})
-span1.addEventListener('click', () => {
-    modal1.style.display = "none";
-})
-span2.addEventListener('click', () => {
-    modal2.style.display = "none";
-})
-span3.addEventListener('click', () => {
-    modal3.style.display = "none";
-})
-span4.addEventListener('click', () => {
-    modal4.style.display = "none";
-})
-span5.addEventListener('click', () => {
-    modal5.style.display = "none";
-})
-
-
-//When the user click outside the modal, the modal will close
-window.addEventListener('click', (event) => {
-    if (event.target == modal) {
-        modal.style.display = "none";
+// Class
+class Products {
+    constructor(productName, firstDescription, secondDescription, image, price, category) {
+            this._productName = productName;
+            this._firstDescription = firstDescription;
+            this._image = image;
+            this._secondDescription = secondDescription;
+            this._price = price;
+            this._category = category;
     }
-})
-window.addEventListener('click', (event) => {
-    if (event.target == modal1) {
-        modal1.style.display = "none";
-    }
-})
-window.addEventListener('click', (event) => {
-    if (event.target == modal2) {
-        modal2.style.display = "none";
-    }
-})
-window.addEventListener('click', (event) => {
-    if (event.target == modal3) {
-        modal3.style.display = "none";
-    }
-})
-window.addEventListener('click', (event) => {
-    if (event.target == modal4) {
-        modal4.style.display = "none";
-    }
-})
-window.addEventListener('click', (event) => {
-    if (event.target == modal5) {
-        modal5.style.display = "none";
-    }
-})
 
-// Zoom effect on Images
+    // Getters
+    get getProductName() {
+        return this._productName;
+    }
+    get getFirstDescription() {
+        return this._firstDescription;
+    }
+    get getImage() {
+        return this._image;
+    }
+    get getSecondDescription() {
+        return this._secondDescription;
+    }
+    get getPrice() {
+        return this._price;
+    }
+    get getCategory() {
+        return this._category;
+    }
 
-function imageZoom(modalImage, myResult) {
+}
+const modalView = document.getElementById("myModal");
 
-    let img = document.getElementById(modalImage);
-    let result = document.getElementById(myResult);
+function showModal(index) {
 
-    /* Create lens: */
-    let lens = document.createElement("div");
+
+    const product = productsArray[index];
+    modalView.innerHTML = '';
+
+    // Creating constants that will show the modal for every product
+    const myproduct = document.createElement("div");
+    myproduct.classList.add("modal-content");
+    myproduct.classList.add("mx-5");
+    myproduct.classList.add("mt-5");
+
+    const closeButton = document.createElement("span");
+    closeButton.classList.add("close");
+    closeButton.classList.add("p-2");
+    closeButton.innerHTML = "&times";
+
+    closeButton.addEventListener("click", () => {
+        modalView.style.display = 'none';
+    });
+
+    const heading2 = document.createElement("h2");
+    heading2.classList.add("heading2Modal");
+    heading2.innerHTML = product.getProductName;
+
+    const heading3 = document.createElement("h3");
+    heading3.innerHTML = product.getFirstDescription;
+
+    const myrow = document.createElement("div");
+    myrow.classList.add("row");
+
+    // first column
+    const mycolumn1 = document.createElement("div");
+    mycolumn1.classList.add("column");
+
+    const div1 = document.createElement("div");
+    div1.classList.add("img-zoom-container");
+
+    const picture1 = document.createElement("picture");
+
+    const modalImage = document.createElement("img");
+    modalImage.classList.add("succulentModal");
+    modalImage.setAttribute("id", "modalImage");
+    modalImage.setAttribute("src", product.getImage);
+
+
+    const div2 = document.createElement("div");
+    div2.classList.add("succulentModal");
+    div2.setAttribute("id", "myResult");
+
+
+    // Column 1 inside
+
+    picture1.appendChild(modalImage);
+    div1.appendChild(picture1);
+    div1.appendChild(div2);
+    mycolumn1.appendChild(div1);
+
+
+    /* Create a wrapper div */
+    const zoomWrapper = document.createElement("div");
+    zoomWrapper.setAttribute("class", "img-zoom-wrapper");
+
+    /* Add the original image to the wrapper div */
+    zoomWrapper.appendChild(modalImage);
+
+    /* Insert the wrapper div */
+    picture1.appendChild(zoomWrapper);
+
+
+    const lens = document.createElement("div");
     lens.setAttribute("class", "img-zoom-lens");
+    zoomWrapper.appendChild(lens);
 
-    /* Insert lens: */
-    img.parentElement.insertBefore(lens, img);
+    const result = document.createElement("div");
+    result.setAttribute("class", "img-zoom-result");
+    zoomWrapper.appendChild(result);
 
-    /* Calculate the ratio between result DIV and lens: */
-    let cx = result.offsetWidth / lens.offsetWidth;
-    let cy = result.offsetHeight / lens.offsetHeight;
+    let cx, cy;
+    /* Calculate the ratio between result DIV and lens */
+    result.style.backgroundImage = "url('" + modalImage.src + "')";
 
-    /* Set background properties for the result DIV */
-    result.style.backgroundImage = "url('" + img.src + "')";
-    result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+    cx = result.offsetWidth / lens.offsetWidth;
+    cy = result.offsetHeight / lens.offsetHeight;
 
-    /* Execute a function when someone moves the cursor over the image, or the lens: */
+    const img = document.createElement("img");
+    zoomWrapper.appendChild(img);
+    modalImage.addEventListener("mousemove", moveLens);
+
     lens.addEventListener("mousemove", moveLens);
-    img.addEventListener("mousemove", moveLens);
+    result.style.backgroundSize = (modalImage.width * cx) + "px " + (modalImage.height * cy) + "px";
 
-    /* And also for touch screens: */
-    lens.addEventListener("touchmove", moveLens);
-    img.addEventListener("touchmove", moveLens);
 
+    /* Function to move the lens */
     function moveLens(e) {
-
-        /* Prevent any other actions that may occur when moving over the image */
-        e.preventDefault();
-
-        /* Get the cursor's x and y positions: */
+        /* Position of the cursor relative to the image */
         let pos = getCursorPos(e);
 
-        /* Calculate the position of the lens: */
+        /* Calculate the position of the lens */
         let x = pos.x - (lens.offsetWidth / 2);
         let y = pos.y - (lens.offsetHeight / 2);
 
-        /* Prevent the lens from being positioned outside the image: */
-        if (x > img.width - lens.offsetWidth) { x = img.width - lens.offsetWidth; }
-        if (x < 0) { x = 0; }
-        if (y > img.height - lens.offsetHeight) { y = img.height - lens.offsetHeight; }
-        if (y < 0) { y = 0; }
+        /* Prevent the lens from being positioned outside the image */
+        if (x > modalImage.width - lens.offsetWidth) {
+            x = modalImage.width - lens.offsetWidth;
+        }
+        if (x < 0) {
+            x = 0;
+        }
+        if (y > modalImage.height - lens.offsetHeight) {
+            y = modalImage.height - lens.offsetHeight;
+        }
+        if (y < 0) {
+            y = 0;
+        }
 
-        /* Set the position of the lens: */
+        /* Set the position of the lens */
         lens.style.left = x + "px";
         lens.style.top = y + "px";
 
-        /* Display what the lens "sees": */
+        /* Display what the lens "sees" */
+
         result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
     }
 
     function getCursorPos(e) {
-        let x = 0;
-        let y = 0;
-
+        let a,
+            x = 0,
+            y = 0;
         e = e || window.event;
+        a = modalImage.getBoundingClientRect();
 
-        /* Get the x and y positions of the image: */
-        let a = img.getBoundingClientRect();
-
-        /* Calculate the cursor's x and y coordinates, relative to the image: */
         x = e.pageX - a.left;
         y = e.pageY - a.top;
-
-        /* Consider any page scrolling: */
         x = x - window.pageXOffset;
         y = y - window.pageYOffset;
         return { x: x, y: y };
     }
+
+
+    // Column 2
+    const mycolumn2 = document.createElement("div");
+    mycolumn2.classList.add("column");
+
+    const unordered = document.createElement("ul");
+
+    for (let j = 0; j < product.getSecondDescription.length; j++) {
+        let mylist = document.createElement("li");
+        mylist.innerHTML = product.getSecondDescription[j];
+        unordered.appendChild(mylist);
+    }
+
+    const headingthree = document.createElement("h3");
+    headingthree.innerHTML = "R" + product.getPrice + " each";
+
+    const buttonnew = document.createElement("button");
+    buttonnew.classList.add("btn");
+    buttonnew.classList.add("succulentCard");
+    buttonnew.setAttribute("id", "addtoCart");
+    buttonnew.innerHTML = "Go to Cart";
+
+    // Column 2 inside
+    mycolumn2.appendChild(unordered);
+    mycolumn2.appendChild(headingthree);
+    mycolumn2.appendChild(buttonnew);
+
+    //Row 
+    myrow.appendChild(mycolumn1);
+    myrow.appendChild(mycolumn2);
+
+    // Product
+    myproduct.appendChild(closeButton);
+    myproduct.appendChild(heading2);
+    myproduct.appendChild(heading3);
+    myproduct.appendChild(myrow);
+
+    modalView.appendChild(myproduct);
+    modalView.style.display = "block";
 }
-
-//Initiate zoom for every product
-imageZoom("modalImage", "myResult");
-imageZoom("modalImage1", "myResult1");
-imageZoom("modalImage2", "myResult2");
-imageZoom("modalImage3", "myResult3");
-imageZoom("modalImage4", "myResult4");
-imageZoom("modalImage5", "myResult5");
+window.addEventListener('click', (event) => {
+    if (event.target == modalView) {
+        modalView.style.display = 'none';
+    }
+});
 
 
-// class Product {
-//     constructor(name, description, image, price) {
-//       this.name = name;
-//       this.description = description;
-//       this.image = image;
-//       this.price = price;
-//     }
-  
-//     showModal() {
-//       // Get the modal element
-//       const modal = document.getElementById("myModal");
-  
-//       // Get the image and description elements in the modal
-//       const modalImage = modal.querySelector("#modalImage");
-//       const modalDescription = modal.querySelector("#modalDescription");
-  
-//       // Set the values for the modal elements
-//       modalImage.src = this.image;
-//       modalDescription.innerHTML = this.description;
-  
-//       // Display the modal
-//       modal.style.display = "block";
-//     }
-//   }
-  
-//   // Create a new succulent object
-//   const succulent1 = new Product(
-//     "Small Succulent",
-//     "<h3>The Small Succulent plant is made entirely for new garden enthusiasts </h3>" +
-//       "<ul>" +
-//       "<li>Pot Size: 2 to 3 Inch Pot</li>" +
-//       "<li>Plant Size: 2 Inch To 4 Inch plants depending on variety</li>" +
-//       "<li>Keep in direct sun they love sunny weather</li>" +
-//       "<li>Water once in a week if its winter or rainy season</li>" +
-//       "<li>In summer water twice a week</li>" +
-//       "</ul>",
-//     "/src/images/succulent1.webp",
-//     "R25 each"
-//   );
-  
-//   // Get the Read More button and add a click event listener to show the modal
-//   const readMoreBtn = document.getElementById("readMore");
-//   readMoreBtn.addEventListener("click", () => {
-//     succulent1.showModal();
-//   });
-  
-//   // Get the Add to Cart button and add a click event listener to add to cart
-//   const addCartBtn = document.getElementById("addCartBtn");
-//   addCartBtn.addEventListener("click", () => {
-//     // Add to cart logic here
-//   });
+// Empty Succulent Array
+let productsArray = [];
+
+
+// Loop through the products in the JSON data
+for (let i = 0; i < data.products.length; i++) {
+
+    // Create an Product object and push it into the succulentArray
+    let product = new Products(data.products[i].productName, data.products[i].firstDescription, data.products[i].secondDescription, data.products[i].image, data.products[i].price, data.products[i].category)
+    
+        productsArray.push(product);
+    }
+
+console.log(productsArray);
+
+const readMoreButtons = document.querySelectorAll('.readMore');
+readMoreButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        showModal(index);
+    });
+});

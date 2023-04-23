@@ -139,211 +139,187 @@
         },
         {
             "productName": "Nephrolepis Exaltata Blonde",
-            "firstDescription": "The Small Succulent plant is made entirely for new garden enthusiasts",
+            "firstDescription": "This Boston Blonde Fern is a beautiful hanging houseplant.",
             "secondDescription": [
-                "Pot Size: 2 to 3 Inch Pot",
-                "Plant Size: 2 Inch To 4 Inch plants depending on variety",
-                "Keep in direct sun they love sunny weather",
-                "Water once in a week if its winter or rainy season",
-                "In summer water twice a week"
+                "Size: 20cm",
+                "Water your fern thoroughly and allowed it to dry between waterings, only water when the soil dries out.",
+                "Use potting soil with good drainage",
+                "Nephrolepis Blonde likes an area with medium to high indirect sunlight"
             ],
-            "image": "/src/images/succulent1.webp",
+            "image": "/src/images/fern1.jpeg",
             "price": 130,
             "category": "Ferns"
         },
         {
             "productName": "Asparagus Plumosus",
-            "firstDescription": "The Small Succulent plant is made entirely for new garden enthusiasts",
+            "firstDescription": "The Asparagus Plumosus will look great outdoors",
             "secondDescription": [
-                "Pot Size: 2 to 3 Inch Pot",
-                "Plant Size: 2 Inch To 4 Inch plants depending on variety",
-                "Keep in direct sun they love sunny weather",
-                "Water once in a week if its winter or rainy season",
-                "In summer water twice a week"
+                "Size: 12cm",
+                "Ornamental perennial plants with long, soft leaves that grow like feathery clumps",
+                "Keep in direct sun they love sunny weather"
             ],
-            "image": "/src/images/succulent1.webp",
+            "image": "/src/images/fern2.webp",
             "price": 90,
             "category": "Ferns"
         },
         {
             "productName": "Florex Platycerium Staghorn Fern",
-            "firstDescription": "The Small Succulent plant is made entirely for new garden enthusiasts",
+            "firstDescription": "The Florex Platycerium Staghorn Fern looks great outdoor",
             "secondDescription": [
-                "Pot Size: 2 to 3 Inch Pot",
-                "Plant Size: 2 Inch To 4 Inch plants depending on variety",
+                "Pot Size: 120mm",
                 "Keep in direct sun they love sunny weather",
                 "Water once in a week if its winter or rainy season",
                 "In summer water twice a week"
             ],
-            "image": "/src/images/succulent1.webp",
+            "image": "/src/images/fern3.webp",
             "price": 110,
             "category": "Ferns"
         },
         {
             "productName": "Dicksonia Antarctica Fern",
-            "firstDescription": "The Small Succulent plant is made entirely for new garden enthusiasts",
+            "firstDescription": "The Dicksonia Antarctica Fern is made entirely for new garden enthusiasts",
             "secondDescription": [
-                "Pot Size: 2 to 3 Inch Pot",
-                "Plant Size: 2 Inch To 4 Inch plants depending on variety",
-                "Keep in direct sun they love sunny weather",
-                "Water once in a week if its winter or rainy season",
-                "In summer water twice a week"
+                "The fern grows at 3.5 to 5 cm per year",
+                "Produces spores at the age of about 20 years",
+                "Pot Size: 120mm"
             ],
-            "image": "/src/images/succulent1.webp",
+            "image": "/src/images/fern4.webp",
             "price": 200,
             "category": "Ferns"
         },
         {
             "productName": "Tuberflora Cyathea Australis Fern",
-            "firstDescription": "The Small Succulent plant is made entirely for new garden enthusiasts",
+            "firstDescription": "The Tuberflora Cyathea Australis Fern looks great outside",
             "secondDescription": [
-                "Pot Size: 2 to 3 Inch Pot",
                 "Plant Size: 2 Inch To 4 Inch plants depending on variety",
                 "Keep in direct sun they love sunny weather",
                 "Water once in a week if its winter or rainy season",
                 "In summer water twice a week"
             ],
-            "image": "/src/images/succulent1.webp",
+            "image": "/src/images/fern5.webp",
             "price": 300,
             "category": "Ferns"
         },
         {
             "productName": "Large Kangaroo Fern",
-            "firstDescription": "The Small Succulent plant is made entirely for new garden enthusiasts",
+            "firstDescription": "The Large Kangaroo Fern looks great indoor and outdoor",
             "secondDescription": [
-                "Pot Size: 2 to 3 Inch Pot",
-                "Plant Size: 2 Inch To 4 Inch plants depending on variety",
-                "Keep in direct sun they love sunny weather",
-                "Water once in a week if its winter or rainy season",
-                "In summer water twice a week"
+                "Our Kangaroo Fern comes in a 20cm Hanging Pot",
+                "Fabulous hanging plant",
+                "Gorgeous lush deep green foliage",
+                "Easy care fern variety",
+                "Can handle a variety of living conditions"
             ],
-            "image": "/src/images/succulent1.webp",
+            "image": "/src/images/fern6.webp",
             "price": 380,
             "category": "Ferns"
         },
         {
             "productName": "Staghorn Fern",
-            "firstDescription": "The Small Succulent plant is made entirely for new garden enthusiasts",
+            "firstDescription": "The Staghorn Fern gives a modern indoor look",
             "secondDescription": [
-                "Pot Size: 2 to 3 Inch Pot",
-                "Plant Size: 2 Inch To 4 Inch plants depending on variety",
-                "Keep in direct sun they love sunny weather",
-                "Water once in a week if its winter or rainy season",
-                "In summer water twice a week"
+                "Pot Size: 4 Inch Black Plastic Basic Nursery Size",
+                "4 Inch To 6 Inch plant",
+                "Keep in indirect sun away from direct",
+                "Water once in a week if its winter or rainy season"
             ],
-            "image": "/src/images/succulent1.webp",
+            "image": "/src/images/fern7.webp",
             "price": 300,
             "category": "Ferns"
         },
         {
             "productName": "Maiden Hair Fern",
-            "firstDescription": "The Small Succulent plant is made entirely for new garden enthusiasts",
+            "firstDescription": "The Maiden Hair Fern ensures for a rustic look",
             "secondDescription": [
-                "Pot Size: 2 to 3 Inch Pot",
-                "Plant Size: 2 Inch To 4 Inch plants depending on variety",
+                "Pot: 18.5cm x 16cm",
+                "Plant:45cm x 52cm",
                 "Keep in direct sun they love sunny weather",
                 "Water once in a week if its winter or rainy season",
                 "In summer water twice a week"
             ],
-            "image": "/src/images/succulent1.webp",
+            "image": "/src/images/fern8.webp",
             "price": 490,
             "category": "Ferns"
         },
         {
             "productName": "Houseplant Care Gift Set",
-            "firstDescription": "The Small Succulent plant is made entirely for new garden enthusiasts",
+            "firstDescription": "The Houseplant Care Gift Set will make a great gift",
             "secondDescription": [
-                "Pot Size: 2 to 3 Inch Pot",
-                "Plant Size: 2 Inch To 4 Inch plants depending on variety",
-                "Keep in direct sun they love sunny weather",
-                "Water once in a week if its winter or rainy season",
-                "In summer water twice a week"
+                "Two essential blends of nutrients that promote healthy growth in your houseplants",
+                "Included in this set is a 500ml bottle of Feed & Tonic and a 500ml bottle of Perfecting Mist, both packed in a Plant Smith gift set box."
             ],
-            "image": "/src/images/succulent1.webp",
+            "image": "/src/images/plantcare1.webp",
             "price": 650,
             "category": "Plant Care"
         },
         {
             "productName": "1-For-All Multipurpose Fertiliser 25kg",
-            "firstDescription": "The Small Succulent plant is made entirely for new garden enthusiasts",
+            "firstDescription": "The 1-For-All Multipurpose Fertiliser 25kg is necessary",
             "secondDescription": [
-                "Pot Size: 2 to 3 Inch Pot",
-                "Plant Size: 2 Inch To 4 Inch plants depending on variety",
-                "Keep in direct sun they love sunny weather",
-                "Water once in a week if its winter or rainy season",
-                "In summer water twice a week"
+                "All new carbon enriched multipurpose fertiliser for the whole garden",
+                "It contains twelve highly soluble plant nutrients as well as carbon and humates for healthy soil and optimal plant nutrition"
             ],
-            "image": "/src/images/succulent1.webp",
+            "image": "/src/images/plantcare2.webp",
             "price": 730,
             "category": "Plant Care"
         },
         {
             "productName": "Plant Care - 500 ml",
-            "firstDescription": "The Small Succulent plant is made entirely for new garden enthusiasts",
+            "firstDescription": "The Plant Care - 500 ml will protect your plant from insects",
             "secondDescription": [
-                "Pot Size: 2 to 3 Inch Pot",
-                "Plant Size: 2 Inch To 4 Inch plants depending on variety",
-                "Keep in direct sun they love sunny weather",
-                "Water once in a week if its winter or rainy season",
-                "In summer water twice a week"
+                "An emulsifiable concentrate systemic, contact and stomach insecticide and acaricide for the control of pests in crops as indicated",
+                "Perfect for Aphids, White Flies, White Grub Larvae, Red Spider Mite, Bollworm, Tuber Moth"
             ],
-            "image": "/src/images/succulent1.webp",
+            "image": "/src/images/plantcare3.webp",
             "price": 300,
             "category": "Plant Care"
         },
         {
             "productName": "Garden Master 60 dm3 Potting Soil",
-            "firstDescription": "The Small Succulent plant is made entirely for new garden enthusiasts",
+            "firstDescription": "The Garden Master 60 dm3 Potting Soil is made entirely for new garden enthusiasts",
             "secondDescription": [
-                "Pot Size: 2 to 3 Inch Pot",
-                "Plant Size: 2 Inch To 4 Inch plants depending on variety",
-                "Keep in direct sun they love sunny weather",
-                "Water once in a week if its winter or rainy season",
-                "In summer water twice a week"
+                "Odourless",
+                "Certified organic",
+                "Weed free",
+                "Pure bark"
             ],
-            "image": "/src/images/succulent1.webp",
+            "image": "/src/images/plantcare4.webp",
             "price": 125,
             "category": "Plant Care"
         },
         {
             "productName": "Gardening Gloves",
-            "firstDescription": "The Small Succulent plant is made entirely for new garden enthusiasts",
+            "firstDescription": "The Gardening Gloves is perfect to work in your garden",
             "secondDescription": [
-                "Pot Size: 2 to 3 Inch Pot",
-                "Plant Size: 2 Inch To 4 Inch plants depending on variety",
-                "Keep in direct sun they love sunny weather",
-                "Water once in a week if its winter or rainy season",
-                "In summer water twice a week"
+                "They are fully coated to help reduce skin damage or allergic reactions caused by chemicals, substances and other materials you work with",
+                "The grip of these latex gloves can allow for outstanding wet and dry handling",
+                "Available in sizes Small, Medium and Large"
             ],
-            "image": "/src/images/succulent1.webp",
+            "image": "/src/images/plantcare5.webp",
             "price": 150,
             "category": "Plant Care"
         },
         {
             "productName": "Dynaroot",
-            "firstDescription": "The Small Succulent plant is made entirely for new garden enthusiasts",
+            "firstDescription": "Dynaroot is important for every plant",
             "secondDescription": [
-                "Pot Size: 2 to 3 Inch Pot",
-                "Plant Size: 2 Inch To 4 Inch plants depending on variety",
-                "Keep in direct sun they love sunny weather",
-                "Water once in a week if its winter or rainy season",
-                "In summer water twice a week"
+                "Rapidly stimulate your cuttings with Dynaroot rooting hormone powder, it has proven itself in many trials",
+                "Once the Dynaroot rooting hormone powder is applied, auxins are absorbed, resulting in the stimulation of root formation",
+                "Dip the lower 10 to 20mm of the cutting in the powder"
             ],
-            "image": "/src/images/succulent1.webp",
+            "image": "/src/images/plantcare6.jpg",
             "price": 70,
             "category": "Plant Care"
         },
         {
             "productName": "City Gardening Balcony Box",
-            "firstDescription": "The Small Succulent plant is made entirely for new garden enthusiasts",
+            "firstDescription": "The City Gardening Balcony Box is perfect set for all balcony and terrace gardeners",
             "secondDescription": [
-                "Pot Size: 2 to 3 Inch Pot",
-                "Plant Size: 2 Inch To 4 Inch plants depending on variety",
-                "Keep in direct sun they love sunny weather",
-                "Water once in a week if its winter or rainy season",
-                "In summer water twice a week"
+                "Storage box with hand trowel, hand fork, balcony secateurs and brush",
+                "The spacious plastic box protects hand tools and other utensils against dirt and weather conditions. The box can also be mounted on a wall for convenience.",
+                "Soil and other dirt can be conveniently swept up with the Hand Brush"
             ],
-            "image": "/src/images/succulent1.webp",
+            "image": "/src/images/plantcare7.jpg",
             "price": 850,
             "category": "Plant Care"
         }

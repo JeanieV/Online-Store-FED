@@ -4,14 +4,12 @@ console.log(data);
 // Class
 class Products {
     constructor(productName, firstDescription, secondDescription, image, price, category) {
-        if (category === "Ferns") {
             this._productName = productName;
             this._firstDescription = firstDescription;
             this._image = image;
             this._secondDescription = secondDescription;
             this._price = price;
             this._category = category;
-        }
     }
 
     // Getters
@@ -40,7 +38,7 @@ const modalView = document.getElementById("myModal");
 function showModal(index) {
 
 
-    const product = fernsArray[index];
+    const product = productsArray[index];
     modalView.innerHTML = '';
 
     // Creating constants that will show the modal for every product
@@ -225,24 +223,23 @@ window.addEventListener('click', (event) => {
 
 
 // Empty Succulent Array
-let fernsArray = [];
+let productsArray = [];
 
 
 // Loop through the products in the JSON data
 for (let i = 0; i < data.products.length; i++) {
-    if (data.products[i].category === "Ferns") {
-        // Create an Product object and push it into the succulentArray
-        let product = new Products(data.products[i].productName, data.products[i].firstDescription, data.products[i].secondDescription, data.products[i].image, data.products[i].price, data.products[i].category)
 
-        fernsArray.push(product);
+    // Create an Product object and push it into the succulentArray
+    let product = new Products(data.products[i].productName, data.products[i].firstDescription, data.products[i].secondDescription, data.products[i].image, data.products[i].price, data.products[i].category)
+    
+        productsArray.push(product);
     }
 
-}
-console.log(fernsArray)
+console.log(productsArray);
 
 const readMoreButtons = document.querySelectorAll('.readMore');
-readMoreButtons.forEach((button, index) => {
+readMoreButtons.forEach((button,index) => {
     button.addEventListener('click', () => {
         showModal(index);
-    });
-});
+    })
+})

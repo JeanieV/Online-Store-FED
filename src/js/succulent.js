@@ -4,12 +4,14 @@ console.log(data);
 // Class
 class Products {
     constructor(productName, firstDescription, secondDescription, image, price, category) {
-        this._productName = productName;
-        this._firstDescription = firstDescription;
-        this._image = image;
-        this._secondDescription = secondDescription;
-        this._price = price;
-        this._category = category;
+        if (category === "Succulents") {
+            this._productName = productName;
+            this._firstDescription = firstDescription;
+            this._image = image;
+            this._secondDescription = secondDescription;
+            this._price = price;
+            this._category = category;
+        }
     }
 
     // Getters
@@ -88,92 +90,92 @@ function showModal(index) {
 
 
     // Column 1 inside
-    
+
     picture1.appendChild(modalImage);
     div1.appendChild(picture1);
     div1.appendChild(div2);
     mycolumn1.appendChild(div1);
 
 
-   /* Create a wrapper div */
-   const zoomWrapper = document.createElement("div");
-   zoomWrapper.setAttribute("class", "img-zoom-wrapper");
+    /* Create a wrapper div */
+    const zoomWrapper = document.createElement("div");
+    zoomWrapper.setAttribute("class", "img-zoom-wrapper");
 
-   /* Add the original image to the wrapper div */
-   zoomWrapper.appendChild(modalImage);
+    /* Add the original image to the wrapper div */
+    zoomWrapper.appendChild(modalImage);
 
-   /* Insert the wrapper div */
-   picture1.appendChild(zoomWrapper);
-   
-
-   const lens = document.createElement("div");
-   lens.setAttribute("class", "img-zoom-lens");
-   zoomWrapper.appendChild(lens);
-   
-   const result = document.createElement("div");
-   result.setAttribute("class", "img-zoom-result");
-   zoomWrapper.appendChild(result);
-   
-   let cx, cy;
-   /* Calculate the ratio between result DIV and lens */
-   result.style.backgroundImage = "url('" + modalImage.src + "')";
-   
-   cx = result.offsetWidth / lens.offsetWidth;
-   cy = result.offsetHeight / lens.offsetHeight;
-
-   const img = document.createElement("img");
-   zoomWrapper.appendChild(img);
-   img.addEventListener("mousemove", moveLens);
-
-   lens.addEventListener("mousemove", moveLens);
-   result.style.backgroundSize = (modalImage.width * cx) + "px " + (modalImage.height * cy) + "px";
+    /* Insert the wrapper div */
+    picture1.appendChild(zoomWrapper);
 
 
-   /* Function to move the lens */
-   function moveLens(e) {
-       /* Position of the cursor relative to the image */
-       let pos = getCursorPos(e);
+    const lens = document.createElement("div");
+    lens.setAttribute("class", "img-zoom-lens");
+    zoomWrapper.appendChild(lens);
 
-       /* Calculate the position of the lens */
-       let x = pos.x - (lens.offsetWidth / 2);
-       let y = pos.y - (lens.offsetHeight / 2);
+    const result = document.createElement("div");
+    result.setAttribute("class", "img-zoom-result");
+    zoomWrapper.appendChild(result);
 
-       /* Prevent the lens from being positioned outside the image */
-       if (x > modalImage.width - lens.offsetWidth) {
-           x = modalImage.width - lens.offsetWidth;
-       }
-       if (x < 0) {
-           x = 0;
-       }
-       if (y > modalImage.height - lens.offsetHeight) {
-           y = modalImage.height - lens.offsetHeight;
-       }
-       if (y < 0) {
-           y = 0;
-       }
+    let cx, cy;
+    /* Calculate the ratio between result DIV and lens */
+    result.style.backgroundImage = "url('" + modalImage.src + "')";
 
-       /* Set the position of the lens */
-       lens.style.left = x + "px";
-       lens.style.top = y + "px";
+    cx = result.offsetWidth / lens.offsetWidth;
+    cy = result.offsetHeight / lens.offsetHeight;
 
-       /* Display what the lens "sees" */
-       
-       result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
-   }
+    const img = document.createElement("img");
+    zoomWrapper.appendChild(img);
+    img.addEventListener("mousemove", moveLens);
 
-   function getCursorPos(e) {
-       let a,
-           x = 0,
-           y = 0;
-       e = e || window.event;
-       a = modalImage.getBoundingClientRect();
-       
-       x = e.pageX - a.left;
-       y = e.pageY - a.top;
-       x = x - window.pageXOffset;
-       y = y - window.pageYOffset;
-       return { x: x, y: y };
-   }
+    lens.addEventListener("mousemove", moveLens);
+    result.style.backgroundSize = (modalImage.width * cx) + "px " + (modalImage.height * cy) + "px";
+
+
+    /* Function to move the lens */
+    function moveLens(e) {
+        /* Position of the cursor relative to the image */
+        let pos = getCursorPos(e);
+
+        /* Calculate the position of the lens */
+        let x = pos.x - (lens.offsetWidth / 2);
+        let y = pos.y - (lens.offsetHeight / 2);
+
+        /* Prevent the lens from being positioned outside the image */
+        if (x > modalImage.width - lens.offsetWidth) {
+            x = modalImage.width - lens.offsetWidth;
+        }
+        if (x < 0) {
+            x = 0;
+        }
+        if (y > modalImage.height - lens.offsetHeight) {
+            y = modalImage.height - lens.offsetHeight;
+        }
+        if (y < 0) {
+            y = 0;
+        }
+
+        /* Set the position of the lens */
+        lens.style.left = x + "px";
+        lens.style.top = y + "px";
+
+        /* Display what the lens "sees" */
+
+        result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+    }
+
+    function getCursorPos(e) {
+        let a,
+            x = 0,
+            y = 0;
+        e = e || window.event;
+        a = modalImage.getBoundingClientRect();
+
+        x = e.pageX - a.left;
+        y = e.pageY - a.top;
+        x = x - window.pageXOffset;
+        y = y - window.pageYOffset;
+        return { x: x, y: y };
+    }
 
 
     // Column 2
@@ -230,10 +232,11 @@ let succulentArray = [];
 for (let i = 0; i < data.products.length; i++) {
 
     // Create an Product object and push it into the succulentArray
+    if (data.products[i].category === "Succulents") {
     let product = new Products(data.products[i].productName, data.products[i].firstDescription, data.products[i].secondDescription, data.products[i].image, data.products[i].price, data.products[i].category)
-
-    succulentArray.push(product);
-
+    
+        succulentArray.push(product);
+    }
 
 }
 console.log(succulentArray)

@@ -298,8 +298,8 @@ ul {
 }
 
 .img-zoom-result {
-    width: 270px;
-    height: 270px;
+    width: 250px;
+    height: 250px;
     margin-left: 10px;
     position: relative;
     overflow: hidden;
@@ -311,3 +311,8 @@ ul {
     margin-top: 6px;
     padding: 20px;
 }
+
+#picture1 {
+    width: 250px;
+    height: 250px;
+  }

@@ -11,14 +11,14 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="/src/css/collections.css">
-    <script src="/src/js/plantcare.js" defer></script>
+    <script src="/src/js/plantcare.js" type="module" defer></script>
     <title>Plant Care </title>
 </head>
 
 <body>
 
     <header>
-        <div class="mt-3  jumbo">
+        <div class="jumbo">
             <h1> Plant Care </h1>
         </div>
     </header>
@@ -68,9 +68,16 @@
 
         <!-- Plant Care Collection -->
         <h2> Shop our Plant Care Collection </h2>
+
+         <!-- Modal that will show for every product (currently on hide)-->
+         <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+        </div>
+
         <div>
             <div class="row mx-1">
                 <!-- Plant Care Collection -->
+
                 <!-- Plant Care 1 -->
                 <div class="homeCard container mt-5 mb-2 col-sm-3">
                     <div class="card1 p-3">
@@ -81,7 +88,7 @@
                         <div class="card-body pt-3">
                             <h4 class="card-title"> Houseplant Care Gift Set </h4>
                             <p class="card-text p-3">R650 each </p>
-                            <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                            <button class="btn succulentCard readMore">Read More </button>
                             <a href="/src/html/succulents.html" class="btn succulentCard"> Add to Cart </a>
                         </div>
                     </div>
@@ -98,7 +105,7 @@
                         <div class="card-body pt-3">
                             <h4 class="card-title"> 1-For-All Multipurpose Fertiliser 25kg </h4>
                             <p class="card-text p-3">R730 each </p>
-                            <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                            <button class="btn succulentCard readMore">Read More </button>
                             <a href="/src/html/plantcare.html" class="btn succulentCard"> Add to Cart </a>
                         </div>
                     </div>
@@ -114,7 +121,7 @@
                         <div class="card-body pt-3">
                             <h4 class="card-title"> Plant Care - 500 ml </h4>
                             <p class="card-text p-3">R300 each</p>
-                            <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                            <button class="btn succulentCard readMore">Read More </button>
                             <a href="/src/html/ferns.html" class="btn succulentCard">Add to Cart </a>
                         </div>
                     </div>
@@ -131,7 +138,7 @@
                         <div class="card-body pt-3">
                             <h4 class="card-title"> Garden Master 60 dm3 Potting Soil </h4>
                             <p class="card-text p-3">R125 each</p>
-                            <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                            <button class="btn succulentCard readMore">Read More </button>
                             <a href="/src/html/ferns.html" class="btn succulentCard">Add to Cart </a>
                         </div>
                     </div>
@@ -147,7 +154,7 @@
                         <div class="card-body pt-3">
                             <h4 class="card-title"> Gardening Gloves </h4>
                             <p class="card-text p-3">R150 each</p>
-                            <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                            <button class="btn succulentCard readMore">Read More </button>
                             <a href="/src/html/ferns.html" class="btn succulentCard">Add to Cart </a>
                         </div>
                     </div>
@@ -163,7 +170,7 @@
                         <div class="card-body pt-3">
                             <h4 class="card-title"> Dynaroot </h4>
                             <p class="card-text p-3">R70 each</p>
-                            <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                            <button class="btn succulentCard readMore">Read More </button>
                             <a href="/src/html/ferns.html" class="btn succulentCard">Add to Cart </a>
                         </div>
                     </div>
@@ -181,7 +188,7 @@
                         <div class="card-body pt-3">
                             <h4 class="card-title"> City Gardening Balcony Box </h4>
                             <p class="card-text p-3">R850 each</p>
-                            <a href="/src/html/succulents.html" class="btn succulentCard"> Read More </a>
+                            <button class="btn succulentCard readMore">Read More </button>
                             <a href="/src/html/ferns.html" class="btn succulentCard">Add to Cart </a>
                         </div>
                     </div>
