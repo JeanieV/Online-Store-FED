@@ -275,6 +275,8 @@ ul {
 
 .succulentModal {
     width: 350px;
+    height: 360px;
+    overflow: hidden;
 }
 
 .img-zoom-container {
@@ -282,10 +284,6 @@ ul {
     display: flex;
 }
 
-.img-zoom-wrapper {
-    position: relative;
-    display: flex;
-}
 
 .img-zoom-lens {
     position: absolute;
@@ -293,16 +291,16 @@ ul {
     width: 40px;
     height: 40px;
     background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    cursor: pointer;
+    
 }
 
 .img-zoom-result {
     width: 250px;
     height: 250px;
     margin-left: 10px;
+    background-repeat: no-repeat;
     position: relative;
-    overflow: hidden;
+    display: block;
 }
 
 .column {
@@ -311,8 +309,3 @@ ul {
     margin-top: 6px;
     padding: 20px;
 }
-
-#picture1 {
-    width: 250px;
-    height: 250px;
-  }
