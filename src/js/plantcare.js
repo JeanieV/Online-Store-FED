@@ -228,6 +228,7 @@ for (let i = 0; i < data.products.length; i++) {
 }
 console.log(plantCareArray)
 
+// The showModal will display when the user clicks on the Read More Button
 const readMoreButtons = document.querySelectorAll('.readMore');
 readMoreButtons.forEach((button, index) => {
     button.addEventListener('click', () => {

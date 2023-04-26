@@ -3,7 +3,7 @@ console.log(data);
 
 // Class
 class Products {
-    constructor(productName, firstDescription, secondDescription, image, price, category,count) {
+    constructor(productName, firstDescription, secondDescription, image, price, category, count) {
         if (category === "Succulents") {
             this._productName = productName;
             this._firstDescription = firstDescription;
@@ -147,7 +147,7 @@ function showModal(index) {
         function getCursorPos(e) {
             let a, x = 0, y = 0;
             e = e || window.event;
-            
+
             /*get the x and y positions of the image:*/
             a = modalImage.getBoundingClientRect();
 
@@ -182,8 +182,8 @@ function showModal(index) {
     // Creating the Go to Cart button inside the modal
     const buttonnew = document.createElement("button");
     buttonnew.classList.add("btn", "succulentCard");
-    buttonnew.setAttribute("id", "addtoCart");
-    buttonnew.innerHTML = "Go to Cart";
+    buttonnew.setAttribute("id", "addToCart");
+    buttonnew.innerHTML = "Add to Cart";
 
     // Column 2 inside
     mycolumn2.appendChild(unordered);
@@ -222,14 +222,15 @@ for (let i = 0; i < data.products.length; i++) {
 
     // Create an Product object and push it into the succulentArray
     if (data.products[i].category === "Succulents") {
-    let product = new Products(data.products[i].productName, data.products[i].firstDescription, data.products[i].secondDescription, data.products[i].image, data.products[i].price, data.products[i].category)
-    
+        let product = new Products(data.products[i].productName, data.products[i].firstDescription, data.products[i].secondDescription, data.products[i].image, data.products[i].price, data.products[i].category)
+
         succulentArray.push(product);
     }
 
 }
 console.log(succulentArray)
 
+// The showModal will display when the user clicks on the Read More Button
 const readMoreButtons = document.querySelectorAll('.readMore');
 readMoreButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
@@ -238,13 +239,153 @@ readMoreButtons.forEach((button, index) => {
 });
 
 
-// Cart Section
 
+// Cart Section
 
 // Empty Cart Array
 let cartArray = [];
 
 
+const cartView = document.getElementById("myModal");
 
+// Function to display the cart modal
+function showCart(index) {
+
+    const item = succulentArray[index];
+    //Clear the current modal before showing a new modal
+    cartView.innerHTML = '';
+
+    // Creating constants that will show the modal for every product
+    const mycart = document.createElement("div");
+    mycart.classList.add("content-cart", "mx-5", "mt-5");
+
+    //Creating the close button on the modal
+    const buttonClose = document.createElement("span");
+    buttonClose.classList.add("close", "p-2");
+    buttonClose.innerHTML = "&times";
+
+    buttonClose.addEventListener("click", () => {
+        cartView.style.display = 'none';
+    });
+
+    // Creating the Heading
+    const invoiceName = document.createElement("h2");
+    invoiceName.classList.add("heading2Modal", "pb-5");
+    invoiceName.innerHTML = "Invoice";
+
+
+    // Creating the table
+    const tableCart = document.createElement("table");
+    tableCart.classList.add("table", "table-striped");
+
+
+    // Creating the table row and head
+    const tableHeadRow = document.createElement("tr");
+
+    // Creating the image heading that will show in the table
+    const tableHeadImage = document.createElement("th");
+    tableHeadImage.classList.add("tableHeadings");
+    tableHeadImage.innerHTML = "Image";
+
+    // Creating the product name heading that will show in the table
+    const tableHeadProductName = document.createElement("th");
+    tableHeadProductName.classList.add("tableHeadings");
+    tableHeadProductName.innerHTML = "Product Name";
+
+    // Creating the quantity heading that will show in the table
+    const tableHeadQuantity = document.createElement("th");
+    tableHeadQuantity.classList.add("tableHeadings");
+    tableHeadQuantity.innerHTML = "Quantity";
+
+    // Creating the price heading that will show in the table
+    const tableHeadPrice = document.createElement("th");
+    tableHeadPrice.classList.add("tableHeadings");
+    tableHeadPrice.innerHTML = "Price";
+
+    // Appending to tableCart
+    tableHeadRow.appendChild(tableHeadImage);
+    tableHeadRow.appendChild(tableHeadProductName);
+    tableHeadRow.appendChild(tableHeadQuantity);
+    tableHeadRow.appendChild(tableHeadPrice);
+    tableCart.appendChild(tableHeadRow);
+
+    // Creating the table data
+    const tableDataRow = document.createElement("tr");
+
+    // Creating the image that will show in the table
+    const tableDataImage = document.createElement("td");
+    tableDataImage.classList.add("tableData");
+    const image = document.createElement("img");
+    image.src = item.getImage;
+    image.alt = item.getProductName;
+    image.classList.add("cart-image");
+    tableDataImage.appendChild(image);
+
+    // Creating the product name that will shpw in the table
+    const tableDataProductName = document.createElement("td");
+    tableDataProductName.classList.add("tableData");
+    tableDataProductName.innerHTML = item.getProductName;
+
+    // Creating the product quantity that will show in the table
+    const tableDataQuantity = document.createElement("td");
+    tableDataQuantity.classList.add("tableData");
+    tableDataQuantity.innerHTML = "1";
+
+    // Creating the product price that will show in the table
+    const tableDataPrice = document.createElement("td");
+    tableDataPrice.classList.add("tableData");
+    tableDataPrice.innerHTML = "R" + item.getPrice;
+
+    // Appending to tableCart
+    tableDataRow.appendChild(tableDataImage);
+    tableDataRow.appendChild(tableDataProductName);
+    tableDataRow.appendChild(tableDataQuantity);
+    tableDataRow.appendChild(tableDataPrice);
+    tableCart.appendChild(tableDataRow);
+
+    // Creating the Total Price under table
+    const subTotalPrice = document.createElement("p");
+    subTotalPrice.classList.add("totalPrice", "p-2");
+    subTotalPrice.innerHTML = "Sub-Total: R" + item.getPrice;
+
+    // Creating Delivery Fee
+    const delivery = document.createElement("p");
+    delivery.classList.add("totalPrice", "p-1");
+    delivery.innerHTML = "Delivery: R" + 90;
+
+    // Creating Total
+    const totalPrice = document.createElement("p");
+    totalPrice.classList.add("totalPrice", "p-1");
+    totalPrice.innerHTML = "Total: R" + (item.getPrice+90);
+
+    // Appending to myCart
+    mycart.appendChild(buttonClose);
+    mycart.appendChild(invoiceName);
+    mycart.appendChild(tableCart);
+    mycart.appendChild(subTotalPrice);
+    mycart.appendChild(delivery);
+    mycart.appendChild(totalPrice);
+
+    // The modal display
+    cartView.appendChild(mycart);
+    cartView.style.display = "block";
+
+
+}
+
+window.addEventListener('click', (event) => {
+    if (event.target == cartView) {
+        cartView.style.display = 'none';
+    }
+});
+
+
+// Add to cart button
+const addToCartButtons = document.querySelectorAll('.addToCart');
+addToCartButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        showCart(index);
+    });
+});
 
 
