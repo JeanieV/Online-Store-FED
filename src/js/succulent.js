@@ -3,7 +3,7 @@ console.log(data);
 
 // Class
 class Products {
-    constructor(productName, firstDescription, secondDescription, image, price, category) {
+    constructor(productName, firstDescription, secondDescription, image, price, category,count) {
         if (category === "Succulents") {
             this._productName = productName;
             this._firstDescription = firstDescription;
@@ -11,6 +11,7 @@ class Products {
             this._secondDescription = secondDescription;
             this._price = price;
             this._category = category;
+            this._count = count;
         }
     }
 
@@ -235,4 +236,15 @@ readMoreButtons.forEach((button, index) => {
         showModal(index);
     });
 });
+
+
+// Cart Section
+
+
+// Empty Cart Array
+let cartArray = [];
+
+
+
+
 
