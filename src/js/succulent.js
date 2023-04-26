@@ -185,6 +185,11 @@ function showModal(index) {
     buttonnew.setAttribute("id", "addToCart");
     buttonnew.innerHTML = "Add to Cart";
 
+    // When the button is clicked, the cart modal will show
+    buttonnew.addEventListener('click', () => {
+        showCart(index);
+    })
+
     // Column 2 inside
     mycolumn2.appendChild(unordered);
     mycolumn2.appendChild(headingthree);
@@ -245,6 +250,9 @@ readMoreButtons.forEach((button, index) => {
 // Empty Cart Array
 let cartArray = [];
 
+function saveCart() {
+    localStorage.setItem('showCart', JSON.stringify(cartArray));
+  }
 
 const cartView = document.getElementById("myModal");
 
@@ -329,12 +337,12 @@ function showCart(index) {
     // Creating the product quantity that will show in the table
     const tableDataQuantity = document.createElement("td");
     tableDataQuantity.classList.add("tableData");
-    tableDataQuantity.innerHTML = "1";
 
     // Creating the product price that will show in the table
     const tableDataPrice = document.createElement("td");
     tableDataPrice.classList.add("tableData");
     tableDataPrice.innerHTML = "R" + item.getPrice;
+
 
     // Appending to tableCart
     tableDataRow.appendChild(tableDataImage);
@@ -343,34 +351,93 @@ function showCart(index) {
     tableDataRow.appendChild(tableDataPrice);
     tableCart.appendChild(tableDataRow);
 
+
+    // Creating new table for Price and Delivery
+    const tableCart1 = document.createElement("table");
+    tableCart1.classList.add("table", "table-striped");
+
+    // Creating the table data
+    const tableDataRow1 = document.createElement("tr");
+    const tableDataRow2 = document.createElement("tr");
+    const tableDataRow3 = document.createElement("tr");
+
+    
     // Creating the Total Price under table
-    const subTotalPrice = document.createElement("p");
-    subTotalPrice.classList.add("totalPrice", "p-2");
+    const subTotalPrice = document.createElement("td");
+    subTotalPrice.classList.add("totalPrice1");
     subTotalPrice.innerHTML = "Sub-Total: R" + item.getPrice;
 
+    // Creating the quantity input
+    const quantityInput = document.createElement("input");
+    quantityInput.type = "number";
+    quantityInput.min = 1;
+    quantityInput.max = 100;
+    quantityInput.value = 1;
+    quantityInput.classList.add("quantity-input");
+
+    // This is where the price will be updated
+    function updatedPrice() {
+        const quantity = parseInt(quantityInput.value);
+        const subTotal = item.getPrice * quantity;
+
+        subTotalPrice.innerHTML = "Sub-Total: R" + subTotal;
+        totalPrice.innerHTML = "Total: R" + (subTotal + standardDelivery);
+    }
+
+    // Event listener for when the quantity changes
+    quantityInput.addEventListener('input', updatedPrice);
+
+    // Appending to the quantity in the table
+    tableDataQuantity.appendChild(quantityInput);
+
+    // This will display in the modal (even when quantity doesn't change)
+    const standardDelivery = 90;
+    const displayQuantity = parseInt(quantityInput.value);
+    const displaySubTotal = item.getPrice * displayQuantity;
+    subTotalPrice.innerHTML = "Sub-Total: R" + displaySubTotal;
+
+
     // Creating Delivery Fee
-    const delivery = document.createElement("p");
-    delivery.classList.add("totalPrice", "p-1");
-    delivery.innerHTML = "Delivery: R" + 90;
+    const delivery = document.createElement("td");
+    delivery.classList.add("totalPrice2");
+    delivery.innerHTML = "Standard Delivery: R" + standardDelivery;
 
     // Creating Total
-    const totalPrice = document.createElement("p");
-    totalPrice.classList.add("totalPrice", "p-1");
-    totalPrice.innerHTML = "Total: R" + (item.getPrice+90);
+    const totalPrice = document.createElement("td");
+    totalPrice.classList.add("totalPrice3");
+    totalPrice.innerHTML = "Total: R" + (displaySubTotal + standardDelivery);
+
+    // Creating the Go to Cart button inside the modal
+    const purchaseButton = document.createElement("button");
+    purchaseButton.classList.add("btn", "purchasebtn","p-2");
+    purchaseButton.innerHTML = "Purchase";
+
+    // When the button is clicked, the cart modal will not show
+    purchaseButton.addEventListener('click', () => {
+        alert("Thank you for shopping at Faan's Garden!\nPurchase successful!")
+        modalView.style.display = 'none';
+    })
+
+    // Appending data to each row in tableCart1
+    tableDataRow1.appendChild(subTotalPrice);
+    tableDataRow2.appendChild(delivery);
+    tableDataRow3.appendChild(totalPrice);
+
+    // Appending to the new table
+    tableCart1.appendChild(tableDataRow1);
+    tableCart1.appendChild(tableDataRow2);
+    tableCart1.appendChild(tableDataRow3);
 
     // Appending to myCart
     mycart.appendChild(buttonClose);
     mycart.appendChild(invoiceName);
     mycart.appendChild(tableCart);
-    mycart.appendChild(subTotalPrice);
-    mycart.appendChild(delivery);
-    mycart.appendChild(totalPrice);
+    mycart.appendChild(tableCart1);
+    mycart.appendChild(purchaseButton);
 
     // The modal display
     cartView.appendChild(mycart);
     cartView.style.display = "block";
-
-
 }
 
 window.addEventListener('click', (event) => {
@@ -388,4 +455,11 @@ addToCartButtons.forEach((button, index) => {
     });
 });
 
-
+// View the cart button
+const cartButton = document.querySelectorAll("#shoppingCart");
+cartButton.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        showCart(index);
+        
+    });
+});
