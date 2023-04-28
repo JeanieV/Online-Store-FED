@@ -3,7 +3,7 @@ console.log(data);
 
 // Class
 class Products {
-    constructor(productName, firstDescription, secondDescription, image, price, category, count) {
+    constructor(productName, firstDescription, secondDescription, image, price, category) {
         if (category === "Succulents") {
             this._productName = productName;
             this._firstDescription = firstDescription;
@@ -11,7 +11,6 @@ class Products {
             this._secondDescription = secondDescription;
             this._price = price;
             this._category = category;
-            this._count = count;
         }
     }
 
@@ -228,7 +227,7 @@ for (let i = 0; i < data.products.length; i++) {
     // Create an Product object and push it into the succulentArray
     if (data.products[i].category === "Succulents") {
         let product = new Products(data.products[i].productName, data.products[i].firstDescription, data.products[i].secondDescription, data.products[i].image, data.products[i].price, data.products[i].category)
-
+    
         succulentArray.push(product);
     }
 
@@ -250,9 +249,9 @@ readMoreButtons.forEach((button, index) => {
 // Empty Cart Array
 let cartArray = [];
 
-function saveCart() {
-    localStorage.setItem('showCart', JSON.stringify(cartArray));
-  }
+// function saveCart() {
+//     localStorage.setItem('showCart', JSON.stringify(cartArray));
+//   }
 
 const cartView = document.getElementById("myModal");
 
@@ -260,6 +259,11 @@ const cartView = document.getElementById("myModal");
 function showCart(index) {
 
     const item = succulentArray[index];
+    // Pushing the products into the cart array
+    cartArray.push(item);
+    console.log(cartArray);
+    // saveCart();
+
     //Clear the current modal before showing a new modal
     cartView.innerHTML = '';
 
@@ -310,6 +314,7 @@ function showCart(index) {
     tableHeadPrice.classList.add("tableHeadings");
     tableHeadPrice.innerHTML = "Price";
 
+
     // Appending to tableCart
     tableHeadRow.appendChild(tableHeadImage);
     tableHeadRow.appendChild(tableHeadProductName);
@@ -317,99 +322,175 @@ function showCart(index) {
     tableHeadRow.appendChild(tableHeadPrice);
     tableCart.appendChild(tableHeadRow);
 
-    // Creating the table data
-    const tableDataRow = document.createElement("tr");
-
-    // Creating the image that will show in the table
-    const tableDataImage = document.createElement("td");
-    tableDataImage.classList.add("tableData");
-    const image = document.createElement("img");
-    image.src = item.getImage;
-    image.alt = item.getProductName;
-    image.classList.add("cart-image");
-    tableDataImage.appendChild(image);
-
-    // Creating the product name that will shpw in the table
-    const tableDataProductName = document.createElement("td");
-    tableDataProductName.classList.add("tableData");
-    tableDataProductName.innerHTML = item.getProductName;
-
-    // Creating the product quantity that will show in the table
-    const tableDataQuantity = document.createElement("td");
-    tableDataQuantity.classList.add("tableData");
-
-    // Creating the product price that will show in the table
-    const tableDataPrice = document.createElement("td");
-    tableDataPrice.classList.add("tableData");
-    tableDataPrice.innerHTML = "R" + item.getPrice;
+    // This will add all the products in the modal, starting with 0
+    let subTotal = 0;
+    let total = 0;
 
 
-    // Appending to tableCart
-    tableDataRow.appendChild(tableDataImage);
-    tableDataRow.appendChild(tableDataProductName);
-    tableDataRow.appendChild(tableDataQuantity);
-    tableDataRow.appendChild(tableDataPrice);
-    tableCart.appendChild(tableDataRow);
+    cartArray.forEach((item) => {
+        // Creating the table data
+        const tableDataRow = document.createElement("tr");
+
+        // Creating the image that will show in the table
+        const tableDataImage = document.createElement("td");
+        tableDataImage.classList.add("tableData");
+        const image = document.createElement("img");
+        image.src = item.getImage;
+        image.alt = item.getProductName;
+        image.classList.add("cart-image");
+        tableDataImage.appendChild(image);
+
+        // Creating the product name that will shpw in the table
+        const tableDataProductName = document.createElement("td");
+        tableDataProductName.classList.add("tableData");
+        tableDataProductName.innerHTML = item.getProductName;
+
+        // Creating the product quantity that will show in the table
+        const tableDataQuantity = document.createElement("td");
+        tableDataQuantity.classList.add("tableData");
+        // Creating the quantity input
+        const quantityInput = document.createElement("input");
+        quantityInput.type = "number";
+        quantityInput.min = 1;
+        quantityInput.max = 100;
+        quantityInput.value = 1;
+        quantityInput.classList.add("quantity-input");
+        
 
 
-    // Creating new table for Price and Delivery
-    const tableCart1 = document.createElement("table");
-    tableCart1.classList.add("table", "table-striped");
-
-    // Creating the table data
-    const tableDataRow1 = document.createElement("tr");
-    const tableDataRow2 = document.createElement("tr");
-    const tableDataRow3 = document.createElement("tr");
-
+        // Add event listener to the quantity input
+        quantityInput.addEventListener("input", () => {
+            const newQuantity = parseInt(quantityInput.value);
+            const newPrice = "R" + (item.getPrice*newQuantity);
+            tableDataPrice.innerHTML = newPrice;
     
-    // Creating the Total Price under table
-    const subTotalPrice = document.createElement("td");
-    subTotalPrice.classList.add("totalPrice1");
-    subTotalPrice.innerHTML = "Sub-Total: R" + item.getPrice;
-
-    // Creating the quantity input
-    const quantityInput = document.createElement("input");
-    quantityInput.type = "number";
-    quantityInput.min = 1;
-    quantityInput.max = 100;
-    quantityInput.value = 1;
-    quantityInput.classList.add("quantity-input");
-
-    // This is where the price will be updated
-    function updatedPrice() {
-        const quantity = parseInt(quantityInput.value);
-        const subTotal = item.getPrice * quantity;
-
-        subTotalPrice.innerHTML = "Sub-Total: R" + subTotal;
-        totalPrice.innerHTML = "Total: R" + (subTotal + standardDelivery);
-    }
-
-    // Event listener for when the quantity changes
-    quantityInput.addEventListener('input', updatedPrice);
-
-    // Appending to the quantity in the table
-    tableDataQuantity.appendChild(quantityInput);
-
-    // This will display in the modal (even when quantity doesn't change)
-    const standardDelivery = 90;
-    const displayQuantity = parseInt(quantityInput.value);
-    const displaySubTotal = item.getPrice * displayQuantity;
-    subTotalPrice.innerHTML = "Sub-Total: R" + displaySubTotal;
+            subTotal = cartArray.reduce((total, item) => {
+                return total + (item.getPrice * newQuantity);
+            }, 0);
+            subTotal = subTotal.toFixed(2);
+            subTotalValue.innerHTML = "R" + subTotal;
+    
+            // update the total
+            total = cartArray.reduce((total, item) => {
+                return total + ((item.getPrice * newQuantity) + 90);
+            }, 0);
+            total = total.toFixed(2);
+            totalValue.innerHTML = "R" + total;
+        });
 
 
-    // Creating Delivery Fee
-    const delivery = document.createElement("td");
-    delivery.classList.add("totalPrice2");
-    delivery.innerHTML = "Standard Delivery: R" + standardDelivery;
+        // Appending to the quantity in the table
+        tableDataQuantity.appendChild(quantityInput);
 
-    // Creating Total
-    const totalPrice = document.createElement("td");
-    totalPrice.classList.add("totalPrice3");
-    totalPrice.innerHTML = "Total: R" + (displaySubTotal + standardDelivery);
+        // Creating the product price that will show in the table
+        const tableDataPrice = document.createElement("td");
+        tableDataPrice.classList.add("tableData");
+        tableDataPrice.innerHTML = "R" + item.getPrice;
+
+
+        // Creating the remove button that will delete the row
+        const removeRowButton = document.createElement("td");
+        removeRowButton.classList.add("tableData");
+        const bin = document.createElement("img");
+        bin.src = "/src/images/bin.gif";
+        bin.alt = "Remove"
+        bin.classList.add("cart-image-bin");
+        bin.setAttribute("id", "deleteRow")
+        removeRowButton.appendChild(bin);
+
+        // The function that will delete the row
+        function removeRow(event, index) {
+            const entry = event.target.parentNode.parentNode;
+            cartArray.splice(index, 1);
+            entry.remove();
+            // saveTasks();
+
+            subTotal = cartArray.reduce((total, item) => {
+                return total + (item.getPrice * newQuantity);
+            }, 0);
+            subTotal = subTotal.toFixed(2);
+            subTotalValue.innerHTML = "R" + subTotal;
+    
+            // update the total
+            total = cartArray.reduce((total, item) => {
+                return total + ((item.getPrice * newQuantity) + 90);
+            }, 0);
+            total = total.toFixed(2);
+            totalValue.innerHTML = "R" + total;
+        }
+
+        // When the user clicks on the image, the row will be deleted
+        bin.addEventListener('click', removeRow);
+
+        // Calculating the new quantity and price
+        let newQuantity = parseInt(quantityInput.value);
+        let newPrice = item.getPrice * newQuantity;
+        subTotal += newPrice;
+        total = subTotal + 90
+
+        // Appending to tableCart
+        tableDataRow.appendChild(tableDataImage);
+        tableDataRow.appendChild(tableDataProductName);
+        tableDataRow.appendChild(tableDataQuantity);
+        tableDataRow.appendChild(tableDataPrice);
+        tableDataRow.appendChild(removeRowButton);
+        tableCart.appendChild(tableDataRow);
+
+
+    });
+
+
+
+    // Creating the Sub Total row and label
+    const subTotalRow = document.createElement("tr");
+    const subTotalLabel = document.createElement("td");
+    subTotalLabel.classList.add("priceHeadings");
+    subTotalLabel.colSpan = 1;
+    subTotalLabel.textContent = "Sub-Total";
+
+    // Creating the value 
+    const subTotalValue = document.createElement("td");
+    subTotalValue.classList.add("tableData");
+    subTotalValue.textContent = "R" + subTotal.toFixed(2);
+    subTotalRow.appendChild(subTotalLabel);
+    subTotalRow.appendChild(subTotalValue);
+    tableCart.appendChild(subTotalRow);
+
+    // Creating the Delivery row and label
+    const deliveryRow = document.createElement("tr");
+    const deliveryLabel = document.createElement("td");
+    deliveryLabel.classList.add("priceHeadings");
+    deliveryLabel.colSpan = 1;
+    deliveryLabel.textContent = "Standard Delivery";
+
+    // Creating the value
+    const deliveryValue = document.createElement("td");
+    deliveryValue.classList.add("tableData");
+    deliveryValue.textContent = "R90.00";
+    deliveryRow.appendChild(deliveryLabel);
+    deliveryRow.appendChild(deliveryValue);
+    tableCart.appendChild(deliveryRow);
+
+
+    // Creating the Total row and label
+    const totalRow = document.createElement("tr");
+    const totalLabel = document.createElement("td");
+    totalLabel.classList.add("priceHeadings");
+    totalLabel.colSpan = 1;
+    totalLabel.textContent = "Total";
+
+    // Creating the value
+    const totalValue = document.createElement("td");
+    totalValue.classList.add("tableData");
+    totalValue.textContent = "R" + total.toFixed(2);
+    totalRow.appendChild(totalLabel);
+    totalRow.appendChild(totalValue);
+    tableCart.appendChild(totalRow);
+
 
     // Creating the Go to Cart button inside the modal
     const purchaseButton = document.createElement("button");
-    purchaseButton.classList.add("btn", "purchasebtn","p-2");
+    purchaseButton.classList.add("btn", "purchasebtn", "p-2");
     purchaseButton.innerHTML = "Purchase";
 
     // When the button is clicked, the cart modal will not show
@@ -418,27 +499,20 @@ function showCart(index) {
         modalView.style.display = 'none';
     })
 
-    // Appending data to each row in tableCart1
-    tableDataRow1.appendChild(subTotalPrice);
-    tableDataRow2.appendChild(delivery);
-    tableDataRow3.appendChild(totalPrice);
-
-    // Appending to the new table
-    tableCart1.appendChild(tableDataRow1);
-    tableCart1.appendChild(tableDataRow2);
-    tableCart1.appendChild(tableDataRow3);
 
     // Appending to myCart
     mycart.appendChild(buttonClose);
     mycart.appendChild(invoiceName);
     mycart.appendChild(tableCart);
-    mycart.appendChild(tableCart1);
     mycart.appendChild(purchaseButton);
+
 
     // The modal display
     cartView.appendChild(mycart);
     cartView.style.display = "block";
 }
+
+
 
 window.addEventListener('click', (event) => {
     if (event.target == cartView) {
@@ -449,17 +523,25 @@ window.addEventListener('click', (event) => {
 
 // Add to cart button
 const addToCartButtons = document.querySelectorAll('.addToCart');
+
 addToCartButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
         showCart(index);
+
+
     });
 });
 
+
 // View the cart button
-const cartButton = document.querySelectorAll("#shoppingCart");
-cartButton.forEach((button, index) => {
+const viewCartButton = document.querySelectorAll("#shoppingCart");
+
+viewCartButton.forEach((button, index) => {
     button.addEventListener('click', () => {
         showCart(index);
-        
+
     });
 });
+
+
+
