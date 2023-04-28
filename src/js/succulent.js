@@ -3,7 +3,7 @@ console.log(data);
 
 // Class
 class Products {
-    constructor(productName, firstDescription, secondDescription, image, price, category) {
+    constructor(productName, firstDescription, secondDescription, image, price, category, quantity) {
         if (category === "Succulents") {
             this._productName = productName;
             this._firstDescription = firstDescription;
@@ -11,6 +11,7 @@ class Products {
             this._secondDescription = secondDescription;
             this._price = price;
             this._category = category;
+            this._quantity = quantity;
         }
     }
 
@@ -32,6 +33,14 @@ class Products {
     }
     get getCategory() {
         return this._category;
+    }
+    get getQuantity() {
+        return this._quantity;
+    }
+
+    // Setters
+    set setQuantity(newQuantity) {
+        this._quantity = newQuantity;
     }
 
 }
@@ -226,8 +235,8 @@ for (let i = 0; i < data.products.length; i++) {
 
     // Create an Product object and push it into the succulentArray
     if (data.products[i].category === "Succulents") {
-        let product = new Products(data.products[i].productName, data.products[i].firstDescription, data.products[i].secondDescription, data.products[i].image, data.products[i].price, data.products[i].category)
-    
+        let product = new Products(data.products[i].productName, data.products[i].firstDescription, data.products[i].secondDescription, data.products[i].image, data.products[i].price, data.products[i].category, data.products[i].quantity)
+
         succulentArray.push(product);
     }
 
@@ -259,10 +268,12 @@ const cartView = document.getElementById("myModal");
 function showCart(index) {
 
     const item = succulentArray[index];
+    item.quantity = 1;
     // Pushing the products into the cart array
     cartArray.push(item);
     console.log(cartArray);
     // saveCart();
+
 
     //Clear the current modal before showing a new modal
     cartView.innerHTML = '';
@@ -355,29 +366,38 @@ function showCart(index) {
         quantityInput.max = 100;
         quantityInput.value = 1;
         quantityInput.classList.add("quantity-input");
-        
+
+
 
 
         // Add event listener to the quantity input
         quantityInput.addEventListener("input", () => {
+
             const newQuantity = parseInt(quantityInput.value);
-            const newPrice = "R" + (item.getPrice*newQuantity);
+            item.quantity = newQuantity;
+            const newPrice = "R" + (item.getPrice * newQuantity);
             tableDataPrice.innerHTML = newPrice;
-    
-            subTotal = cartArray.reduce((total, item) => {
-                return total + (item.getPrice * newQuantity);
-            }, 0);
+
+            let subTotal = 0
+            cartArray.forEach((item) => {
+                subTotal += item.getPrice * item.quantity;
+            });
             subTotal = subTotal.toFixed(2);
             subTotalValue.innerHTML = "R" + subTotal;
-    
+
             // update the total
-            total = cartArray.reduce((total, item) => {
-                return total + ((item.getPrice * newQuantity) + 90);
-            }, 0);
-            total = total.toFixed(2);
+            if (cartArray.length === 0) {
+                total = 0;
+            } else {
+                total = 0;
+                cartArray.forEach((item) => {
+                    total += (item.getPrice * item.quantity);
+                });
+                total += 90;
+                total = total.toFixed(2);
+            }
             totalValue.innerHTML = "R" + total;
         });
-
 
         // Appending to the quantity in the table
         tableDataQuantity.appendChild(quantityInput);
@@ -405,28 +425,39 @@ function showCart(index) {
             entry.remove();
             // saveTasks();
 
-            subTotal = cartArray.reduce((total, item) => {
-                return total + (item.getPrice * newQuantity);
-            }, 0);
+            let subTotal = 0
+            cartArray.forEach((item) => {
+                subTotal += item.getPrice * item.quantity;
+            });
             subTotal = subTotal.toFixed(2);
             subTotalValue.innerHTML = "R" + subTotal;
-    
+
             // update the total
-            total = cartArray.reduce((total, item) => {
-                return total + ((item.getPrice * newQuantity) + 90);
-            }, 0);
-            total = total.toFixed(2);
+
+            if (cartArray.length === 0) {
+                total = 0;
+            } else {
+                total = 0;
+                cartArray.forEach((item) => {
+                    total += (item.getPrice * item.quantity);
+                });
+                total += 90;
+                total = total.toFixed(2);
+                
+            }
             totalValue.innerHTML = "R" + total;
         }
 
         // When the user clicks on the image, the row will be deleted
         bin.addEventListener('click', removeRow);
 
+
         // Calculating the new quantity and price
-        let newQuantity = parseInt(quantityInput.value);
-        let newPrice = item.getPrice * newQuantity;
-        subTotal += newPrice;
-        total = subTotal + 90
+            let newQuantity = parseInt(quantityInput.value);
+            item.quantity = newQuantity;
+            let newPrice = item.getPrice * item.quantity;
+            subTotal += newPrice;
+            total = subTotal + 90
 
         // Appending to tableCart
         tableDataRow.appendChild(tableDataImage);
@@ -438,7 +469,6 @@ function showCart(index) {
 
 
     });
-
 
 
     // Creating the Sub Total row and label
@@ -512,8 +542,6 @@ function showCart(index) {
     cartView.style.display = "block";
 }
 
-
-
 window.addEventListener('click', (event) => {
     if (event.target == cartView) {
         cartView.style.display = 'none';
@@ -528,7 +556,12 @@ addToCartButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
         showCart(index);
 
-
+        //     for (let i = 0; i < cartArray.length; i++) {
+        //         if (cartArray[i].innerText == productName) {
+        //             alert('This item is already added to the cart')
+        //             return
+        //         }
+        // };
     });
 });
 
