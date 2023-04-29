@@ -366,3 +366,8 @@ ul {
     color: white;
     font-size: 15px;
 }
+
+.invoice-date {
+    text-align: center;
+    font-size: 21px;
+}

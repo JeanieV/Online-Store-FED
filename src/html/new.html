@@ -12,7 +12,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="/src/css/collections.css">
     <script src="/src/js/new.js" type="module" defer></script>
-    <title>Entire Collection </title>
+    <title>New Additions </title>
 </head>
 
 
@@ -57,8 +57,9 @@
                 <a class="navbar-brand titles" href="/src/html/contact.html"> Contact Us </a>
 
                 <!-- Checkout Page -->
-                <button id="shoppingCart" type="submit">
+                <button class="viewShoppingCart" type="submit">
                     <picture>
+                        <span class="cartProductCount"></span>
                         <img class="shoppingCartimg" src="/src/images/shopping.gif" alt="Shopping Cart"
                             title="Shopping Cart" attribution="https://www.flaticon.com/free-animated-icons/shop">
                     </picture>
@@ -70,7 +71,7 @@
         <h2> Shop our New Additions </h2>
 
         <!-- Modal that will show for every product (currently on hide)-->
-        <div id="myModal" class="modal">
+        <div id="myModal" class="modal modalCart">
             <span class="close">&times;</span>
         </div>
 

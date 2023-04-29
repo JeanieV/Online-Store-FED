@@ -11,7 +11,7 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="/src/css/contact.css">
-    <script src="/src/js/contact.js" defer></script>
+    <script src="/src/js/contact.js" type="module" defer></script>
     <title>Contact Page </title>
 </head>
 
@@ -57,8 +57,9 @@
                 <a class="navbar-brand titles" href="/src/html/contact.html"> Contact Us</a>
 
                 <!-- Checkout Page -->
-                <button id="shoppingCart" type="submit">
+                <button class="viewShoppingCart" type="submit">
                     <picture>
+                        <span class="cartProductCount"></span>
                         <img class="shoppingCartimg" src="/src/images/shopping.gif" alt="Shopping Cart"
                             title="Shopping Cart" attribution="https://www.flaticon.com/free-animated-icons/shop">
                     </picture>
@@ -68,6 +69,11 @@
 
 
         <!-- Contact Details -->
+
+        <!-- Shopping cart will show -->
+        <div id="myModal" class="modal modalCart">
+            <span class="close">&times;</span>
+        </div>
 
         <div class="container-fluid mb-3">
 

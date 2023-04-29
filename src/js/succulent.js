@@ -250,26 +250,13 @@ readMoreButtons.forEach((button, index) => {
 
 // Cart Section
 
-// Products will remain in the cart when the browser refreshes
-// window.onload = function() {
-//     loadCart();
-//   };
-
 
 // Empty Cart Array
 let cartArray = [];
 
-function saveCart() {
-    localStorage.setItem('showCart', JSON.stringify(cartArray));
-}
-
-// function loadCart() {
-//     const savedCart = localStorage.getItem('showCart');
-//     if (savedCart) {
-//       cartArray = JSON.parse(savedCart);
-//       showCart();
-//     }
-//   }
+// function saveCart() {
+//     localStorage.setItem('showCart', JSON.stringify(cartArray));
+// }
 
 
 const cartView = document.getElementById("myModal");
@@ -291,7 +278,6 @@ function showCart(index) {
     }
 
     console.log(cartArray);
-    saveCart();
 
 
     //Clear the current modal before showing a new modal
@@ -314,6 +300,17 @@ function showCart(index) {
     const invoiceName = document.createElement("h2");
     invoiceName.classList.add("heading2Modal", "pb-5");
     invoiceName.innerHTML = "Invoice";
+
+    // Creating a date for the invoice
+    const centerDiv1 = document.createElement('div');
+    centerDiv1.classList.add("col-md-12", "text-center")
+
+    const cartDate = document.createElement("p");
+    cartDate.innerHTML = "Date: " + new Date().toLocaleDateString();
+    cartDate.classList.add("invoice-date","pb-3");
+
+    // Appending the cartDate to the div
+    centerDiv1.appendChild(cartDate);
 
 
     // Creating the table
@@ -414,7 +411,6 @@ function showCart(index) {
                 total = total.toFixed(2);
             }
             totalValue.innerHTML = "R" + total;
-            saveCart();
             showProductCount();
         });
 
@@ -465,7 +461,6 @@ function showCart(index) {
                 showProductCount();
             }
             totalValue.innerHTML = "R" + total;
-            saveCart();
 
             showProductCount();
         }
@@ -551,7 +546,6 @@ function showCart(index) {
 
         cartView.style.display = 'none';
         emptyShoppingCart();
-        saveCart();
     })
 
     centerDiv.appendChild(purchaseButton);
@@ -559,6 +553,7 @@ function showCart(index) {
     // Appending to myCart
     mycart.appendChild(buttonClose);
     mycart.appendChild(invoiceName);
+    mycart.appendChild(centerDiv1);
     mycart.appendChild(tableCart);
     mycart.appendChild(centerDiv);
 
@@ -583,13 +578,6 @@ const addToCartButtons = document.querySelectorAll('.addToCart');
 addToCartButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
         showCart(index);
-
-        //     for (let i = 0; i < cartArray.length; i++) {
-        //         if (cartArray[i].innerText == item.productName) {
-        //             alert('This item is already added to the cart')
-        //             return
-        //         }
-        // };
     });
 });
 
@@ -606,8 +594,6 @@ viewCartButton.addEventListener('click', () => {
     } else {
         cartView.style.display = 'block';
     }
-
-    saveCart();
 });
 
 
@@ -678,7 +664,6 @@ function emptyShoppingCart() {
     // The modal display
     cartView.appendChild(mycart);
     cartView.style.display = "block";
-    saveCart();
 
 }
 

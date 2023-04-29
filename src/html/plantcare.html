@@ -56,8 +56,9 @@
                 <a class="navbar-brand titles" href="/src/html/contact.html"> Contact Us</a>
 
                 <!-- Checkout Page -->
-                <button id="shoppingCart" type="submit">
+                <button class="viewShoppingCart" type="submit">
                     <picture>
+                        <span class="cartProductCount"></span>
                         <img class="shoppingCartimg" src="/src/images/shopping.gif" alt="Shopping Cart"
                             title="Shopping Cart" attribution="https://www.flaticon.com/free-animated-icons/shop">
                     </picture>
@@ -70,9 +71,10 @@
         <h2> Shop our Plant Care Collection </h2>
 
         <!-- Modal that will show for every product (currently on hide)-->
-        <div id="myModal" class="modal">
+        <div id="myModal" class="modal modalCart">
             <span class="close">&times;</span>
         </div>
+
 
         <div>
             <div class="row mx-1">
