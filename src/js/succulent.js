@@ -3,7 +3,7 @@ console.log(data);
 
 // Class
 class Products {
-    constructor(productName, firstDescription, secondDescription, image, price, category, quantity) {
+    constructor(productName, firstDescription, secondDescription, image, price, category) {
         if (category === "Succulents") {
             this._productName = productName;
             this._firstDescription = firstDescription;
@@ -11,7 +11,6 @@ class Products {
             this._secondDescription = secondDescription;
             this._price = price;
             this._category = category;
-            this._quantity = quantity;
         }
     }
 
@@ -34,16 +33,11 @@ class Products {
     get getCategory() {
         return this._category;
     }
-    get getQuantity() {
-        return this._quantity;
-    }
-
-    // Setters
-    set setQuantity(newQuantity) {
-        this._quantity = newQuantity;
-    }
-
 }
+
+
+// Modal Section
+
 const modalView = document.getElementById("myModal");
 
 function showModal(index) {
@@ -235,7 +229,7 @@ for (let i = 0; i < data.products.length; i++) {
 
     // Create an Product object and push it into the succulentArray
     if (data.products[i].category === "Succulents") {
-        let product = new Products(data.products[i].productName, data.products[i].firstDescription, data.products[i].secondDescription, data.products[i].image, data.products[i].price, data.products[i].category, data.products[i].quantity)
+        let product = new Products(data.products[i].productName, data.products[i].firstDescription, data.products[i].secondDescription, data.products[i].image, data.products[i].price, data.products[i].category)
 
         succulentArray.push(product);
     }
@@ -253,14 +247,30 @@ readMoreButtons.forEach((button, index) => {
 
 
 
+
 // Cart Section
+
+// Products will remain in the cart when the browser refreshes
+// window.onload = function() {
+//     loadCart();
+//   };
+
 
 // Empty Cart Array
 let cartArray = [];
 
-// function saveCart() {
-//     localStorage.setItem('showCart', JSON.stringify(cartArray));
+function saveCart() {
+    localStorage.setItem('showCart', JSON.stringify(cartArray));
+}
+
+// function loadCart() {
+//     const savedCart = localStorage.getItem('showCart');
+//     if (savedCart) {
+//       cartArray = JSON.parse(savedCart);
+//       showCart();
+//     }
 //   }
+
 
 const cartView = document.getElementById("myModal");
 
@@ -269,10 +279,19 @@ function showCart(index) {
 
     const item = succulentArray[index];
     item.quantity = 1;
-    // Pushing the products into the cart array
-    cartArray.push(item);
+
+    const existingProduct = cartArray.findIndex(cartItem => cartItem.getProductName === item.getProductName);
+
+    if (existingProduct >= 0) {
+        // If the product is already in the cart, show an alert message and view cart
+        alert("You've already added this product to the cart!\nKindly see your cart with the item in it");
+    } else {
+        // Otherwise, add the item to the cart
+        cartArray.push(item);
+    }
+
     console.log(cartArray);
-    // saveCart();
+    saveCart();
 
 
     //Clear the current modal before showing a new modal
@@ -339,6 +358,7 @@ function showCart(index) {
 
 
     cartArray.forEach((item) => {
+
         // Creating the table data
         const tableDataRow = document.createElement("tr");
 
@@ -367,9 +387,6 @@ function showCart(index) {
         quantityInput.value = 1;
         quantityInput.classList.add("quantity-input");
 
-
-
-
         // Add event listener to the quantity input
         quantityInput.addEventListener("input", () => {
 
@@ -397,6 +414,8 @@ function showCart(index) {
                 total = total.toFixed(2);
             }
             totalValue.innerHTML = "R" + total;
+            saveCart();
+            showProductCount();
         });
 
         // Appending to the quantity in the table
@@ -443,21 +462,23 @@ function showCart(index) {
                 });
                 total += 90;
                 total = total.toFixed(2);
-                
+                showProductCount();
             }
             totalValue.innerHTML = "R" + total;
+            saveCart();
+
+            showProductCount();
         }
 
         // When the user clicks on the image, the row will be deleted
         bin.addEventListener('click', removeRow);
 
-
         // Calculating the new quantity and price
-            let newQuantity = parseInt(quantityInput.value);
-            item.quantity = newQuantity;
-            let newPrice = item.getPrice * item.quantity;
-            subTotal += newPrice;
-            total = subTotal + 90
+        let newQuantity = parseInt(quantityInput.value);
+        item.quantity = newQuantity;
+        let newPrice = item.getPrice * item.quantity;
+        subTotal += newPrice;
+        total = subTotal + 90
 
         // Appending to tableCart
         tableDataRow.appendChild(tableDataImage);
@@ -466,8 +487,6 @@ function showCart(index) {
         tableDataRow.appendChild(tableDataPrice);
         tableDataRow.appendChild(removeRowButton);
         tableCart.appendChild(tableDataRow);
-
-
     });
 
 
@@ -517,6 +536,9 @@ function showCart(index) {
     totalRow.appendChild(totalValue);
     tableCart.appendChild(totalRow);
 
+    // Creating a container div for the button
+    const centerDiv = document.createElement('div');
+    centerDiv.classList.add("col-md-12", "text-center", "py-5");
 
     // Creating the Go to Cart button inside the modal
     const purchaseButton = document.createElement("button");
@@ -525,21 +547,27 @@ function showCart(index) {
 
     // When the button is clicked, the cart modal will not show
     purchaseButton.addEventListener('click', () => {
-        alert("Thank you for shopping at Faan's Garden!\nPurchase successful!")
-        modalView.style.display = 'none';
+        alert("Thank you for shopping at Faan's Garden!\nPurchase successful!");
+
+        cartView.style.display = 'none';
+        emptyShoppingCart();
+        saveCart();
     })
 
+    centerDiv.appendChild(purchaseButton);
 
     // Appending to myCart
     mycart.appendChild(buttonClose);
     mycart.appendChild(invoiceName);
     mycart.appendChild(tableCart);
-    mycart.appendChild(purchaseButton);
+    mycart.appendChild(centerDiv);
 
 
     // The modal display
     cartView.appendChild(mycart);
     cartView.style.display = "block";
+
+    showProductCount();
 }
 
 window.addEventListener('click', (event) => {
@@ -557,7 +585,7 @@ addToCartButtons.forEach((button, index) => {
         showCart(index);
 
         //     for (let i = 0; i < cartArray.length; i++) {
-        //         if (cartArray[i].innerText == productName) {
+        //         if (cartArray[i].innerText == item.productName) {
         //             alert('This item is already added to the cart')
         //             return
         //         }
@@ -566,15 +594,99 @@ addToCartButtons.forEach((button, index) => {
 });
 
 
+showProductCount();
+
 // View the cart button
-const viewCartButton = document.querySelectorAll("#shoppingCart");
+const viewCartButton = document.querySelector(".viewShoppingCart");
 
-viewCartButton.forEach((button, index) => {
-    button.addEventListener('click', () => {
-        showCart(index);
+viewCartButton.addEventListener('click', () => {
+    console.log(viewCartButton);
+    if (cartArray.length === 0) {
+        emptyShoppingCart();
+    } else {
+        cartView.style.display = 'block';
+    }
 
-    });
+    saveCart();
 });
 
 
+// When the user clicks on the shopping cart button on every page
 
+function emptyShoppingCart() {
+    showProductCount();
+    //Clear the current modal before showing a new modal
+    cartView.innerHTML = '';
+
+    // Creating constants that will show the modal for every product
+    const mycart = document.createElement("div");
+    mycart.classList.add("content-cart", "mx-5", "mt-5");
+
+    //Creating the close button on the modal
+    const buttonClose = document.createElement("span");
+    buttonClose.classList.add("close", "p-2");
+    buttonClose.innerHTML = "&times";
+
+    buttonClose.addEventListener("click", () => {
+        cartView.style.display = 'none';
+    });
+
+    // Creating the Heading
+    const invoiceName = document.createElement("h2");
+    invoiceName.classList.add("heading2Modal", "pb-2");
+    invoiceName.innerHTML = "Invoice";
+
+    // Creating a date for the invoice
+    const centerDiv1 = document.createElement('div');
+    centerDiv1.classList.add("col-md-12", "text-center")
+
+    const cartDate = document.createElement("p");
+    cartDate.innerHTML = "Date: " + new Date().toLocaleDateString();
+    cartDate.classList.add("invoice-date");
+
+    // Appending the cartDate to the div
+    centerDiv1.appendChild(cartDate);
+
+    // Creating the paragraph
+    const newparagraph = document.createElement("p");
+    newparagraph.classList.add("tableData");
+    newparagraph.innerHTML = `Your shopping cart is currently empty. <br> Kindly click on the button below to start your shopping journey!`
+
+    const centerDiv = document.createElement('div');
+    centerDiv.classList.add("col-md-12", "text-center", "py-5");
+
+    // Creating the Go to Cart button inside the modal
+    const shoppingButton = document.createElement("button");
+    shoppingButton.classList.add("btn", "purchasebtn", "p-2");
+    shoppingButton.innerHTML = "Continue shopping";
+
+    shoppingButton.addEventListener('click', () => {
+        cartView.style.display = 'none';
+        showProductCount();
+
+    })
+
+    centerDiv.appendChild(shoppingButton)
+    // Appending to the cart
+    mycart.appendChild(buttonClose);
+    mycart.appendChild(invoiceName);
+    mycart.appendChild(centerDiv1);
+    mycart.appendChild(newparagraph);
+    mycart.appendChild(centerDiv);
+
+
+    // The modal display
+    cartView.appendChild(mycart);
+    cartView.style.display = "block";
+    saveCart();
+
+}
+
+function showProductCount() {
+    // Where to display products in cart 
+    const cartItemCount = document.querySelector('.cartProductCount');
+
+    // Set the text content of the button to show the number of items in the cart
+    cartItemCount.textContent = `Shopping Cart (${cartArray.length})`;
+    cartItemCount.classList.add("titles1");
+}

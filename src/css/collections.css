@@ -42,7 +42,7 @@ h1 {
     border-radius: 10px;
 }
 
-.shoppingCart {
+.viewShoppingCart {
     width: min-content;
     background-color: transparent;
     border: none;
@@ -50,7 +50,7 @@ h1 {
 
 /* Animation for buttons*/
 
-.shoppingCart:hover,
+.viewShoppingCart:hover,
 .shoppingCartimg:hover {
     animation-name: buttonsGif;
     animation-duration: 2s;
@@ -359,4 +359,10 @@ ul {
     background-color: #3D550C;
     color: white;
     text-align: center;
+    font-size: 20px;
+}
+
+.titles1 {
+    color: white;
+    font-size: 15px;
 }
