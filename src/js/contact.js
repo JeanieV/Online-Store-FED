@@ -522,7 +522,7 @@ function showCart(index) {
 
     // Creating the value 
     const subTotalValue = document.createElement("td");
-    subTotalValue.classList.add("tableData");
+    subTotalValue.classList.add("tableData1");
     subTotalValue.textContent = "R" + subTotal.toFixed(2);
     subTotalRow.appendChild(subTotalLabel);
     subTotalRow.appendChild(subTotalValue);
@@ -537,7 +537,7 @@ function showCart(index) {
 
     // Creating the value
     const deliveryValue = document.createElement("td");
-    deliveryValue.classList.add("tableData");
+    deliveryValue.classList.add("tableData1");
     deliveryValue.textContent = "R90.00";
     deliveryRow.appendChild(deliveryLabel);
     deliveryRow.appendChild(deliveryValue);
@@ -553,7 +553,7 @@ function showCart(index) {
 
     // Creating the value
     const totalValue = document.createElement("td");
-    totalValue.classList.add("tableData");
+    totalValue.classList.add("tableData1");
     totalValue.textContent = "R" + total.toFixed(2);
     totalRow.appendChild(totalLabel);
     totalRow.appendChild(totalValue);
@@ -696,11 +696,9 @@ function emptyShoppingCart() {
 
 }
 
+// Function to show the number of products in the shopping cart
 function showProductCount() {
-    // Where to display products in cart 
     const cartItemCount = document.querySelector('.cartProductCount');
-
-    // Set the text content of the button to show the number of items in the cart
     cartItemCount.textContent = `Shopping Cart (${cartArray.length})`;
     cartItemCount.classList.add("titles1");
 }

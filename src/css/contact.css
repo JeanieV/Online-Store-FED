@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-image: url("/src/images/greenbush.jpg");
     font-family: Georgia;
@@ -22,7 +26,7 @@ h1 {
 
 .titles {
     color: white;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .titles:hover {
@@ -287,7 +291,14 @@ input[type=time] {
     font-size: 21px;
 }
 
+.tableData1 {
+    border-top: solid 1px #888;
+    text-align: center;
+    font-size: 21px;
+}
+
 .priceHeadings {
+    border-top: solid 1px #888;
     text-align: right;
     font-size: 25px;
     color: #3D550C;

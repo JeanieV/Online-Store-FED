@@ -480,7 +480,7 @@ function showCart(index) {
 
     // Creating the value 
     const subTotalValue = document.createElement("td");
-    subTotalValue.classList.add("tableData");
+    subTotalValue.classList.add("tableData1");
     subTotalValue.textContent = "R" + subTotal.toFixed(2);
     subTotalRow.appendChild(subTotalLabel);
     subTotalRow.appendChild(subTotalValue);
@@ -495,7 +495,7 @@ function showCart(index) {
 
     // Creating the value
     const deliveryValue = document.createElement("td");
-    deliveryValue.classList.add("tableData");
+    deliveryValue.classList.add("tableData1");
     deliveryValue.textContent = "R90.00";
     deliveryRow.appendChild(deliveryLabel);
     deliveryRow.appendChild(deliveryValue);
@@ -511,7 +511,7 @@ function showCart(index) {
 
     // Creating the value
     const totalValue = document.createElement("td");
-    totalValue.classList.add("tableData");
+    totalValue.classList.add("tableData1");
     totalValue.textContent = "R" + total.toFixed(2);
     totalRow.appendChild(totalLabel);
     totalRow.appendChild(totalValue);
@@ -654,11 +654,60 @@ function emptyShoppingCart() {
 
 }
 
-function showProductCount() {
-    // Where to display products in cart 
+// Function to show the number of products in the shopping cart
+function showProductCount() { 
     const cartItemCount = document.querySelector('.cartProductCount');
-
-    // Set the text content of the button to show the number of items in the cart
     cartItemCount.textContent = `Shopping Cart (${cartArray.length})`;
     cartItemCount.classList.add("titles1");
+}
+
+
+//The products will be sorted automatically in alphabetical order
+const sortButtonAlphabetically = document.querySelector(".alphabetically");
+sortButtonAlphabetically.addEventListener('click', sortProducts);
+
+function sortProducts() {
+
+    const cardsAlphabetically = Array.from(document.querySelectorAll('.homeCard'));
+    cardsAlphabetically.sort((a, b) => {
+        const titleA = a.querySelector('h4').textContent;
+        const titleB = b.querySelector('h4').textContent;
+        return titleA.localeCompare(titleB);
+    });
+
+    const containerAlphabetically = document.querySelector('.allCards');
+    containerAlphabetically.innerHTML = '';
+    cardsAlphabetically.forEach(cardsAlphabetically => containerAlphabetically.appendChild(cardsAlphabetically));
+}
+
+//The products price will be sorted from low to high
+const sortButtonlowToHigh = document.querySelector(".lowToHigh");
+sortButtonlowToHigh.addEventListener('click', sortProductsLow);
+
+function sortProductsLow() {
+    const cardsLow = Array.from(document.querySelectorAll('.homeCard'));
+    cardsLow.sort((a, b) => {
+        const priceA = Number(a.querySelector('.card-text').getAttribute('data-price'));
+        const priceB = Number(b.querySelector('.card-text').getAttribute('data-price'));
+        return priceA - priceB;
+    });
+    const containerLow = document.querySelector('.allCards');
+    containerLow.innerHTML = '';
+    cardsLow.forEach(cardsLow => containerLow.appendChild(cardsLow));
+}
+
+//The products price will be sorted from high to low
+const sortButtonHighToLow = document.querySelector(".highToLow");
+sortButtonHighToLow.addEventListener('click', sortProductsHigh);
+
+function sortProductsHigh() {
+    const cardsHigh = Array.from(document.querySelectorAll('.homeCard'));
+    cardsHigh.sort((a, b) => {
+        const priceA = Number(a.querySelector('.card-text').getAttribute('data-price'));
+        const priceB = Number(b.querySelector('.card-text').getAttribute('data-price'));
+        return priceB - priceA;
+    });
+    const containerHigh = document.querySelector('.allCards');
+    containerHigh.innerHTML = '';
+    cardsHigh.forEach(cardsHigh => containerHigh.appendChild(cardsHigh));
 }

@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #ECF87F;
     font-family: Georgia;
@@ -27,7 +31,7 @@ h1 {
 
 .titles {
     color: white;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .titles:hover {
@@ -121,6 +125,14 @@ ul {
     background-color: #3D550C;
     color: white;
 }
+
+.succulentCard1 {
+    background-color: #3D550C;
+    color: white;
+    font-size: 19px;
+}
+
+
 
 /* Succulent Collection */
 .succulent1 {
@@ -341,11 +353,18 @@ ul {
     font-size: 21px;
 }
 
+.tableData1 {
+    border-top: solid 1px #888;
+    text-align: center;
+    font-size: 21px;
+}
+
 .priceHeadings {
     text-align: right;
     font-size: 25px;
     color: #3D550C;
     padding: 15px;
+    border-top: solid 1px #888;
 }
 
 .quantity-input {
@@ -370,4 +389,8 @@ ul {
 .invoice-date {
     text-align: center;
     font-size: 21px;
+}
+
+.buttons {
+    text-align: center;
 }
