@@ -60,3 +60,37 @@ When you click on the Shopping Cart Button (which is currently empty) you will s
 
 
 For the purposes of this README file, we will focus on the Succulent Page. The exact same can be done on any of the other pages.
+
+You will see that you can sort the products in the current section (Succulent) alphabetically, prices from low to high and lastly prices from high to low.
+
+![succulent_2](https://user-images.githubusercontent.com/115072704/236027635-d130b654-9550-4a7e-a0a1-56271be7f341.png)
+
+After you clicked on the 'Read More' button, you will be able to see more information regarding the product. This can be done for any of the products in the store.
+You will be able to zoom in on the image by hovering over the image marked "1" where the output will be in the image marked "2". The 'Add to Cart' button will add your product in the cart and show you your current invoice.
+
+![readmore_1](https://user-images.githubusercontent.com/115072704/236029621-44381f78-0a09-43d8-bf13-9155702f0cff.png)
+![readmore_2](https://user-images.githubusercontent.com/115072704/236029956-7cbc17e5-57f1-461f-93eb-f94446808279.png)
+
+This is your Invoice. 
+Please note the following:
+- The product information is showed as well as the price for the product.
+- '1' indicates the Sub-Total for the product added.
+- '2' indicates the Standard Delivery Fee of R90 on all orders.
+- '3' indicates the Total for the product added where delivery is included.
+- '4' indicates the quantity of the product. You can change it according to your needs.
+- '5' indicates the delete button, where if you wish to remove the product, it will be deleted from your cart.
+
+![invoice](https://user-images.githubusercontent.com/115072704/236031777-0b7a6570-7dd4-45c2-8a18-c9fbe8bbf091.png)
+
+
+If you wish to purchase the product, you can click on the 'Purchase' button and you will receive this message where your cart will be cleared afterwards.
+![purchase](https://user-images.githubusercontent.com/115072704/236032883-2bd3704e-005a-403a-9e7c-d327ece3d03d.png)
+![invoice_2](https://user-images.githubusercontent.com/115072704/236032951-0c698cc0-76cc-40e9-b024-47e9e2c5833c.png)
+
+
+Notice that the more products you add to the cart, the number on the actual shopping card changes accordingly? The Sub-Total and Total amount also updates the more products you add to your shopping cart with the quantities.
+
+
+If you've already added a specific product to your shopping cart, you will receive this message where you will view the actual product in your cart again.
+
+![added_1](https://user-images.githubusercontent.com/115072704/236034637-5f6a40dc-091f-438d-9d48-771cfa166814.png)
