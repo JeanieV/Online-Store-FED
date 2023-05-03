@@ -374,3 +374,184 @@ h2 {
     text-align: center;
     font-size: 21px;
 }
+
+/*Media Queries Below*/
+
+@media only screen and (min-width: 200px) and (max-width: 319px) {
+    body {
+        overflow-x: hidden;
+    }
+    .jumbo {
+        height: 50vh;
+        width: 100vw;
+    }
+    h1 {
+        font-size: 30px;
+    }
+    .gardenQuote {
+        font-size: 15px;
+    }
+    .titles {
+        font-size: 15px;
+    }
+    h3 {
+        font-size: 25px;
+    }
+    .story {
+        text-align: center;
+        font-size: 15px;
+    }
+    .team {
+        width: 200px;
+        height: 200px;
+    }
+    .teaminfo {
+        text-align: center;
+        font-size: 15px;
+    }
+    .shoppingCartimg {
+        width: 25px;
+        
+    }
+    h2 {
+        font-size: 20px;
+    }
+    .heading2Modal {
+        font-size: 20px;
+    }
+    .modal {
+        width: 100vw;
+        height: 100vh;
+    }
+    .modal-content {
+        width: 90vw;
+    }
+    .close {
+        font-size: 20px;
+    }
+    .content-cart {
+        width: 50vw;
+    }
+    .cart-image {
+        width: 120px;
+        height: 130px;
+    }
+    .cart-image-bin {
+        width: 40px;
+        height: 40px;
+    }
+    .tableHeadings {
+        font-size: 20px;
+    }
+    .tableData {
+        font-size: 10px;
+    }
+    .tableData1 {
+        font-size: 15px;
+    }
+    .priceHeadings {
+        font-size: 15px;
+    }
+    .quantity-input {
+        font-size: 5px;
+    }
+    .purchasebtn {
+        font-size: 10px;
+    }
+    .titles1 {
+        font-size: 10px;
+    }
+    .invoice-date {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px){
+    body {
+        overflow-x: hidden;
+    }
+    .jumbo {
+        height: 40vh;
+        width: 100vw;
+    }
+    h1 {
+        font-size: 50px;
+    }
+    .gardenQuote {
+        font-size: 15px;
+    }
+    .titles {
+        font-size: 17px;
+    }
+    h3 {
+        font-size: 30px;
+    }
+    .story {
+        font-size: 15px;
+    }
+    .team {
+        width: 200px;
+        height: 200px;
+    }
+    .teaminfo {
+        font-size: 15px;
+    }
+    .shoppingCartimg {
+        width: 30px;
+    }
+    h2 {
+        font-size: 25px;
+    }
+    .heading2Modal {
+        font-size: 25px;
+    }
+    .modal {
+        width: 100vw;
+        height: 100vh;
+    }
+    .modal-content {
+        width: 100vw;
+    }
+    .close {
+        font-size: 20px;
+    }
+    .content-cart {
+        width: 50vw;
+    }
+    .cart-image {
+        width: 120px;
+        height: 130px;
+    }
+    .cart-image-bin {
+        width: 40px;
+        height: 40px;
+    }
+    .tableHeadings {
+        font-size: 20px;
+    }
+    .tableData {
+        font-size: 10px;
+    }
+    .tableData1 {
+        font-size: 15px;
+    }
+    .priceHeadings {
+        font-size: 15px;
+    }
+    .quantity-input {
+        font-size: 5px;
+    }
+    .purchasebtn {
+        font-size: 10px;
+    }
+    .titles1 {
+        font-size: 17px;
+    }
+    .invoice-date {
+        font-size: 10px;
+    }
+}
+/* @media only screen and (min-width: 481px) and (max-width: 768px)  */
+/* @media only screen and (min-width: 769px) and (max-width: 1024px) */
+/* @media only screen and (min-width: 1025px) and (max-width: 1200px) */
+/* @media only screen and (min-width: 1201px) */

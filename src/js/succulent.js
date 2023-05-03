@@ -285,6 +285,7 @@ function showCart(index) {
 
     if (existingProduct >= 0) {
         // If the product is already in the cart, show an alert message and view cart
+        
         alert("You've already added this product to the cart!\nKindly see your cart with the item in it");
         cartView.style.display = 'block'
     } else {
@@ -396,12 +397,12 @@ function showCart(index) {
                 const oldQuantity = item.quantity;
                 const newQuantity = parseInt(quantityInput.value);
                 item.quantity = newQuantity;
-                tableDataPrice.innerHTML = "R" + (item.getPrice * item.quantity);
+                tableDataPrice.innerHTML = "R" + (item.getPrice * newQuantity);
 
                 // Recalculate subtotal and total for all items in the cart
                 subTotal = 0;
                 cartArray.forEach(item => {
-                    subTotal += item.getPrice * newQuantity;
+                    subTotal += item.getPrice * item.quantity;
                 });
                 total = subTotal + 90;
 
@@ -548,7 +549,7 @@ function showCart(index) {
 
     // Calling the showProductCount()
     showProductCount();
-    
+
 }
 
 
@@ -684,21 +685,22 @@ function shoppingCartButton() {
                     const oldQuantity = item.quantity;
                     const newQuantity = parseInt(quantityInput.value);
                     item.quantity = newQuantity;
-                    tableDataPrice.innerHTML = "R" + (item.getPrice * item.quantity);
-    
+                    tableDataPrice.innerHTML = "R" + (item.getPrice * newQuantity);
+
                     // Recalculate subtotal and total for all items in the cart
                     subTotal = 0;
                     cartArray.forEach(item => {
-                        subTotal += item.getPrice * newQuantity;
+                        subTotal += item.getPrice * item.quantity;
                     });
                     total = subTotal + 90;
-    
+
                     // Update subtotal and total in the table
                     subTotalValue.innerHTML = "R" + subTotal.toFixed(2);
                     totalValue.innerHTML = "R" + total.toFixed(2);
-    
+
                     updateCart();
                 });
+
                 // Appending to the quantity in the table
                 tableDataQuantity.appendChild(quantityInput);
 
