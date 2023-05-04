@@ -48,10 +48,11 @@ When you click on the About Us Page, you will see our 'Story', 'Vision Statement
 ![about_1](https://user-images.githubusercontent.com/115072704/236021791-cc1c8bd0-a8c5-4574-a5c9-eaa38ace95cc.png)
 
 
-When clicking on the Contact Page, you will see a live Map of our physical store, a form where you can send us your details where we should contact you and if you scroll down you will see our contact details.
+When clicking on the Contact Page, you will see a live Map of our physical store, a form where you can send us your details where we should contact you and if you scroll down you will see our contact details. If you click on the Gmail button, you can send us a direct email.
 
 ![contact_1](https://user-images.githubusercontent.com/115072704/236025207-f803e558-66c2-4407-a6fa-27a358c327d7.png)
-![contact_2](https://user-images.githubusercontent.com/115072704/236025524-920e8058-fa8e-40a6-b16f-71318e93220b.png)
+![contact_2](https://user-images.githubusercontent.com/115072704/236192330-b7dea38c-acc1-4a20-8116-cecba7eb25df.png)
+
 
 
 When you click on the Shopping Cart Button (which is currently empty) you will see an empty invoice with a button to direct you to view our products.
