@@ -397,9 +397,809 @@ ul {
 
 
 /*Media Queries Below*/
-/* @media only screen and (min-width: 200px) and (max-width: 319px)  */
-/* @media only screen and (min-width: 320px) and (max-width: 480px) */
-/* @media only screen and (min-width: 481px) and (max-width: 768px)  */
-/* @media only screen and (min-width: 769px) and (max-width: 1024px) */
-/* @media only screen and (min-width: 1025px) and (max-width: 1200px) */
-/* @media only screen and (min-width: 1201px) */
+@media only screen and (min-width: 200px) and (max-width: 319px) {
+    .jumbo {
+        height: 20vh;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .titles {
+        font-size: 10px;
+    }
+
+    .shoppingCartimg {
+        width: 25px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    .heading2Modal {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 15px;
+    }
+
+    ul {
+        font-size: 10px;
+    }
+
+    .homeCard {
+        width: 250px;
+        height: 430px;
+    }
+
+    .succulentCard {
+        font-size: 10px;
+    }
+
+    .succulentCard1 {
+        font-size: 10px;
+        margin: 5px;
+    }
+
+    .modal {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .modal-content {
+        width: 80vw;
+    }
+
+    .close {
+        font-size: 20px;
+    }
+
+    .succulentModal {
+        width: 150px;
+        height: 160px;
+    }
+
+    .img-zoom-container {
+        position: relative;
+        display: flex;
+    }
+
+    .img-zoom-lens {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+    }
+
+    .img-zoom-result {
+        width: 80px;
+        height: 100px;
+        display: block;
+        position: relative;
+        margin-left: 10px;
+    }
+
+    .column {
+        text-align: center;
+        width: 100%;
+    }
+
+    .content-cart {
+        width: 100vw;
+        margin: 0;
+    }
+
+    .cart-image {
+        width: 50px;
+        height: 60px;
+    }
+
+    .cart-image-bin {
+        width: 50px;
+        height: 50px;
+    }
+
+    .tableHeadings {
+        font-size: 12px;
+    }
+
+    .tableData {
+        font-size: 10px;
+    }
+
+    .tableData1 {
+        font-size: 10px;
+    }
+
+    .priceHeadings {
+        font-size: 15px;
+    }
+
+    .quantity-input {
+        font-size: 10px;
+    }
+
+    .purchasebtn {
+        font-size: 10px;
+    }
+
+    .titles1 {
+        font-size: 10px;
+    }
+
+    .invoice-date {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .jumbo {
+        height: 20vh;
+    }
+
+    h1 {
+        font-size: 35px;
+    }
+
+    .titles {
+        font-size: 12px;
+    }
+
+    .shoppingCartimg {
+        width: 25px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    .heading2Modal {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 15px;
+    }
+
+    ul {
+        font-size: 10px;
+    }
+
+    .homeCard {
+        width: 250px;
+        height: 430px;
+    }
+
+    .succulentCard {
+        font-size: 10px;
+    }
+
+    .succulentCard1 {
+        font-size: 10px;
+        margin: 5px;
+    }
+
+    .modal {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .modal-content {
+        width: 80vw;
+    }
+
+    .close {
+        font-size: 20px;
+    }
+
+    .succulentModal {
+        width: 150px;
+        height: 160px;
+    }
+
+    .img-zoom-container {
+        position: relative;
+        display: flex;
+    }
+
+    .img-zoom-lens {
+        width: 30px;
+        height: 30px;
+    }
+
+    .img-zoom-result {
+        width: 100px;
+        height: 100px;
+        display: block;
+        position: relative;
+        margin-left: 10px;
+    }
+
+    .column {
+        text-align: center;
+        width: 100%;
+    }
+
+    .content-cart {
+        width: 100vw;
+    }
+
+    .cart-image {
+        width: 50px;
+        height: 60px;
+    }
+
+    .cart-image-bin {
+        width: 50px;
+        height: 50px;
+    }
+
+    .tableHeadings {
+        font-size: 12px;
+    }
+
+    .tableData {
+        font-size: 10px;
+    }
+
+    .tableData1 {
+        font-size: 10px;
+    }
+
+    .priceHeadings {
+        font-size: 15px;
+    }
+
+    .quantity-input {
+        font-size: 10px;
+    }
+
+    .purchasebtn {
+        font-size: 10px;
+    }
+
+    .titles1 {
+        font-size: 10px;
+    }
+
+    .invoice-date {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .jumbo {
+        height: 20vh;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .titles {
+        font-size: 15px;
+    }
+
+    .shoppingCartimg {
+        width: 27px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    .heading2Modal {
+        font-size: 30px;
+    }
+
+    h3 {
+        font-size: 23px;
+    }
+
+    ul {
+        font-size: 20px;
+    }
+
+    .homeCard {
+        width: 300px;
+        height: 430px;
+    }
+
+    .succulentCard {
+        font-size: 14px;
+    }
+
+    .succulentCard1 {
+        font-size: 10px;
+        margin: 5px;
+    }
+
+    .modal {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .modal-content {
+        width: 80vw;
+    }
+
+    .close {
+        font-size: 35px;
+    }
+
+    .succulentModal {
+        width: 200px;
+        height: 210px;
+        margin-left: 30px;
+    }
+
+    .img-zoom-container {
+        position: relative;
+        display: flex;
+    }
+
+    .img-zoom-lens {
+        width: 30px;
+        height: 30px;
+    }
+
+    .img-zoom-result {
+        width: 120px;
+        height: 120px;
+        display: block;
+        position: relative;
+        margin-left: 10px;
+    }
+
+    .column {
+        text-align: center;
+        width: 100%;
+    }
+
+    .content-cart {
+        width: 80vw;
+    }
+
+    .cart-image {
+        width: 70px;
+        height: 80px;
+    }
+
+    .cart-image-bin {
+        width: 50px;
+        height: 50px;
+    }
+
+    .tableHeadings {
+        font-size: 15px;
+    }
+
+    .tableData {
+        font-size: 12px;
+    }
+
+    .tableData1 {
+        font-size: 12px;
+    }
+
+    .priceHeadings {
+        font-size: 15px;
+    }
+
+    .quantity-input {
+        font-size: 10px;
+    }
+
+    .purchasebtn {
+        font-size: 10px;
+    }
+
+    .titles1 {
+        font-size: 10px;
+    }
+
+    .invoice-date {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .jumbo {
+        height: 30vh;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    .titles {
+        font-size: 20px;
+    }
+
+    .shoppingCartimg {
+        width: 35px;
+    }
+
+    h2 {
+        font-size: 50px;
+    }
+
+    .heading2Modal {
+        font-size: 40px;
+    }
+
+    h3 {
+        font-size: 27px;
+    }
+
+    ul {
+        font-size: 20px;
+    }
+
+    .homeCard {
+        width: 300px;
+        height: 430px;
+    }
+
+    .succulentCard {
+        font-size: 17px;
+    }
+
+    .succulentCard1 {
+        font-size: 17px;
+        margin: 5px;
+    }
+
+    .modal {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .modal-content {
+        width: 90vw;
+    }
+
+    .close {
+        font-size: 40px;
+    }
+
+    .succulentModal {
+        width: 300px;
+        height: 310px;
+        margin-left: 30px;
+    }
+
+    .img-zoom-container {
+        position: relative;
+        display: flex;
+    }
+
+    .img-zoom-lens {
+        width: 30px;
+        height: 30px;
+    }
+
+    .img-zoom-result {
+        width: 200px;
+        height: 220px;
+        display: block;
+        position: relative;
+        margin-left: 10px;
+    }
+
+    .column {
+        text-align: center;
+        width: 100%;
+    }
+
+    .content-cart {
+        width: 80vw;
+    }
+
+    .cart-image {
+        width: 100px;
+        height: 110px;
+    }
+
+    .cart-image-bin {
+        width: 60px;
+        height: 60px;
+    }
+
+    .tableHeadings {
+        font-size: 20px;
+    }
+
+    .tableData {
+        font-size: 15px;
+    }
+
+    .tableData1 {
+        font-size: 15px;
+    }
+
+    .priceHeadings {
+        font-size: 20px;
+    }
+
+    .quantity-input {
+        font-size: 15px;
+    }
+
+    .purchasebtn {
+        font-size: 17px;
+    }
+
+    .titles1 {
+        font-size: 20px;
+    }
+
+    .invoice-date {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+    .jumbo {
+        height: 30vh;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    .titles {
+        font-size: 30px;
+    }
+
+    .shoppingCartimg {
+        width: 50px;
+    }
+
+    h2 {
+        font-size: 50px;
+    }
+
+    .heading2Modal {
+        font-size: 40px;
+    }
+
+    h3 {
+        font-size: 27px;
+    }
+
+    ul {
+        font-size: 20px;
+    }
+
+    .homeCard {
+        width: 300px;
+        height: 430px;
+    }
+
+    .succulentCard {
+        font-size: 17px;
+    }
+
+    .succulentCard1 {
+        font-size: 17px;
+        margin: 5px;
+    }
+
+    .modal {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .modal-content {
+        width: 90vw;
+    }
+
+    .close {
+        font-size: 50px;
+    }
+
+    .succulentModal {
+        width: 320px;
+        height: 330px;
+        margin-left: 100px;
+    }
+
+    .img-zoom-container {
+        position: relative;
+        display: flex;
+    }
+
+    .img-zoom-lens {
+        width: 40px;
+        height: 40px;
+    }
+
+    .img-zoom-result {
+        width: 200px;
+        height: 220px;
+        display: block;
+        position: relative;
+        margin-left: 10px;
+    }
+
+    .column {
+        text-align: center;
+        width: 100%;
+    }
+
+    .content-cart {
+        width: 90vw;
+    }
+
+    .cart-image {
+        width: 120px;
+        height: 130px;
+    }
+
+    .cart-image-bin {
+        width: 70px;
+        height: 70px;
+    }
+
+    .tableHeadings {
+        font-size: 30px;
+    }
+
+    .tableData {
+        font-size: 20px;
+    }
+
+    .tableData1 {
+        font-size: 20px;
+    }
+
+    .priceHeadings {
+        font-size: 30px;
+    }
+
+    .quantity-input {
+        font-size: 20px;
+    }
+
+    .purchasebtn {
+        font-size: 20px;
+    }
+
+    .titles1 {
+        font-size: 20px;
+    }
+
+    .invoice-date {
+        font-size: 21px;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+    h1 {
+        font-size: 70px;
+    }
+
+    .titles {
+        font-size: 30px;
+    }
+
+    .shoppingCartimg {
+        width: 50px;
+    }
+
+    .heading2Modal {
+        font-size: 50px;
+    }
+
+    h3 {
+        font-size: 30px;
+    }
+
+    ul {
+        font-size: 20px;
+    }
+
+    .homeCard {
+        width: 320px;
+        height: 430px;
+    }
+
+    .succulentCard1 {
+        font-size: 19px;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .modal-content {
+        width: 90vw;
+    }
+
+    .close {
+        font-size: 50px;
+    }
+
+    .succulentModal {
+        width: 350px;
+        height: 360px;
+    }
+
+    .img-zoom-container {
+        position: relative;
+        display: flex;
+    }
+
+    .img-zoom-lens {
+        width: 40px;
+        height: 40px;
+    }
+
+    .img-zoom-result {
+        width: 250px;
+        height: 250px;
+        margin-left: 10px;
+        position: relative;
+        display: block;
+    }
+
+    .column {
+        float: left;
+        width: 50%;
+        margin-top: 6px;
+        padding: 20px;
+    }
+    .content-cart {
+        background-color: white;
+        border: 1px solid #888;
+        width: 90vw;
+    }
+
+    .cart-image {
+        width: 120px;
+        height: 130px;
+    }
+
+    .cart-image-bin {
+        width: 70px;
+        height: 70px;
+    }
+
+    .tableHeadings {
+        font-size: 30px;
+    }
+
+    .tableData {
+        font-size: 21px;
+    }
+
+    .tableData1 {
+        font-size: 21px;
+    }
+
+    .priceHeadings {
+        font-size: 25px;
+    }
+
+    .quantity-input {
+        font-size: 25px;
+    }
+
+    .purchasebtn {
+        font-size: 20px;
+    }
+
+    .titles1 {
+        font-size: 15px;
+    }
+
+    .invoice-date {
+        font-size: 21px;
+    }
+}
