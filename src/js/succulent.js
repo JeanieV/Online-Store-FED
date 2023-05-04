@@ -271,9 +271,15 @@ function updateCart() {
 
 const cartView = document.getElementById("myModal");
 
-// This will add all the products in the modal, starting with 0
+
+// This will add global variables to the values
+let subTotalValue;
+let totalValue;
+let tableDataPrice;
+
 let subTotal = 0;
 let total = 0;
+
 
 // Function to display the cart modal
 function showCart(index) {
@@ -285,7 +291,6 @@ function showCart(index) {
 
     if (existingProduct >= 0) {
         // If the product is already in the cart, show an alert message and view cart
-        
         alert("You've already added this product to the cart!\nKindly see your cart with the item in it");
         cartView.style.display = 'block'
     } else {
@@ -357,7 +362,8 @@ function showCart(index) {
     tableHeadRow.appendChild(tableHeadPrice);
     tableCart.appendChild(tableHeadRow);
 
-
+    let subTotal = 0;
+    let total = 0;
     if (cartArray.length != 0) {
         // For each product, the quantity will change in the shopping cart
         cartArray.forEach((item) => {
@@ -392,31 +398,33 @@ function showCart(index) {
             quantityInput.classList.add("quantity-input");
 
             // Add event listener to the quantity input
-            quantityInput.addEventListener("input", () => {
+            quantityInput.addEventListener("input", updatedPrice);
 
-                const oldQuantity = item.quantity;
-                const newQuantity = parseInt(quantityInput.value);
-                item.quantity = newQuantity;
-                tableDataPrice.innerHTML = "R" + (item.getPrice * newQuantity);
-
-                // Recalculate subtotal and total for all items in the cart
+            function updatedPrice() {
+                let quantity = parseInt(quantityInput.value);
+                item.subTotal = item.getPrice * quantity;
                 subTotal = 0;
-                cartArray.forEach(item => {
-                    subTotal += item.getPrice * item.quantity;
+                cartArray.forEach((item) => {
+                    subTotal += item.subTotal;
                 });
-                total = subTotal + 90;
-
-                // Update subtotal and total in the table
                 subTotalValue.innerHTML = "R" + subTotal.toFixed(2);
-                totalValue.innerHTML = "R" + total.toFixed(2);
-
+                totalValue.innerHTML = "R" + (subTotal + 90).toFixed(2);
+                tableDataPrice.innerHTML = "R" + item.subTotal.toFixed(2);
                 updateCart();
-            });
+            }
+
+            let quantity = parseInt(quantityInput.value);
+
+            item.subTotal = item.getPrice * quantity;
+            subTotal += item.subTotal;
+
+            total = subTotal + 90;
+
             // Appending to the quantity in the table
             tableDataQuantity.appendChild(quantityInput);
 
             // Creating the product price that will show in the table
-            const tableDataPrice = document.createElement("td");
+            tableDataPrice = document.createElement("td");
             tableDataPrice.classList.add("tableData");
             tableDataPrice.innerHTML = "R" + item.getPrice;
 
@@ -435,32 +443,27 @@ function showCart(index) {
                 const entry = event.target.parentNode.parentNode;
                 cartArray.splice(index, 1);
                 entry.remove();
+
                 if (cartArray.length === 0) {
-                    const removedPrice = item.getPrice * item.quantity;
-                    subTotal = subTotal - removedPrice;
+                    subTotal = 0;
                     total = 0;
-                    subTotalValue.innerHTML = "R" + subTotal.toFixed(2);
-                    totalValue.innerHTML = "R" + total.toFixed(2);
                 }
                 else {
-                    const removedPrice = item.getPrice * item.quantity;
-                    subTotal = subTotal - removedPrice;
+                    let quantity = parseInt(quantityInput.value);
+                    item.subTotal = item.getPrice * quantity;
+                    subTotal = subTotal - item.subTotal;
                     total = subTotal + 90;
-                    subTotalValue.innerHTML = "R" + subTotal.toFixed(2);
-                    totalValue.innerHTML = "R" + total.toFixed(2);
                 }
+
+                subTotalValue.innerHTML = "R" + subTotal.toFixed(2);
+                totalValue.innerHTML = "R" + total.toFixed(2);
+
                 showProductCount();
                 updateCart();
             }
 
             // When the user clicks on the image, the row will be deleted
             bin.addEventListener('click', removeRow);
-
-            // Calculating the new quantity and price
-            item.quantity = parseInt(quantityInput.value);
-            let newPrice = item.getPrice * item.quantity;
-            subTotal += newPrice;
-            total = subTotal + 90
 
             // Appending to tableCart
             tableDataRow.appendChild(tableDataImage);
@@ -469,9 +472,11 @@ function showCart(index) {
             tableDataRow.appendChild(tableDataPrice);
             tableDataRow.appendChild(removeRowButton);
             tableCart.appendChild(tableDataRow);
+
+
+
         });
     }
-
     // Creating the Sub Total row and label
     const subTotalRow = document.createElement("tr");
     const subTotalLabel = document.createElement("td");
@@ -480,9 +485,10 @@ function showCart(index) {
     subTotalLabel.textContent = "Sub-Total";
 
     // Creating the value 
-    const subTotalValue = document.createElement("td");
+    subTotalValue = document.createElement("td");
     subTotalValue.classList.add("tableData1");
-    subTotalValue.textContent = "R" + subTotal.toFixed(2);
+    subTotalValue.innerHTML = "R" + subTotal.toFixed(2);
+
     subTotalRow.appendChild(subTotalLabel);
     subTotalRow.appendChild(subTotalValue);
     tableCart.appendChild(subTotalRow);
@@ -511,9 +517,10 @@ function showCart(index) {
     totalLabel.textContent = "Total";
 
     // Creating the value
-    const totalValue = document.createElement("td");
+    totalValue = document.createElement("td");
     totalValue.classList.add("tableData1");
-    totalValue.textContent = "R" + total.toFixed(2);
+    totalValue.innerHTML = "R" + total.toFixed(2);
+
     totalRow.appendChild(totalLabel);
     totalRow.appendChild(totalValue);
     tableCart.appendChild(totalRow);
@@ -530,6 +537,7 @@ function showCart(index) {
     // When the button is clicked, the cart modal will not show
     purchaseButton.addEventListener('click', () => {
         alert("Thank you for shopping at Faan's Garden!\nPurchase successful!");
+        cartArray = [];
         emptyShoppingCart();
         updateCart();
     })
@@ -547,11 +555,8 @@ function showCart(index) {
     cartView.appendChild(mycart);
     cartView.style.display = "block";
 
-    // Calling the showProductCount()
     showProductCount();
-
 }
-
 
 // When the user clicks outside the modal, it will close as well
 window.addEventListener('click', (event) => {
@@ -572,11 +577,14 @@ addToCartButtons.forEach((button, index) => {
 
 showProductCount();
 
+
 // View the cart button
 const viewCartButton = document.querySelector('.viewShoppingCart');
 viewCartButton.addEventListener('click', shoppingCartButton);
 
+
 function shoppingCartButton() {
+
     cartView.innerHTML = '';
 
     if (cartArray.length === 0) {
@@ -646,6 +654,8 @@ function shoppingCartButton() {
         tableHeadRow.appendChild(tableHeadPrice);
         tableCart.appendChild(tableHeadRow);
 
+        let subTotal = 0;
+        let total = 0;
 
         if (cartArray.length != 0) {
 
@@ -680,26 +690,29 @@ function shoppingCartButton() {
                 quantityInput.value = 1;
                 quantityInput.classList.add("quantity-input");
                 // Add event listener to the quantity input
-                quantityInput.addEventListener("input", () => {
 
-                    const oldQuantity = item.quantity;
-                    const newQuantity = parseInt(quantityInput.value);
-                    item.quantity = newQuantity;
-                    tableDataPrice.innerHTML = "R" + (item.getPrice * newQuantity);
+                quantityInput.addEventListener("input", updatedPrice);
 
-                    // Recalculate subtotal and total for all items in the cart
+                function updatedPrice() {
+                    let quantity = parseInt(quantityInput.value);
+                    item.subTotal = item.getPrice * quantity;
                     subTotal = 0;
-                    cartArray.forEach(item => {
-                        subTotal += item.getPrice * item.quantity;
+                    cartArray.forEach((item) => {
+                        subTotal += item.subTotal;
                     });
-                    total = subTotal + 90;
-
-                    // Update subtotal and total in the table
                     subTotalValue.innerHTML = "R" + subTotal.toFixed(2);
-                    totalValue.innerHTML = "R" + total.toFixed(2);
-
+                    totalValue.innerHTML = "R" + (subTotal + 90).toFixed(2);
+                    tableDataPrice.innerHTML = "R" + item.subTotal.toFixed(2);
                     updateCart();
-                });
+                }
+
+                let quantity = parseInt(quantityInput.value);
+
+                item.subTotal = item.getPrice * quantity;
+                subTotal += item.subTotal;
+
+                total = subTotal + 90;
+
 
                 // Appending to the quantity in the table
                 tableDataQuantity.appendChild(quantityInput);
@@ -724,122 +737,119 @@ function shoppingCartButton() {
                     const entry = event.target.parentNode.parentNode;
                     cartArray.splice(index, 1);
                     entry.remove();
+
                     if (cartArray.length === 0) {
-                        const removedPrice = item.getPrice * item.quantity;
-                        subTotal = subTotal - removedPrice;
+                        subTotal = 0;
                         total = 0;
-                        subTotalValue.innerHTML = "R" + subTotal.toFixed(2);
-                        totalValue.innerHTML = "R" + total.toFixed(2);
                     }
                     else {
-                        const removedPrice = item.getPrice * item.quantity;
-                        subTotal = subTotal - removedPrice;
+                        let quantity = parseInt(quantityInput.value);
+                        item.subTotal = item.getPrice * quantity;
+                        subTotal = subTotal - item.subTotal;
                         total = subTotal + 90;
-
-                        subTotalValue.innerHTML = "R" + subTotal.toFixed(2);
-                        totalValue.innerHTML = "R" + total.toFixed(2);
                     }
+
+                    subTotalValue.innerHTML = "R" + subTotal.toFixed(2);
+                    totalValue.innerHTML = "R" + total.toFixed(2);
+
                     showProductCount();
                     updateCart();
                 }
 
+
                 // When the user clicks on the image, the row will be deleted
                 bin.addEventListener('click', removeRow);
 
-                // Calculating the new quantity and price
-                item.quantity = parseInt(quantityInput.value);
-                let newPrice = item.getPrice * item.quantity;
-                subTotal += newPrice;
-                total = subTotal + 90
-
-                // Appending to tableCart
-                tableDataRow.appendChild(tableDataImage);
-                tableDataRow.appendChild(tableDataProductName);
-                tableDataRow.appendChild(tableDataQuantity);
-                tableDataRow.appendChild(tableDataPrice);
-                tableDataRow.appendChild(removeRowButton);
-                tableCart.appendChild(tableDataRow);
-            });
-        }
-
-
-        // Creating the Sub Total row and label
-        const subTotalRow = document.createElement("tr");
-        const subTotalLabel = document.createElement("td");
-        subTotalLabel.classList.add("priceHeadings");
-        subTotalLabel.colSpan = 1;
-        subTotalLabel.textContent = "Sub-Total";
-
-        // Creating the value 
-        const subTotalValue = document.createElement("td");
-        subTotalValue.classList.add("tableData1");
-        subTotalValue.textContent = "R" + subTotal.toFixed(2);
-        subTotalRow.appendChild(subTotalLabel);
-        subTotalRow.appendChild(subTotalValue);
-        tableCart.appendChild(subTotalRow);
-
-        // Creating the Delivery row and label
-        const deliveryRow = document.createElement("tr");
-        const deliveryLabel = document.createElement("td");
-        deliveryLabel.classList.add("priceHeadings");
-        deliveryLabel.colSpan = 1;
-        deliveryLabel.textContent = "Standard Delivery";
-
-        // Creating the value
-        const deliveryValue = document.createElement("td");
-        deliveryValue.classList.add("tableData1");
-        deliveryValue.textContent = "R90.00";
-        deliveryRow.appendChild(deliveryLabel);
-        deliveryRow.appendChild(deliveryValue);
-        tableCart.appendChild(deliveryRow);
-
-
-        // Creating the Total row and label
-        const totalRow = document.createElement("tr");
-        const totalLabel = document.createElement("td");
-        totalLabel.classList.add("priceHeadings");
-        totalLabel.colSpan = 1;
-        totalLabel.textContent = "Total";
-
-        // Creating the value
-        const totalValue = document.createElement("td");
-        totalValue.classList.add("tableData1");
-        totalValue.textContent = "R" + total.toFixed(2);
-        totalRow.appendChild(totalLabel);
-        totalRow.appendChild(totalValue);
-        tableCart.appendChild(totalRow);
-
-        // Creating a container div for the button
-        const centerDiv = document.createElement('div');
-        centerDiv.classList.add("col-md-12", "text-center", "py-5");
-
-        // Creating the Go to Cart button inside the modal
-        const purchaseButton = document.createElement("button");
-        purchaseButton.classList.add("btn", "purchasebtn", "p-2");
-        purchaseButton.innerHTML = "Purchase";
-
-        // When the button is clicked, the cart modal will not show
-        purchaseButton.addEventListener('click', () => {
-            alert("Thank you for shopping at Faan's Garden!\nPurchase successful!");
-            emptyShoppingCart();
-            updateCart();
-        })
-
-        centerDiv.appendChild(purchaseButton);
-
-        // Appending to myCart
-        mycart.appendChild(buttonClose);
-        mycart.appendChild(invoiceName);
-        mycart.appendChild(centerDiv1);
-        mycart.appendChild(tableCart);
-        mycart.appendChild(centerDiv);
-
-        // The modal display
-        cartView.appendChild(mycart);
-        cartView.style.display = "block";
-
-        showProductCount();
+            // Appending to tableCart
+            tableDataRow.appendChild(tableDataImage);
+            tableDataRow.appendChild(tableDataProductName);
+            tableDataRow.appendChild(tableDataQuantity);
+            tableDataRow.appendChild(tableDataPrice);
+            tableDataRow.appendChild(removeRowButton);
+            tableCart.appendChild(tableDataRow);
+        });
     }
+
+
+    // Creating the Sub Total row and label
+    const subTotalRow = document.createElement("tr");
+    const subTotalLabel = document.createElement("td");
+    subTotalLabel.classList.add("priceHeadings");
+    subTotalLabel.colSpan = 1;
+    subTotalLabel.textContent = "Sub-Total";
+
+    // Creating the value 
+    subTotalValue = document.createElement("td");
+    subTotalValue.classList.add("tableData1");
+    subTotalValue.textContent = "R" + subTotal.toFixed(2);
+    subTotalRow.appendChild(subTotalLabel);
+    subTotalRow.appendChild(subTotalValue);
+    tableCart.appendChild(subTotalRow);
+
+    // Creating the Delivery row and label
+    const deliveryRow = document.createElement("tr");
+    const deliveryLabel = document.createElement("td");
+    deliveryLabel.classList.add("priceHeadings");
+    deliveryLabel.colSpan = 1;
+    deliveryLabel.textContent = "Standard Delivery";
+
+    // Creating the value
+    const deliveryValue = document.createElement("td");
+    deliveryValue.classList.add("tableData1");
+    deliveryValue.textContent = "R90.00";
+    deliveryRow.appendChild(deliveryLabel);
+    deliveryRow.appendChild(deliveryValue);
+    tableCart.appendChild(deliveryRow);
+
+
+    // Creating the Total row and label
+    const totalRow = document.createElement("tr");
+    const totalLabel = document.createElement("td");
+    totalLabel.classList.add("priceHeadings");
+    totalLabel.colSpan = 1;
+    totalLabel.textContent = "Total";
+
+    // Creating the value
+    totalValue = document.createElement("td");
+    totalValue.classList.add("tableData1");
+    totalValue.textContent = "R" + total.toFixed(2);
+    totalRow.appendChild(totalLabel);
+    totalRow.appendChild(totalValue);
+    tableCart.appendChild(totalRow);
+
+    // Creating a container div for the button
+    const centerDiv = document.createElement('div');
+    centerDiv.classList.add("col-md-12", "text-center", "py-5");
+
+    // Creating the Go to Cart button inside the modal
+    const purchaseButton = document.createElement("button");
+    purchaseButton.classList.add("btn", "purchasebtn", "p-2");
+    purchaseButton.innerHTML = "Purchase";
+
+    // When the button is clicked, the cart modal will not show
+    purchaseButton.addEventListener('click', () => {
+        alert("Thank you for shopping at Faan's Garden!\nPurchase successful!");
+        cartArray = [];
+        emptyShoppingCart();
+
+        updateCart();
+    })
+
+    centerDiv.appendChild(purchaseButton);
+
+    // Appending to myCart
+    mycart.appendChild(buttonClose);
+    mycart.appendChild(invoiceName);
+    mycart.appendChild(centerDiv1);
+    mycart.appendChild(tableCart);
+    mycart.appendChild(centerDiv);
+
+    // The modal display
+    cartView.appendChild(mycart);
+    cartView.style.display = "block";
+
+    showProductCount();
+}
 }
 
 
@@ -916,6 +926,8 @@ function showProductCount() {
     cartItemCount.textContent = `Shopping Cart (${cartArray.length})`;
     cartItemCount.classList.add("titles1");
 }
+
+
 
 //The products will be sorted automatically in alphabetical order
 const sortButtonAlphabetically = document.querySelector(".alphabetically");
