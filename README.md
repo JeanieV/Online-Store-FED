@@ -91,7 +91,11 @@ If you wish to purchase the product, you can click on the 'Purchase' button and 
 
 Notice that the more products you add to the cart, the number on the actual shopping card changes accordingly? The Sub-Total and Total amount also updates the more products you add to your shopping cart with the quantities.
 
+![invoice_3](https://user-images.githubusercontent.com/115072704/236547296-88f23f1a-cdb1-4eac-ae17-b76721aa5612.png)
+
 
 If you've already added a specific product to your shopping cart, you will receive this message where you will view the actual product in your cart again.
 
 ![added_1](https://user-images.githubusercontent.com/115072704/236034637-5f6a40dc-091f-438d-9d48-771cfa166814.png)
+
+Note from developer: Enjoy your shopping at Faan's Garden!
