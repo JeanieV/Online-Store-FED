@@ -1,40 +1,6 @@
+import {Products,filterProductsByCategory} from './product.js';
 import data from './products.json' assert { type: 'json' };
 console.log(data);
-
-// Class
-class Products {
-    constructor(productName, firstDescription, secondDescription, image, price, category) {
-        if (category === "Succulents") {
-            this._productName = productName;
-            this._firstDescription = firstDescription;
-            this._image = image;
-            this._secondDescription = secondDescription;
-            this._price = price;
-            this._category = category;
-        }
-    }
-
-    // Getters
-    get getProductName() {
-        return this._productName;
-    }
-    get getFirstDescription() {
-        return this._firstDescription;
-    }
-    get getImage() {
-        return this._image;
-    }
-    get getSecondDescription() {
-        return this._secondDescription;
-    }
-    get getPrice() {
-        return this._price;
-    }
-    get getCategory() {
-        return this._category;
-    }
-}
-
 
 // Modal Section
 
@@ -224,13 +190,13 @@ window.addEventListener('click', (event) => {
 // Empty Succulent Array
 let succulentArray = [];
 
+const filteredProducts = filterProductsByCategory('Succulents');
 // Loop through the products in the JSON data
-for (let i = 0; i < data.products.length; i++) {
+for (let i = 0; i < filteredProducts.length; i++) {
     // Create an Product object and push it into the succulentArray
-    if (data.products[i].category === "Succulents") {
-        let product = new Products(data.products[i].productName, data.products[i].firstDescription, data.products[i].secondDescription, data.products[i].image, data.products[i].price, data.products[i].category);
+        let product = new Products(filteredProducts[i].productName, filteredProducts[i].filteredProducts, filteredProducts[i].secondDescription, filteredProducts[i].image, filteredProducts[i].price, filteredProducts[i].category);
         succulentArray.push(product);
-    }
+        
 }
 console.log(succulentArray);
 
@@ -271,20 +237,16 @@ function updateCart() {
 
 const cartView = document.getElementById("myModal");
 
-
 // This will add global variables to the values
 let subTotalValue;
 let totalValue;
 let tableDataPrice;
 
-let subTotal = 0;
-let total = 0;
-
-
 // Function to display the cart modal
 function showCart(index) {
     cartView.innerHTML = '';
-    let item = succulentArray[index];
+    
+   let item = succulentArray[index];
     item.quantity = 1;
 
     const existingProduct = cartArray.findIndex(cartItem => cartItem.getProductName === item.getProductName);
@@ -756,7 +718,6 @@ function shoppingCartButton() {
                     updateCart();
                 }
 
-
                 // When the user clicks on the image, the row will be deleted
                 bin.addEventListener('click', removeRow);
 
@@ -933,7 +894,7 @@ function showProductCount() {
 const sortButtonAlphabetically = document.querySelector(".alphabetically");
 sortButtonAlphabetically.addEventListener('click', sortProducts);
 
-function sortProducts() {
+export function sortProducts() {
 
     const cardsAlphabetically = Array.from(document.querySelectorAll('.homeCard'));
     cardsAlphabetically.sort((a, b) => {
@@ -951,7 +912,7 @@ function sortProducts() {
 const sortButtonlowToHigh = document.querySelector(".lowToHigh");
 sortButtonlowToHigh.addEventListener('click', sortProductsLow);
 
-function sortProductsLow() {
+export function sortProductsLow() {
     const cardsLow = Array.from(document.querySelectorAll('.homeCard'));
     cardsLow.sort((a, b) => {
         const priceA = Number(a.querySelector('.card-text').getAttribute('data-price'));
@@ -967,7 +928,7 @@ function sortProductsLow() {
 const sortButtonHighToLow = document.querySelector(".highToLow");
 sortButtonHighToLow.addEventListener('click', sortProductsHigh);
 
-function sortProductsHigh() {
+export function sortProductsHigh() {
     const cardsHigh = Array.from(document.querySelectorAll('.homeCard'));
     cardsHigh.sort((a, b) => {
         const priceA = Number(a.querySelector('.card-text').getAttribute('data-price'));
