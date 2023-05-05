@@ -9,6 +9,7 @@ export class Products {
             this._secondDescription = secondDescription;
             this._price = price;
             this._category = category;
+
     }
 
     // Getters

@@ -40,7 +40,7 @@ function createUser(event) {
 submitButton.addEventListener("click", createUser);
 
 
-import {Products} from './product.js';
+import { Products } from './product.js';
 import data from './products.json' assert { type: 'json' };
 console.log(data);
 
@@ -94,8 +94,8 @@ let tableDataPrice;
 // Function to display the cart modal
 function showCart(index) {
     cartView.innerHTML = '';
-    
-   let item = productsArray[index];
+
+    let item = productsArray[index];
     item.quantity = 1;
 
     const existingProduct = cartArray.findIndex(cartItem => cartItem.getProductName === item.getProductName);
@@ -208,36 +208,50 @@ function showCart(index) {
             quantityInput.value = 1;
             quantityInput.classList.add("quantity-input");
 
-            // Add event listener to the quantity input
-            quantityInput.addEventListener("input", updatedPrice);
+            // Creating the Product Price that will show in the cart
+            const tableDataPrice = document.createElement("td");
+            tableDataPrice.classList.add("tableData");
+            tableDataPrice.innerHTML = "R" + item.getPrice.toFixed(2);
+            item.tableDataPrice = tableDataPrice;
 
+
+            // Function to handle the input event for the quantity input
             function updatedPrice() {
-                let quantity = parseInt(quantityInput.value);
-                item.subTotal = item.getPrice * quantity;
                 subTotal = 0;
-                cartArray.forEach((item) => {
+                if (quantityInput.value !== "") {
+                    let quantity = parseInt(quantityInput.value);
+                    item.quantity = quantity; // update the item's quantity
+                    item.subTotal = item.getPrice * quantity;
+                    item.tableDataPrice.innerHTML = "R" + item.subTotal.toFixed(2);
+
                     subTotal += item.subTotal;
-                });
-                subTotalValue.innerHTML = "R" + subTotal.toFixed(2);
-                totalValue.innerHTML = "R" + (subTotal + 90).toFixed(2);
-                tableDataPrice.innerHTML = "R" + item.subTotal.toFixed(2);
-                updateCart();
+
+                    subTotalValue.innerHTML = "R" + subTotal.toFixed(2);
+                    totalValue.innerHTML = "R" + (subTotal + 90).toFixed(2);
+
+                } else {
+                    let zero = 0;
+                    item.tableDataPrice.innerHTML = "R" + zero.toFixed(2);
+                    subTotalValue.innerHTML = "R" + zero.toFixed(2);
+                    totalValue.innerHTML = "R" + zero.toFixed(2);
+
+                }
             }
 
+            // Add event listener to the quantity input
+            quantityInput.addEventListener("input", () => {
+                updatedPrice();
+            });
+
             let quantity = parseInt(quantityInput.value);
-
+            item.quantity = quantity;
             item.subTotal = item.getPrice * quantity;
+
             subTotal += item.subTotal;
-
             total = subTotal + 90;
-
+            
             // Appending to the quantity in the table
             tableDataQuantity.appendChild(quantityInput);
-
-            // Creating the product price that will show in the table
-            tableDataPrice = document.createElement("td");
-            tableDataPrice.classList.add("tableData");
-            tableDataPrice.innerHTML = "R" + item.getPrice;
 
             // Creating the remove button that will delete the row
             const removeRowButton = document.createElement("td");
@@ -500,38 +514,53 @@ function shoppingCartButton() {
                 quantityInput.max = 1000;
                 quantityInput.value = 1;
                 quantityInput.classList.add("quantity-input");
-                // Add event listener to the quantity input
 
-                quantityInput.addEventListener("input", updatedPrice);
+                // Creating the Product Price that will show in the cart
+                const tableDataPrice = document.createElement("td");
+                tableDataPrice.classList.add("tableData");
+                tableDataPrice.innerHTML = "R" + item.getPrice.toFixed(2);
+                item.tableDataPrice = tableDataPrice;
 
+
+                // Function to handle the input event for the quantity input
                 function updatedPrice() {
-                    let quantity = parseInt(quantityInput.value);
-                    item.subTotal = item.getPrice * quantity;
                     subTotal = 0;
-                    cartArray.forEach((item) => {
+                    if (quantityInput.value !== "") {
+                        let quantity = parseInt(quantityInput.value);
+                        item.quantity = quantity; // update the item's quantity
+                        item.subTotal = item.getPrice * quantity;
+                        item.tableDataPrice.innerHTML = "R" + item.subTotal.toFixed(2);
+
                         subTotal += item.subTotal;
-                    });
-                    subTotalValue.innerHTML = "R" + subTotal.toFixed(2);
-                    totalValue.innerHTML = "R" + (subTotal + 90).toFixed(2);
-                    tableDataPrice.innerHTML = "R" + item.subTotal.toFixed(2);
-                    updateCart();
+
+                        subTotalValue.innerHTML = "R" + subTotal.toFixed(2);
+                        totalValue.innerHTML = "R" + (subTotal + 90).toFixed(2);
+
+                    } else {
+                        let zero = 0;
+                        item.tableDataPrice.innerHTML = "R" + zero.toFixed(2);
+                        subTotalValue.innerHTML = "R" + zero.toFixed(2);
+                        totalValue.innerHTML = "R" + zero.toFixed(2);
+
+                    }
                 }
 
+                // Add event listener to the quantity input
+                quantityInput.addEventListener("input", () => {
+                    updatedPrice();
+                });
+
                 let quantity = parseInt(quantityInput.value);
-
+                item.quantity = quantity;
                 item.subTotal = item.getPrice * quantity;
-                subTotal += item.subTotal;
 
+                subTotal += item.subTotal;
                 total = subTotal + 90;
 
 
                 // Appending to the quantity in the table
                 tableDataQuantity.appendChild(quantityInput);
 
-                // Creating the product price that will show in the table
-                const tableDataPrice = document.createElement("td");
-                tableDataPrice.classList.add("tableData");
-                tableDataPrice.innerHTML = "R" + item.getPrice;
 
                 // Creating the remove button that will delete the row
                 const removeRowButton = document.createElement("td");
@@ -570,96 +599,96 @@ function shoppingCartButton() {
                 // When the user clicks on the image, the row will be deleted
                 bin.addEventListener('click', removeRow);
 
-            // Appending to tableCart
-            tableDataRow.appendChild(tableDataImage);
-            tableDataRow.appendChild(tableDataProductName);
-            tableDataRow.appendChild(tableDataQuantity);
-            tableDataRow.appendChild(tableDataPrice);
-            tableDataRow.appendChild(removeRowButton);
-            tableCart.appendChild(tableDataRow);
-        });
+                // Appending to tableCart
+                tableDataRow.appendChild(tableDataImage);
+                tableDataRow.appendChild(tableDataProductName);
+                tableDataRow.appendChild(tableDataQuantity);
+                tableDataRow.appendChild(tableDataPrice);
+                tableDataRow.appendChild(removeRowButton);
+                tableCart.appendChild(tableDataRow);
+            });
+        }
+
+
+        // Creating the Sub Total row and label
+        const subTotalRow = document.createElement("tr");
+        const subTotalLabel = document.createElement("td");
+        subTotalLabel.classList.add("priceHeadings");
+        subTotalLabel.colSpan = 1;
+        subTotalLabel.textContent = "Sub-Total";
+
+        // Creating the value 
+        subTotalValue = document.createElement("td");
+        subTotalValue.classList.add("tableData1");
+        subTotalValue.textContent = "R" + subTotal.toFixed(2);
+        subTotalRow.appendChild(subTotalLabel);
+        subTotalRow.appendChild(subTotalValue);
+        tableCart.appendChild(subTotalRow);
+
+        // Creating the Delivery row and label
+        const deliveryRow = document.createElement("tr");
+        const deliveryLabel = document.createElement("td");
+        deliveryLabel.classList.add("priceHeadings");
+        deliveryLabel.colSpan = 1;
+        deliveryLabel.textContent = "Standard Delivery";
+
+        // Creating the value
+        const deliveryValue = document.createElement("td");
+        deliveryValue.classList.add("tableData1");
+        deliveryValue.textContent = "R90.00";
+        deliveryRow.appendChild(deliveryLabel);
+        deliveryRow.appendChild(deliveryValue);
+        tableCart.appendChild(deliveryRow);
+
+
+        // Creating the Total row and label
+        const totalRow = document.createElement("tr");
+        const totalLabel = document.createElement("td");
+        totalLabel.classList.add("priceHeadings");
+        totalLabel.colSpan = 1;
+        totalLabel.textContent = "Total";
+
+        // Creating the value
+        totalValue = document.createElement("td");
+        totalValue.classList.add("tableData1");
+        totalValue.textContent = "R" + total.toFixed(2);
+        totalRow.appendChild(totalLabel);
+        totalRow.appendChild(totalValue);
+        tableCart.appendChild(totalRow);
+
+        // Creating a container div for the button
+        const centerDiv = document.createElement('div');
+        centerDiv.classList.add("col-md-12", "text-center", "py-5");
+
+        // Creating the Go to Cart button inside the modal
+        const purchaseButton = document.createElement("button");
+        purchaseButton.classList.add("btn", "purchasebtn", "p-2");
+        purchaseButton.innerHTML = "Purchase";
+
+        // When the button is clicked, the cart modal will not show
+        purchaseButton.addEventListener('click', () => {
+            alert("Thank you for shopping at Faan's Garden!\nPurchase successful!");
+            cartArray = [];
+            emptyShoppingCart();
+
+            updateCart();
+        })
+
+        centerDiv.appendChild(purchaseButton);
+
+        // Appending to myCart
+        mycart.appendChild(buttonClose);
+        mycart.appendChild(invoiceName);
+        mycart.appendChild(centerDiv1);
+        mycart.appendChild(tableCart);
+        mycart.appendChild(centerDiv);
+
+        // The modal display
+        cartView.appendChild(mycart);
+        cartView.style.display = "block";
+
+        showProductCount();
     }
-
-
-    // Creating the Sub Total row and label
-    const subTotalRow = document.createElement("tr");
-    const subTotalLabel = document.createElement("td");
-    subTotalLabel.classList.add("priceHeadings");
-    subTotalLabel.colSpan = 1;
-    subTotalLabel.textContent = "Sub-Total";
-
-    // Creating the value 
-    subTotalValue = document.createElement("td");
-    subTotalValue.classList.add("tableData1");
-    subTotalValue.textContent = "R" + subTotal.toFixed(2);
-    subTotalRow.appendChild(subTotalLabel);
-    subTotalRow.appendChild(subTotalValue);
-    tableCart.appendChild(subTotalRow);
-
-    // Creating the Delivery row and label
-    const deliveryRow = document.createElement("tr");
-    const deliveryLabel = document.createElement("td");
-    deliveryLabel.classList.add("priceHeadings");
-    deliveryLabel.colSpan = 1;
-    deliveryLabel.textContent = "Standard Delivery";
-
-    // Creating the value
-    const deliveryValue = document.createElement("td");
-    deliveryValue.classList.add("tableData1");
-    deliveryValue.textContent = "R90.00";
-    deliveryRow.appendChild(deliveryLabel);
-    deliveryRow.appendChild(deliveryValue);
-    tableCart.appendChild(deliveryRow);
-
-
-    // Creating the Total row and label
-    const totalRow = document.createElement("tr");
-    const totalLabel = document.createElement("td");
-    totalLabel.classList.add("priceHeadings");
-    totalLabel.colSpan = 1;
-    totalLabel.textContent = "Total";
-
-    // Creating the value
-    totalValue = document.createElement("td");
-    totalValue.classList.add("tableData1");
-    totalValue.textContent = "R" + total.toFixed(2);
-    totalRow.appendChild(totalLabel);
-    totalRow.appendChild(totalValue);
-    tableCart.appendChild(totalRow);
-
-    // Creating a container div for the button
-    const centerDiv = document.createElement('div');
-    centerDiv.classList.add("col-md-12", "text-center", "py-5");
-
-    // Creating the Go to Cart button inside the modal
-    const purchaseButton = document.createElement("button");
-    purchaseButton.classList.add("btn", "purchasebtn", "p-2");
-    purchaseButton.innerHTML = "Purchase";
-
-    // When the button is clicked, the cart modal will not show
-    purchaseButton.addEventListener('click', () => {
-        alert("Thank you for shopping at Faan's Garden!\nPurchase successful!");
-        cartArray = [];
-        emptyShoppingCart();
-
-        updateCart();
-    })
-
-    centerDiv.appendChild(purchaseButton);
-
-    // Appending to myCart
-    mycart.appendChild(buttonClose);
-    mycart.appendChild(invoiceName);
-    mycart.appendChild(centerDiv1);
-    mycart.appendChild(tableCart);
-    mycart.appendChild(centerDiv);
-
-    // The modal display
-    cartView.appendChild(mycart);
-    cartView.style.display = "block";
-
-    showProductCount();
-}
 }
 
 
