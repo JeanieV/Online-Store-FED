@@ -11,8 +11,8 @@ function showModal(index) {
     modalView.innerHTML = '';
 
     // Creating constants that will show the modal for every product
-    const myproduct = document.createElement("div");
-    myproduct.classList.add("modal-content", "mx-5", "mt-5");
+    const myProduct = document.createElement("div");
+    myProduct.classList.add("modal-content", "mx-5", "mt-5");
 
     //Creating the close button on the modal
     const closeButton = document.createElement("span");
@@ -33,12 +33,12 @@ function showModal(index) {
     heading3.innerHTML = product.getFirstDescription;
 
     // This is the row that contains the 2 columns
-    const myrow = document.createElement("div");
-    myrow.classList.add("row");
+    const myRow = document.createElement("div");
+    myRow.classList.add("row");
 
     // First column
-    const mycolumn1 = document.createElement("div");
-    mycolumn1.classList.add("column");
+    const myColumn1 = document.createElement("div");
+    myColumn1.classList.add("column");
 
     // Creating the zoom container
     const div1 = document.createElement("div");
@@ -57,7 +57,7 @@ function showModal(index) {
     // Column 1 inside
     div1.appendChild(modalImage);
     div1.appendChild(result);
-    mycolumn1.appendChild(div1);
+    myColumn1.appendChild(div1);
 
     let cx, cy;
 
@@ -129,8 +129,8 @@ function showModal(index) {
     }
 
     // Column 2
-    const mycolumn2 = document.createElement("div");
-    mycolumn2.classList.add("column");
+    const myColumn2 = document.createElement("div");
+    myColumn2.classList.add("column");
 
     const unordered = document.createElement("ul");
 
@@ -142,33 +142,37 @@ function showModal(index) {
     }
 
     // Creating the Price 
-    const headingthree = document.createElement("h3");
-    headingthree.innerHTML = "R" + product.getPrice + " each";
+    const headingThree = document.createElement("h3");
+    headingThree.innerHTML = "R" + product.getPrice + " each";
 
     // Creating the Go to Cart button inside the modal
-    const buttonnew = document.createElement("button");
-    buttonnew.classList.add("btn", "succulentCard");
-    buttonnew.setAttribute("id", "addtoCart");
-    buttonnew.innerHTML = "Go to Cart";
+    const buttonNew = document.createElement("button");
+    buttonNew.classList.add("btn", "succulentCard");
+    buttonNew.innerHTML = "Add to Cart";
+
+    buttonNew.addEventListener('click', () => {
+        showCart(index);
+        updateCart();
+    })
 
     // Column 2 inside
-    mycolumn2.appendChild(unordered);
-    mycolumn2.appendChild(headingthree);
-    mycolumn2.appendChild(buttonnew);
+    myColumn2.appendChild(unordered);
+    myColumn2.appendChild(headingThree);
+    myColumn2.appendChild(buttonNew);
 
     //Row 
-    myrow.appendChild(mycolumn1);
-    myrow.appendChild(mycolumn2);
+    myRow.appendChild(myColumn1);
+    myRow.appendChild(myColumn2);
 
     // Product
-    myproduct.appendChild(closeButton);
-    myproduct.appendChild(heading2);
-    myproduct.appendChild(heading3);
-    myproduct.appendChild(myrow);
+    myProduct.appendChild(closeButton);
+    myProduct.appendChild(heading2);
+    myProduct.appendChild(heading3);
+    myProduct.appendChild(myRow);
 
 
     // The modal display
-    modalView.appendChild(myproduct);
+    modalView.appendChild(myProduct);
     modalView.style.display = "block";
 }
 // When the user clicks outside the modal, it will close
@@ -179,16 +183,15 @@ window.addEventListener('click', (event) => {
 });
 
 
-// Empty Succulent Array
+// Empty Ferns Array
 let fernsArray = [];
 
 const filteredProducts = filterProductsByCategory('Ferns');
 // Loop through the products in the JSON data
 for (let i = 0; i < filteredProducts.length; i++) {
-    // Create an Product object and push it into the succulentArray
+    // Create an Product object and push it into the fernsArray
         let product = new Products(filteredProducts[i].productName, filteredProducts[i].filteredProducts, filteredProducts[i].secondDescription, filteredProducts[i].image, filteredProducts[i].price, filteredProducts[i].category);
-        fernsArray.push(product);
-        
+        fernsArray.push(product);    
 }
 console.log(fernsArray)
 
