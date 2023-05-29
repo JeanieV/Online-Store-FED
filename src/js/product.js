@@ -2,13 +2,14 @@ import data from './products.json' assert { type: 'json' };
 console.log(data);
 
 export class Products {
-    constructor(productName, firstDescription, secondDescription, image, price, category) {
-            this._productName = productName;
-            this._firstDescription = firstDescription;
-            this._image = image;
-            this._secondDescription = secondDescription;
-            this._price = price;
-            this._category = category;
+    constructor(productName, firstDescription, secondDescription, image, price, category, quantity) {
+        this._productName = productName;
+        this._firstDescription = firstDescription;
+        this._image = image;
+        this._secondDescription = secondDescription;
+        this._price = price;
+        this._category = category;
+        this._quantity = quantity;
 
     }
 
@@ -31,8 +32,11 @@ export class Products {
     get getCategory() {
         return this._category;
     }
+    get getQuantuty() {
+        return this._quantity;
+    }
 }
 
 export function filterProductsByCategory(category) {
-  return data.products.filter((product) => product.category === category);
+    return data.products.filter((product) => product.category === category);
 }

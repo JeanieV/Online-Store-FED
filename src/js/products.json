@@ -12,7 +12,8 @@
             ],
             "image": "/src/images/succulent1.webp",
             "price": 25,
-            "category": "Succulents"
+            "category": "Succulents",
+            "quantity": 1
         },
         {
             "productName": "Mini Succulent Garden",
@@ -24,7 +25,8 @@
             ],
             "image": "/src/images/succulent2.webp",
             "price": 250,
-            "category": "Succulents"
+            "category": "Succulents",
+            "quantity": 1
         },
         {
             "productName": "Succulent in Ceramic Pot",
@@ -36,7 +38,8 @@
             ],
             "image": "/src/images/succulent3.webp",
             "price": 100,
-            "category": "Succulents"
+            "category": "Succulents",
+            "quantity": 1
         },
         {
             "productName": "Seagrass Succulents",
@@ -48,7 +51,8 @@
             ],
             "image": "/src/images/succulent4.webp",
             "price": 50,
-            "category": "Succulents"
+            "category": "Succulents",
+            "quantity": 1
         },
         {
             "productName": "Tin Sinkbad with Succulent Mix",
@@ -60,7 +64,8 @@
             ],
             "image": "/src/images/succulent5.webp",
             "price": 150,
-            "category": "Succulents"
+            "category": "Succulents",
+            "quantity": 1
         },
         {
             "productName": "Gasteria in Bowl",
@@ -74,7 +79,8 @@
             ],
             "image": "/src/images/succulent6.webp",
             "price": 170,
-            "category": "Succulents"
+            "category": "Succulents",
+            "quantity": 1
         },
         {
             "productName": "Mini Glass Succulents",
@@ -86,7 +92,8 @@
             ],
             "image": "/src/images/succulent7.webp",
             "price": 90,
-            "category": "Succulents"
+            "category": "Succulents",
+            "quantity": 1
         },
         {
             "productName": "Firesticks, Pumila & Spekboom Succulents",
@@ -98,7 +105,8 @@
             ],
             "image": "/src/images/succulent8.webp",
             "price": 90,
-            "category": "Succulents"
+            "category": "Succulents",
+            "quantity": 1
         },
         {
             "productName": "Woodbox Succulents",
@@ -109,7 +117,8 @@
             ],
             "image": "/src/images/succulent9.webp",
             "price": 200,
-            "category": "Succulents"
+            "category": "Succulents",
+            "quantity": 1
         },
         {
             "productName": "Circle Handle Potted Succulent",
@@ -121,7 +130,8 @@
             ],
             "image": "/src/images/succulent10.webp",
             "price": 230,
-            "category": "Succulents"
+            "category": "Succulents",
+            "quantity": 1
         },
         {
             "productName": "Large Sedum Pachyphyllum",
@@ -135,7 +145,8 @@
             ],
             "image": "/src/images/succulent11.webp",
             "price": 180,
-            "category": "Succulents"
+            "category": "Succulents",
+            "quantity": 1
         },
         {
             "productName": "Nephrolepis Exaltata Blonde",
@@ -148,7 +159,8 @@
             ],
             "image": "/src/images/fern1.jpeg",
             "price": 130,
-            "category": "Ferns"
+            "category": "Ferns",
+            "quantity": 1
         },
         {
             "productName": "Asparagus Plumosus",
@@ -160,7 +172,8 @@
             ],
             "image": "/src/images/fern2.webp",
             "price": 90,
-            "category": "Ferns"
+            "category": "Ferns",
+            "quantity": 1
         },
         {
             "productName": "Florex Platycerium Staghorn Fern",
@@ -173,7 +186,8 @@
             ],
             "image": "/src/images/fern3.webp",
             "price": 110,
-            "category": "Ferns"
+            "category": "Ferns",
+            "quantity": 1
         },
         {
             "productName": "Dicksonia Antarctica Fern",
@@ -185,7 +199,8 @@
             ],
             "image": "/src/images/fern4.webp",
             "price": 200,
-            "category": "Ferns"
+            "category": "Ferns",
+            "quantity": 1
         },
         {
             "productName": "Tuberflora Cyathea Australis Fern",
@@ -198,7 +213,8 @@
             ],
             "image": "/src/images/fern5.webp",
             "price": 300,
-            "category": "Ferns"
+            "category": "Ferns",
+            "quantity": 1
         },
         {
             "productName": "Large Kangaroo Fern",
@@ -212,7 +228,8 @@
             ],
             "image": "/src/images/fern6.webp",
             "price": 380,
-            "category": "Ferns"
+            "category": "Ferns",
+            "quantity": 1
         },
         {
             "productName": "Staghorn Fern",
@@ -225,7 +242,8 @@
             ],
             "image": "/src/images/fern7.webp",
             "price": 300,
-            "category": "Ferns"
+            "category": "Ferns",
+            "quantity": 1
         },
         {
             "productName": "Maiden Hair Fern",
@@ -239,7 +257,8 @@
             ],
             "image": "/src/images/fern8.webp",
             "price": 490,
-            "category": "Ferns"
+            "category": "Ferns",
+            "quantity": 1
         },
         {
             "productName": "Houseplant Care Gift Set",
@@ -250,7 +269,8 @@
             ],
             "image": "/src/images/plantcare1.webp",
             "price": 650,
-            "category": "Plant Care"
+            "category": "Plant Care",
+            "quantity": 1
         },
         {
             "productName": "1-For-All Multipurpose Fertiliser 25kg",
@@ -261,7 +281,8 @@
             ],
             "image": "/src/images/plantcare2.webp",
             "price": 730,
-            "category": "Plant Care"
+            "category": "Plant Care",
+            "quantity": 1
         },
         {
             "productName": "Plant Care - 500 ml",
@@ -272,7 +293,8 @@
             ],
             "image": "/src/images/plantcare3.webp",
             "price": 300,
-            "category": "Plant Care"
+            "category": "Plant Care",
+            "quantity": 1
         },
         {
             "productName": "Garden Master 60 dm3 Potting Soil",
@@ -285,7 +307,8 @@
             ],
             "image": "/src/images/plantcare4.webp",
             "price": 125,
-            "category": "Plant Care"
+            "category": "Plant Care",
+            "quantity": 1
         },
         {
             "productName": "Gardening Gloves",
@@ -297,7 +320,8 @@
             ],
             "image": "/src/images/plantcare5.webp",
             "price": 150,
-            "category": "Plant Care"
+            "category": "Plant Care",
+            "quantity": 1
         },
         {
             "productName": "Dynaroot",
@@ -309,7 +333,8 @@
             ],
             "image": "/src/images/plantcare6.jpg",
             "price": 70,
-            "category": "Plant Care"
+            "category": "Plant Care",
+            "quantity": 1
         },
         {
             "productName": "City Gardening Balcony Box",
@@ -321,7 +346,8 @@
             ],
             "image": "/src/images/plantcare7.jpg",
             "price": 850,
-            "category": "Plant Care"
+            "category": "Plant Care",
+            "quantity": 1
         }
     ]
 }

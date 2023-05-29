@@ -232,7 +232,6 @@ const cartView = document.getElementById("myModal");
 // This will add global variables to the values
 let subTotalValue;
 let totalValue;
-let tableDataPrice;
 
 // Function to display the cart modal
 function showCart(index) {

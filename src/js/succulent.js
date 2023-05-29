@@ -193,7 +193,7 @@ const filteredProducts = filterProductsByCategory('Succulents');
 // Loop through the products in the JSON data
 for (let i = 0; i < filteredProducts.length; i++) {
     // Create an Product object and push it into the succulentArray
-    let product = new Products(filteredProducts[i].productName, filteredProducts[i].filteredProducts, filteredProducts[i].secondDescription, filteredProducts[i].image, filteredProducts[i].price, filteredProducts[i].category);
+    let product = new Products(filteredProducts[i].productName, filteredProducts[i].firstDescription, filteredProducts[i].secondDescription, filteredProducts[i].image, filteredProducts[i].price, filteredProducts[i].category, filteredProducts[i].quantity);
     succulentArray.push(product);
 
 }
@@ -221,7 +221,7 @@ function jsonToJSObjects() {
 
     for (let i = 0; i < JSONdata.length; i++) {
         // Create a Product object and push it into the cartArray
-        let product = new Products(JSONdata[i]._productName, JSONdata[i]._firstDescription, JSONdata[i]._secondDescription, JSONdata[i]._image, JSONdata[i]._price, JSONdata[i]._category);
+        let product = new Products(JSONdata[i]._productName, JSONdata[i]._firstDescription, JSONdata[i]._secondDescription, JSONdata[i]._image, JSONdata[i]._price, JSONdata[i]._category, JSONdata[i]._quantity );
         cartArray.push(product);
     }
 }
@@ -239,8 +239,6 @@ const cartView = document.getElementById("myModal");
 // This will add global variables to the values
 let subTotalValue;
 let totalValue;
-let tableDataPrice;
-
 
 // Function to display the cart modal
 function showCart(index) {
@@ -248,8 +246,7 @@ function showCart(index) {
 
     let item = succulentArray[index];
     item.quantity = 1;
-    item.subTotal = item.getPrice;
-
+    
     const existingProduct = cartArray.findIndex(cartItem => cartItem.getProductName === item.getProductName);
 
     if (existingProduct >= 0) {
@@ -372,7 +369,7 @@ function showCart(index) {
             // Function to handle the input event for the quantity input
             function updatedPrice() {
                 subTotal = 0;
-                if (quantityInput.value !== "") {
+                if (item.quantity !== "") {
                     let quantity = parseInt(quantityInput.value);
                     item.quantity = quantity; // update the item's quantity
                     item.subTotal = item.getPrice * quantity;
@@ -382,13 +379,13 @@ function showCart(index) {
 
                     subTotalValue.innerHTML = "R" + subTotal.toFixed(2);
                     totalValue.innerHTML = "R" + (subTotal + 90).toFixed(2);
-                    
+
                 } else {
                     let zero = 0;
                     item.tableDataPrice.innerHTML = "R" + zero.toFixed(2);
                     subTotalValue.innerHTML = "R" + zero.toFixed(2);
                     totalValue.innerHTML = "R" + zero.toFixed(2);
-                    
+
                 }
             }
 
@@ -400,7 +397,7 @@ function showCart(index) {
             let quantity = parseInt(quantityInput.value);
             item.quantity = quantity;
             item.subTotal = item.getPrice * quantity;
-
+           
             subTotal += item.subTotal;
             total = subTotal + 90;
 

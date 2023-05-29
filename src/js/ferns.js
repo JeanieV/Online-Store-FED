@@ -190,7 +190,7 @@ const filteredProducts = filterProductsByCategory('Ferns');
 // Loop through the products in the JSON data
 for (let i = 0; i < filteredProducts.length; i++) {
     // Create an Product object and push it into the fernsArray
-    let product = new Products(filteredProducts[i].productName, filteredProducts[i].filteredProducts, filteredProducts[i].secondDescription, filteredProducts[i].image, filteredProducts[i].price, filteredProducts[i].category);
+    let product = new Products(filteredProducts[i].productName, filteredProducts[i].firstDescription, filteredProducts[i].secondDescription, filteredProducts[i].image, filteredProducts[i].price, filteredProducts[i].category);
     fernsArray.push(product);
 }
 console.log(fernsArray)
@@ -233,7 +233,7 @@ const cartView = document.getElementById("myModal");
 // This will add global variables to the values
 let subTotalValue;
 let totalValue;
-let tableDataPrice;
+
 
 // Function to display the cart modal
 function showCart(index) {
